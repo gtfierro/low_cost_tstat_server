@@ -202,5 +202,5 @@ func main() {
 	router.GET("/status", handleStatus)
 	router.GET("/", handleHome)
 
-	log.Fatal(http.ListenAndServe(":8000", router))
+	log.Fatal(http.ListenAndServe(":80", router))
 }
