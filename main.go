@@ -121,10 +121,86 @@ func handleStatus(w http.ResponseWriter, req *http.Request, p httprouter.Params)
 	log.Printf("NOW: %+v", CURRENT)
 }
 
+var help = `
+POST /update: merges in state
+GET /status: retrieves current state
+GET /: this page
+
+JSON format:
+{
+    "control_interface": [
+        {
+            "taps_since_last_post": [
+                "timestamp",
+                "timestamp",
+                "timestamp"
+            ],
+            "type": "heating"
+        },
+        {
+            "taps_since_last_post": [
+                "timestamp",
+                "timestamp",
+                "timestamp"
+            ],
+            "type": "cooling"
+        },
+        {
+            "taps_since_last_post": [
+                "timestamp",
+                "timestamp",
+                "timestamp"
+            ],
+            "type": "power"
+        },
+        {
+            "taps_since_last_post": [
+                "timestamp",
+                "timestamp",
+                "timestamp"
+            ],
+            "type": "timer"
+        }
+    ],
+    "sensors": [
+        {
+            "action": "heating",
+            "current": 73,
+            "setpoint": 75,
+            "type": "temperature"
+        }
+    ],
+    "status": [
+        {
+            "color": "green",
+            "level": 100,
+            "type": "power"
+        },
+        {
+            "color": "amber",
+            "level": 50,
+            "type": "timer"
+        },
+        {
+            "color": "green",
+            "level": 100,
+            "type": "eco"
+        }
+    ]
+}
+`
+
+func handleHome(w http.ResponseWriter, req *http.Request, p httprouter.Params) {
+	w.Header().Set("Content-Type", "text/plain")
+	defer req.Body.Close()
+	w.Write([]byte(help))
+}
+
 func main() {
 	router := httprouter.New()
 	router.POST("/update", handleUpdate)
 	router.GET("/status", handleStatus)
+	router.GET("/", handleHome)
 
 	log.Fatal(http.ListenAndServe(":8000", router))
 }
