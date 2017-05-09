@@ -92,6 +92,7 @@ func merge(new ctliface) {
 }
 
 func handleUpdate(w http.ResponseWriter, req *http.Request, p httprouter.Params) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	defer req.Body.Close()
 	dec := json.NewDecoder(req.Body)
@@ -111,6 +112,7 @@ func handleUpdate(w http.ResponseWriter, req *http.Request, p httprouter.Params)
 }
 
 func handleStatus(w http.ResponseWriter, req *http.Request, p httprouter.Params) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	defer req.Body.Close()
 	enc := json.NewEncoder(w)
