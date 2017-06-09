@@ -1,0 +1,103 @@
+﻿@import 'variables';
+@import 'mixins';
+
+.megaFooterLinks {
+    margin-bottom: 30px;
+}
+
+.megaFooterLinks h3 {
+    /*margin-top:0;*/
+    margin-bottom: 20px;
+}
+
+.megaFooterLinks ul {
+    padding: 0;
+}
+
+.megaFooterLinks ul li {
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+.megaFooterLinks ul li a {
+    color: #0073c6;
+    font-size: 16px;
+}
+.el-mega-footer {
+    .footer {
+        background: @el-megafooter-bg;
+        border-top: 8px solid @el-megafooter-border;
+        padding: 40px 0 10px 0;
+        width: @base-width;
+        margin: 0 auto;
+
+        &.fixed {
+            position: @el-base-position;
+            bottom: 0;
+        }
+
+        .footerWrap {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .megaFooterLinks {
+            margin-bottom: 40px !important;
+
+            a {
+                text-decoration: none;
+                color: #aaaaaa;
+                font-size: 14px;
+            }
+
+            h4 {
+                margin-bottom: 20px !important;
+                color: #fff;
+                font-size: 16px;
+            }
+
+            ul li {
+                margin-bottom: 10px;
+                list-style: none;
+            }
+        }
+    }
+
+    .footerBottom {
+        span {
+            margin-right: 10px;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        ul.el-items {
+            padding: 0;
+
+            li {
+                list-style: none;
+                border-right: 1px solid @el-white-color !important;
+                padding: 0em @base-em;
+                font-size: 14px;
+                float: left;
+
+                &:last-child {
+                    border-right: none !important;
+                }
+
+                &:first-child {
+                    text-align: left;
+                    padding-left: 0px !important;
+                }
+
+                a {
+                    color: @el-white-color;
+                    text-decoration: @el-none;
+
+                    &:active, &:focus {
+                        text-decoration: @el-none;
+                    }
+                }
+            }
+        }
+    }
+}

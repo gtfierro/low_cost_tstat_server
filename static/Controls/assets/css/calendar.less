@@ -1,0 +1,43 @@
+﻿@import 'variables';
+@import 'mixins';
+
+
+/* radio button css */
+.el-datetimepicker {
+    div.date {
+        .input-group-addon {
+            background: @el-none;
+            border: @el-none;
+            font-size: 1.8em;
+            .padding(2px,0.68em,2px,0.68em);
+
+            i {
+                color: @el-fill-color;
+            }
+        }
+
+        .picker-switch {
+            text-align: center;
+        }
+
+        .bootstrap-datetimepicker-widget {
+            right: 13px !important;
+        }
+
+        .dropdown-menu {
+            .border-radius(0em);
+            box-shadow: @el-none;
+        }
+
+        .bootstrap-datetimepicker-widget td,
+        .bootstrap-datetimepicker-widget th {
+            .border-radius(0em);
+        }
+
+        .form-control:focus, input.datepicker {
+            box-shadow: none;
+            border: 1px solid @el-pipe-color;
+            .border-radius(0em);
+        }
+    }
+}

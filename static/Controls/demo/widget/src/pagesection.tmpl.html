@@ -1,0 +1,11 @@
+﻿<div class="page-section col-xs-12 pad-bot-20">
+    <section>
+        <img class="img-responsive" ng-src="{{pageData.imgUrl.value}}" />
+        <h2 ng-model="pageData.title.value" contenteditable="true">{{pageData.title.value}}</h2>
+        <p class="text-flow" ng-model="pageData.paraText.value" contenteditable="true">{{pageData.paraText.value}}</p>
+        <div ng-class="{'page-btns': pageData.buttons.length > 1, 'page-btn': pageData.buttons.length == 1}">
+            <a class="btn" ng-href="{{btn.linkUrl.value}}" ng-repeat="btn in pageData.buttons">{{btn.btnTitle.value}}</a>
+        </div>
+    </section>
+</div>
+   

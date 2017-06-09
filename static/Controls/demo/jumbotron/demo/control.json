@@ -1,0 +1,21 @@
+﻿{
+  "sizeX": 12,
+  "sizeY": 2,
+  "row": 0,
+  "col": 0,
+  "template": "/Controls/demo/jumbotron/demo/demo.html",
+  "componentName": "Jumbotron",
+  "properties": [ "bgUrl", "headerData", "paraData" ],
+  "bgUrl": {
+    "value": "https://images.unsplash.com/photo-1440964829947-ca3277bd37f8?q=80&fm=jpg&s=820fcc9dd26c0ede80f3b1663c543965",
+    "type": "textbox"
+  },
+  "headerData": {
+    "value": "Multi-platform Application publishing",
+    "type": "textbox"
+  },
+  "paraData": {
+    "value": "MRP application similifies the app submission process to various marketplaces.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper vehicula massa, vel fringilla arcu. Integer et libero porta nibh. Maecenas in consectetur nunc. Vivamus magna lacus, posuere nec eleifend a, condimentum in massa. Mauris accumsan felis quis urna auctor, nec vestibulum dolor dignissim. Proin semper erat at turpis gravida laoreet. Suspendisse sed ex rutrum, convallis enim eget, placerat nibh.",
+    "type": "textarea"
+  }
+}

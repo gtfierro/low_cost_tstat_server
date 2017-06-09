@@ -1,0 +1,85 @@
+﻿@import 'variables.less';
+@import 'mixins.less';
+
+@ps-font-size: 15px;
+@ps-line-height: 1.4;
+@ps-lines-to-show: 3;
+
+.page-section {
+    font-family: @base-fontfamily;
+    color: #383838;    
+    background: transparent;
+    padding: 15px;   
+    h2 {        
+        font-size: 2em;
+        text-transform: capitalize; 
+        font-weight: 400;  
+        color: inherit;     
+    }
+    p {
+        font-size: @ps-font-size;
+        line-height: @ps-line-height;
+        color: inherit;
+    }
+    p.text-flow {       
+        display: block; /* Fallback for non-webkit */
+        display: -webkit-box;
+        max-width: 100%;
+        height: @ps-font-size*@ps-line-height*@ps-lines-to-show;
+        margin: 0 auto;
+        -webkit-line-clamp: @ps-lines-to-show;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis; 
+        text-overflow: ellipsis;
+    }
+    img {
+        margin: 0 auto;
+    }
+    .page-btn {
+        margin: 30px 0 0;
+        a {
+            text-decoration: none;
+            border: 1px solid #919191;
+            background-color: #AAAAAA;
+            color: #fff;
+            width: 100%;
+        }
+        a:hover {
+            text-decoration: none;
+            border: 1px solid #919191;
+            color: #AAAAAA;
+            background-color: #fff;
+            width: 100%;
+        }
+    }
+    .page-btns {
+        margin: 30px 0 0;
+        a {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+        a:nth-child(2) {
+            border: 1px solid #002887;
+            color: #0B3591;
+            background-color: #FFFFFF;
+        }
+        a:nth-child(2):hover {
+            border: 1px solid #002887;
+            color: #FFFFFF;
+            background-color: #0078D7;
+        }
+        a:first-child {
+            border: 1px solid #002887;
+            color: #FFFFFF;
+            background-color: #0078D7;
+        }
+        a:first-child:hover {
+           border: 1px solid #002887;
+            color: #0B3591;
+            background-color: #FFFFFF;
+        }
+    }
+}

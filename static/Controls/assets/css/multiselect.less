@@ -1,0 +1,94 @@
+﻿@import 'variables';
+
+
+div.customMultiselect button.ui-multiselect {
+    border: 1px solid @el-pipe-color;
+    color: @black-color;
+    background: none;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    font-weight: 400;
+    padding: 3px 5px;
+    font-family: 'Segoe UI' !important;
+
+    .ui-multiselect span.ui-icon {
+        content: '&#xe019;' !important;
+        font-family: 'Segoe UI Symbol' !important;
+        color: @black-color;
+        background: none;
+        position: relative;
+        left: -5px;
+        top: -2px;
+    }
+}
+
+div.ui-multiselect-menu {
+    background: #fff;
+    border-radius:0px;
+}
+
+.ui-icon.ui-icon-triangle-1-s {
+    height: 22px;
+}
+
+.ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    border: none !important;
+    background: none !important;
+    color: @black-color !important;
+    font-weight: 400 !important;
+    outline: none !important;
+}
+
+.ui-multiselect-checkboxes label {
+    font-weight: 400 !important;
+}
+
+span.ui-icon.ui-icon-triangle-1-s {
+    content: "&#xE129;" !important;
+    font-family: 'Segoe UI Symbol' !important;
+    color: @black-color;
+    text-indent: 0px !important;
+}
+
+ul.ui-multiselect-checkboxes {
+    li {
+        padding: 3px 5px;
+        color: @black-color !important;
+        border-bottom: 1px solid #ebebeb;
+
+        &:hover {
+            background: #0073c6;
+
+            label span {
+                color: @el-white-color !important;
+            }
+        }
+
+        &:last-child {
+            border-bottom: none !important;
+        }
+
+        label {
+            border: 0px !important;
+
+            span {
+                height: 25px;
+
+                &:before {
+                    content: ' ' !important;
+                }
+            }
+        }
+    }
+}
+
+/*Angular multi select*/
+
+.multiselect-parent ul.dropdown-menu li a:hover {
+    background: #0073c6 !important;
+    color: #fff;
+}
+
+.multiselect-parent .btn .caret {
+    margin-left: 83px;
+}

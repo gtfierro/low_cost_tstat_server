@@ -1,0 +1,126 @@
+@font-face {
+  font-family: 'wf_segoe-ui_normal';
+  src: url("//i.s-microsoft.com/fonts/segoe-ui/west-european/normal/latest.eot");
+  src: url("//i.s-microsoft.com/fonts/segoe-ui/west-european/normal/latest.eot?#iefix") format("embedded-opentype"), url("//i.s-microsoft.com/fonts/segoe-ui/west-european/normal/latest.woff") format("woff"), url("//i.s-microsoft.com/fonts/segoe-ui/west-european/normal/latest.ttf") format("truetype"), url("//i.s-microsoft.com/fonts/segoe-ui/west-european/normal/latest.svg#web") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'wf_segoe-ui_semilight';
+  src: url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semilight/latest.eot");
+  src: url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semilight/latest.eot?#iefix") format("embedded-opentype"), url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semilight/latest.woff") format("woff"), url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semilight/latest.ttf") format("truetype"), url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semilight/latest.svg#web") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'wf_segoe-ui_semibold';
+  src: url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semibold/latest.eot");
+  src: url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semibold/latest.eot?#iefix") format("embedded-opentype"), url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semibold/latest.woff") format("woff"), url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semibold/latest.ttf") format("truetype"), url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semibold/latest.svg#web") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "shell-icons";
+  src: url("../fonts/shell-icons-0.4.0.eot");
+  src: url("../fonts/shell-icons-0.4.0.eot?#iefix") format("embedded-opentype"), url("../fonts/shell-icons-0.4.0.woff") format("woff"), url("../fonts/shell-icons-0.4.0.ttf") format("truetype");
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+}
+
+.demo-content {
+  width: 90%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2.5% 0 7.5%;
+  font-family: "wf_segoe-ui_normal", "Arial", sans-serif;
+}
+.demo-content h1, .demo-content h2 {
+  font-weight: normal;
+  font-family: "wf_segoe-ui_semilight", "Arial", sans-serif;
+}
+.demo-content a {
+  display: inline-block;
+  margin: 0 5px 5px 0;
+  padding: 10px 15px;
+  background: #0072C6;
+  color: white;
+  text-decoration: none;
+}
+.demo-content a:hover {
+  background: #338ed1;
+}
+.demo-content ul, .demo-content li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.demo-accent-colors li {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 50px;
+  margin-bottom: 40px;
+}
+.demo-accent-colors li:after {
+  position: absolute;
+  top: 100%;
+  margin-top: 5px;
+}
+.demo-accent-colors li:nth-child(1) {
+  background: #9B4F96;
+}
+.demo-accent-colors li:nth-child(1):after {
+  content: "lighter-purple";
+}
+.demo-accent-colors li:nth-child(2) {
+  background: #5C005C;
+}
+.demo-accent-colors li:nth-child(2):after {
+  content: "core-purple";
+}
+.demo-accent-colors li:nth-child(3) {
+  background: #32145A;
+}
+.demo-accent-colors li:nth-child(3):after {
+  content: "darker-purple";
+}
+.demo-accent-colors li:nth-child(4) {
+  background: #1570A6;
+}
+.demo-accent-colors li:nth-child(4):after {
+  content: "mscom-cyan";
+}
+.demo-accent-colors li:nth-child(5) {
+  background: #107C10;
+}
+.demo-accent-colors li:nth-child(5):after {
+  content: "darker-green";
+}
+.demo-accent-colors li:nth-child(6) {
+  background: #DC3C00;
+}
+.demo-accent-colors li:nth-child(6):after {
+  content: "darker-orange";
+}
+.demo-accent-colors li:nth-child(7) {
+  background: #E81123;
+}
+.demo-accent-colors li:nth-child(7):after {
+  content: "core-red";
+}
+.demo-accent-colors li:nth-child(8) {
+  background: #0072C6;
+}
+.demo-accent-colors li:nth-child(8):after {
+  content: "darker-cyan";
+}
+.demo-accent-colors li:nth-child(9) {
+  background: #A80000;
+}
+.demo-accent-colors li:nth-child(9):after {
+  content: "darker-red";
+}

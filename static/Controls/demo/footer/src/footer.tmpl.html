@@ -1,0 +1,14 @@
+﻿<div class="el-footer">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <div class="row">
+            <div class="col-md-10">
+                <ul>
+                    <li>Microsoft Internal Confidential</li>
+                    <li ng-repeat="link in linksObject track by $index"><a title="{{link.LinkTitle.value}}" ng-href="{{link.action.value}}">{{link.LinkTitle.value}}</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 text-right"><img class="pull-right" ng-src="{{srcPath.value}}" alt="Microsoft Logo" /></div>
+           
+        </div>
+    </div>
+</div>

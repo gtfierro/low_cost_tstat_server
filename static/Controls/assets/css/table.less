@@ -1,0 +1,173 @@
+﻿@import 'variables';
+
+
+table.elements {
+    width: @base-width !important;
+    /*font-size: 1.2em;*/
+    border-collapse: collapse;
+    background-color: white;
+
+    thead tr {
+        border-bottom: 2px solid @el-table-bottom;
+
+        th {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            cursor: pointer;
+            background-color: @el-tb-th-bg;
+            text-transform: uppercase;
+            color: @black-color;
+        }
+
+        th.sorting {
+            background-image: url(../images/sort_both.png);
+            background-position: right center;
+            background-repeat: no-repeat;
+            background-size: 15px;
+        }
+
+        th.sorting_asc {
+            background-image: url(../images/sort_asc.png);
+            background-position: right center;
+            background-repeat: no-repeat;
+            background-size: 15px;
+        }
+
+        th.sorting_desc {
+            background-image: url(../images/sort_desc.png);
+            background-position: right center;
+            background-repeat: no-repeat;
+            background-size: 15px;
+        }
+    }
+
+    tbody tr {
+        td {
+            font-size: 1em;
+            vertical-align: top;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-top: 5px;
+            max-width: calc(20vw);
+            border: 1px solid @el-tb-trtd;
+        }
+    }
+}
+
+/*.cellBorder {
+    border: 1px solid #F3F3F3;
+}*/
+
+.dataTables_wrapper {
+    position: relative;
+    font-family: @base-fontfamily;
+}
+
+.dataTables_length {
+    position: @el-base-position;
+    bottom: -30px;
+}
+
+div.dataTables_filter {
+    float: left;
+    width: 50%;
+    padding-bottom: 20px;
+
+    label {
+        display: block;
+        font-weight: 400;
+    }
+
+    input {
+        width: 80%;
+        padding: 4px;
+        -webkit-appearance: searchfield;
+        -o-appearance: searchfield;
+    }
+}
+
+
+/*Styling the pagination bar*/
+div.dataTables_info { /*Showing 1-10 0f 30*/
+    display: block;
+    margin-top: 20px;
+}
+
+.dataTables_paginate { /*Actual pagination*/
+    float: right;
+    padding: 5px;
+}
+
+a.paginate_button,
+a.paginate_active {
+    display: inline-block;
+    padding: 2px 6px;
+    margin-left: 2px;
+    cursor: pointer;
+    color: @el-tb-pg-color;
+    font-size: 12px;
+}
+
+a.paginate_button.current {
+    background-color: @el-tb-pg-current;
+    border: 1px solid black;
+}
+
+a.paginate_button.disabled {
+    color: @el-tb-disabled;
+}
+
+.paging_simple_numbers a:active {
+    outline: none;
+}
+
+.paging_simple_numbers a:hover {
+    text-decoration: none;
+    background-color: @el-tb-pg-current;
+}
+
+a.paginate_button.disabled:hover {
+    background-color: transparent;
+    cursor: default;
+}
+
+div.dataTables_paginate span > a {
+    width: 25px;
+    text-align: center;
+}
+
+/*td.editRow {
+    border: 1px solid #F3F3F3;
+    text-align:center;
+}*/
+.edit, .save, .cancel {
+    color: @el-table-action-color;
+    cursor: pointer;
+    padding-right: 5px;
+    display: inline-block;
+}
+
+.newRow {
+    border-left: 5px solid #5AB064;
+}
+
+#KeysGrid textarea {
+    width: 95%;
+}
+.dataTable thead tr th {
+    border-bottom: 2px solid #3766C3;
+}
+
+.padding {
+    padding-top: 50px;
+}
+
+div.dataTables_filter {
+    float: none;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+    background-color: #ffffff;
+}

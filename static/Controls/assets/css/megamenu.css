@@ -1,0 +1,200 @@
+﻿/*
+    >>>>>>>>>>  LESS -- THEME
+*/
+/* Importing file dynamically */
+/* >> BELOW LINE NOT TO BE IN DEPLOYMENT  <<*/
+/* Default theme*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/*
+    >>>>>>>>>>  LESS -- VARIABLES
+*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+.navbar {
+  margin-bottom: 0px;
+  border: 0px !important;
+  min-height: 30px !important;
+}
+.collapse {
+  min-height: 30px !important;
+}
+.display {
+  display: block !important;
+}
+.megamenu-aj .selectedClass {
+  background: #f8d255;
+}
+.el-menucontainer {
+  background: #294458;
+  font-family: 'segoe UI', Arial;
+}
+.el-menucontainer .el-menu ul {
+  padding: 0;
+}
+.el-menucontainer .el-menu ul li {
+  float: left;
+  list-style: none !important;
+  text-decoration: none;
+  padding: 0.6em 1em 0.6em 0;
+  border: none;
+  /* Sub menu */
+}
+.el-menucontainer .el-menu ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.7em 1em;
+  outline: 0;
+}
+.el-menucontainer .el-menu ul li a:focus,
+.el-menucontainer .el-menu ul li a:active,
+.el-menucontainer .el-menu ul li a:hover {
+  color: #000000 !important;
+  text-decoration: none;
+  background: #f8d255;
+}
+.el-menucontainer .el-menu ul li a.selected:focus + ul.el-submenu,
+.el-menucontainer .el-menu ul li align-content.selected:active + ul.el-submenu {
+  display: block !important;
+  background: #f8d255;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 100%;
+  margin-top: -0.03em;
+  z-index: 9999;
+}
+.el-menucontainer .el-menu ul li a.selected:focus + ul.el-submenu li,
+.el-menucontainer .el-menu ul li align-content.selected:active + ul.el-submenu li {
+  float: none;
+  clear: both;
+  padding: 0.5em 0;
+}
+.el-menucontainer .el-menu ul li a.selected:focus + ul.el-submenu li a,
+.el-menucontainer .el-menu ul li align-content.selected:active + ul.el-submenu li a {
+  color: #000000 !important;
+}
+.el-menucontainer .el-menu ul li .el-submenu {
+  display: none;
+}
+.el-menucontainer .el-addons ul {
+  width: 100%;
+}
+.el-menucontainer .el-addons ul li {
+  float: left;
+  list-style: none;
+  text-decoration: none;
+  padding: 0.2em 0.3em;
+}
+.el-menucontainer .el-addons ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.2em 0.3em;
+  font-size: 22px;
+}
+/* Submenu*/
+div.el-megasubmenu {
+  background: #f8d255;
+  z-index: 9999;
+  position: absolute;
+  width: 100%;
+}
+div.el-megasubmenu div.el-container {
+  display: none;
+}
+div.el-megasubmenu div.el-submenu-container div.el-menuheader {
+  color: #6b6b57;
+  padding: 1em 0;
+}
+div.el-megasubmenu div.el-submenu-container ul {
+  padding: 0;
+}
+div.el-megasubmenu div.el-submenu-container ul li {
+  list-style: none;
+  color: #a4546d;
+  padding: 0.3em 0;
+  font-size: 14px;
+  font-family: 'segoe UI', Arial;
+}
+div.el-megasubmenu div.el-submenu-container ul li a {
+  color: #a4546d !important;
+}
+.megamenu-aj.el-menucontainer .el-menu ul li {
+  padding: 0px;
+  margin-left: 10px;
+}
+.megamenu-aj.el-menucontainer .el-menu ul li a {
+  display: block;
+  padding: 1em;
+}
+.view-container {
+  position: relative;
+}
+.view-animation.ng-enter {
+  -webkit-animation: enter_animation 1s;
+  animation: enter_animation 1s;
+  /* 
+   * ng-animate has a slight starting delay for optimization purposes
+   * so if you see a flicker effect then you'll need to put some extra
+   * styles to "shim" the animation.
+   */
+  left: 100%;
+}
+.view-animation.ng-leave {
+  -webkit-animation: leave_animation 1s;
+  animation: leave_animation 1s;
+  left: 0%;
+}
+.view-animation.ng-leave,
+.view-animation.ng-enter {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+/*
+ * the animation below will move enter in the view from the right side of the screen
+ * and move the current (expired) view from the center of the screen to the left edge
+ */
+@keyframes enter_animation {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+@-webkit-keyframes enter_animation {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes leave_animation {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+@-webkit-keyframes leave_animation {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+/*# sourceMappingURL=megamenu.css.map */

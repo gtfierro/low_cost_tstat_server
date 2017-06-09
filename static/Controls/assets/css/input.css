@@ -1,0 +1,149 @@
+﻿/* Importing file dynamically */
+/* Default theme*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/* Mixins */
+/* Mixin for padding @parameters -- by default @base-em:1em*/
+/* Mixin for border @parameters - default @size, @type and @color */
+/* radio button css */
+div.radiobutton {
+  border: 1px solid #000000;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -moz-border-radius: 10px;
+  height: 0.9em;
+  width: 0.9em;
+  float: left;
+  padding: 2px;
+}
+div.radio-group label {
+  font-weight: 400;
+  padding-left: 0.3em;
+  float: left;
+  position: relative;
+  bottom: 0.2em;
+}
+div.radio-group div.fill-option {
+  background: #ffffff;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+input[type=radio].el-radio-control,
+input[type=checkbox].el-radio-control {
+  opacity: 0;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0px;
+  margin-top: 0px;
+  position: absolute;
+  cursor: pointer;
+}
+input[type=checkbox].el-radio-control {
+  width: 100% !important;
+}
+label.el-radio-label {
+  font-weight: 400;
+  padding-left: 0.3em;
+  position: relative;
+  bottom: 0.2em;
+  margin-left: 0.4em;
+}
+div.el-custom-radio {
+  border: 1px solid #913373;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -moz-border-radius: 10px;
+  height: 20px;
+  width: 20px;
+  float: left;
+  padding: 4px;
+}
+div.el-radio-filloption {
+  background: #913373;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+div.el-display-none-ko {
+  display: none;
+}
+/* Div base checkbox */
+div.el-custom-checkbox {
+  border: 1px solid #913373;
+  border-radius: 0.1em;
+  -webkit-border-radius: 0.1em;
+  -ms-border-radius: 0.1em;
+  -o-border-radius: 0.1em;
+  -moz-border-radius: 0.1em;
+  height: 20px;
+  width: 20px;
+  float: left;
+  background: #913373;
+  position: relative;
+  z-index: -1;
+}
+div.el-checkbox-filloption {
+  /*height: @base-height;
+    width: @base-width;*/
+  color: #ffffff;
+}
+div.el-checkbox-filloption i.fa-check {
+  display: block;
+  margin-left: 2px;
+  margin-top: 2px;
+}
+/*for angular focus outline*/
+input[type=radio].el-radio-control:focus + .el-custom-radio,
+input[type=checkbox].el-radio-control:focus + .el-custom-checkbox {
+  outline: 1px dotted #000;
+}
+/* set outline for controls */
+div.el-outline-focus {
+  outline: 0.1em dotted;
+}
+input[type=radio]:checked + label + div.el-custom-radio .el-radio-filloption {
+  display: block !important;
+}
+input.el-input,
+textarea.el-input,
+select.el-input {
+  border: 1px solid #dddddd !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  height: 2.6em;
+}
+.positionrel {
+  position: relative;
+}
+/*# sourceMappingURL=input.css.map */

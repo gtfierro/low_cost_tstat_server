@@ -1,0 +1,88 @@
+﻿{
+  "categories": [
+    {
+      "name": "Manage Customer Relationships",
+      "subcategories": [
+        {
+          "name": "Channel Management"
+        },
+        {
+          "name": "Configuration"
+        },
+        {
+          "name": "Diagnostics and Assessments"
+        },
+        {
+          "name": "Knowledge and Discovery"
+        }
+      ]
+    },
+    {
+      "name": "Manage Enabling Services",
+      "subcategories": [
+        {
+          "name": "Channel Management"
+        },
+        {
+          "name": "Configuration"
+        },
+        {
+          "name": "Diagnostics and Assessments"
+        }
+      ]
+    },
+    {
+      "name": "Manage Offers and Service Delivery",
+      "subcategories": [
+        {
+          "name": "Channel Management"
+        },
+        {
+          "name": "Configuration"
+        },
+        {
+          "name": "Diagnostics and Assessments"
+        },
+        {
+          "name": "Knowledge and Discovery"
+        },
+        {
+          "name": "Notifications and Eventing Service"
+        }
+      ]
+    },
+    {
+      "name": "Manage Sales",
+      "subcategories": [
+        {
+          "name": "Channel Management"
+
+        },
+        {
+          "name": "Knowledge and Discovery"
+        }
+      ]
+    },
+    {
+      "name": "Manage Data and Analytics",
+      "subcategories": [
+        {
+          "name": "Channel Management"
+        },
+        {
+          "name": "Configuration"
+        },
+        {
+          "name": "Diagnostics and Assessments"
+        },
+        {
+          "name": "Knowledge and Discovery"
+        },
+        {
+          "name": "Notifications and Eventing Service"
+        }
+      ]
+    }
+  ]
+
+}

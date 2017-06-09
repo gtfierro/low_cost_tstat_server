@@ -1,0 +1,53 @@
+﻿/* Importing file dynamically */
+/* Default theme*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/* Mixins */
+/* Mixin for padding @parameters -- by default @base-em:1em*/
+/* Mixin for border @parameters - default @size, @type and @color */
+/* Top Header */
+nav.navbar-elements {
+  background: #ffffff;
+  border: none;
+  padding: 1em 0;
+  font-family: 'segoe UI', Arial;
+}
+nav.navbar-elements .el-usercontext label {
+  font-weight: 400;
+  color: #000000;
+  padding: 1em 0.5em;
+  border-right: 0.1em solid #dddddd;
+}
+nav.navbar-elements .el-usercontext label + a {
+  color: #000000;
+  padding: 1em 0.5em;
+}
+.slim-header {
+  min-height: 50px;
+  max-height: 57px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: #fff;
+}
+.slimprofile img {
+  max-width: 40px;
+  border: 2px solid #ebebeb;
+}
+.profilename {
+  color: #fff;
+  font-size: 20px;
+  line-height: 38px;
+}
+/*# sourceMappingURL=slimheader.css.map */

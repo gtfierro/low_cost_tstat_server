@@ -1,0 +1,76 @@
+﻿@import 'variables';
+@import 'mixins';
+
+
+/* radio button css */
+.custom-file-input-wrapper .custom-file-input-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-file-input-wrapper .custom-file-input-button * {
+    cursor: pointer;
+}
+
+.custom-file-input-wrapper .custom-file-input-button input[type="file"] {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.el-upload-btn {
+    background: @el-fill-color;
+    border-radius: 0 !important;
+    color: @el-white-color;
+    &:hover{
+        color: @el-white-color !important;
+    }
+}
+
+.custom-file-input-file-name {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+.btn-default{border-radius:0;}
+
+/*angular fileupload css*/
+
+.fileupload-aj .customfileBlock{
+	color:@el-white-color;
+	padding:(@el-default-pixel)-10px (@el-default-pixel)-10px (@el-default-pixel)-10px (@el-default-pixel)-5px;
+	border:1px solid #ccc;
+}
+.fileupload-aj .customfileBlock + a{
+    margin-left:-3px;
+    margin-top:1px;
+    padding:(@el-default-pixel)-3px (@el-default-pixel)+2px;
+}
+.fileupload-aj .customfileinput{
+	background:transparent;
+	border:@el-none;
+	color:#555;
+    width:@base-width;
+    margin-top:(@el-default-pixel)-6px;
+}
+.fileupload-aj .fileUpload{
+	opacity:0;
+    height:1px;
+}
+.fileupload-aj .fileUpload:focus + div button{
+	border:1px dotted #000;
+}
+.fileupload-aj .fileUploadbtn{
+    border:@el-none;
+    cursor:pointer;
+    text-decoration:@el-none;
+    }
+.fileupload-aj .fileUploadbtn{
+    background:@el-fill-color;
+    color:@el-white-color;
+    padding:(@el-default-pixel)-3px (@el-default-pixel)+2px (@el-default-pixel)-2px (@el-default-pixel)+3px;
+    display:block;
+}
+.fileupload-aj .fileUploadbtn:hover,.fileUploadbtn:focus{text-decoration:none; background:@el-fill-color;color:@el-white-color;}

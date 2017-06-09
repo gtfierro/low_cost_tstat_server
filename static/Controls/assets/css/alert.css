@@ -1,0 +1,125 @@
+﻿/*
+    >>>>>>>>>>  LESS -- THEME
+*/
+/* Importing file dynamically */
+/* >> BELOW LINE NOT TO BE IN DEPLOYMENT  <<*/
+/* Default theme*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/*
+    >>>>>>>>>>  LESS -- VARIABLES
+*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/* Mixins */
+/* Mixin for padding @parameters -- by default @base-em:1em*/
+/* Mixin for border @parameters - default @size, @type and @color */
+/*
+    >>>>>>>>>>  LESS -- ALERT
+*/
+.alert-icon {
+  float: left;
+  margin-right: 10px;
+  font-size: 25px;
+  top: -1px;
+}
+/* Mixin for common function */
+div#alertContainer div.alert {
+  padding: 0.43em 2em 0.43em 1em;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  -moz-border-radius: 0;
+}
+div#alertContainer div.alert-warning {
+  border: 1px solid #aaaaaa;
+  color: #000000;
+  background: #fffbcd;
+}
+div#alertContainer div.alert-warning i {
+  position: relative;
+  padding: 8px 7px 7px 7px;
+  top: -6px;
+  left: -14px;
+  font-size: 1.25em;
+  margin-right: 0;
+  background: #fcef3a;
+  color: #000000;
+  border-right: 1px solid #aaaaaa;
+  float: left;
+}
+div#alertContainer div.alert-warning p {
+  padding-left: 32px;
+}
+div#alertContainer div.alert-danger {
+  border: 1px solid #bb0000;
+  color: #000000;
+  background: #f2c5c1;
+}
+div#alertContainer div.alert-danger i {
+  position: relative;
+  padding: 8px 7px 7px 7px;
+  top: -6px;
+  left: -14px;
+  font-size: 1.25em;
+  margin-right: 0;
+  background: #bb0000;
+  color: #ffffff;
+  border-right: 1px solid #bb0000;
+  float: left;
+}
+div#alertContainer div.alert-danger p {
+  padding-left: 32px;
+}
+div#alertContainer div.alert-info {
+  border: 1px solid #31708f;
+  color: #000000;
+  background: #c1e2f2;
+}
+div#alertContainer div.alert-info i {
+  position: relative;
+  padding: 8px 12px 7px 13px;
+  top: -6px;
+  left: -14px;
+  font-size: 1.25em;
+  margin-right: 0;
+  background: #31708f;
+  color: #ffffff;
+  border-right: 1px solid #31708f;
+  float: left;
+}
+div#alertContainer div.alert-info p {
+  padding-left: 32px;
+}
+div#alertContainer div.alert-success {
+  border: 1px solid #3c763d;
+  color: #000000;
+  background: #7ac679;
+}
+div#alertContainer div.alert-success i {
+  position: relative;
+  padding: 8px 8px 7px 8px;
+  top: -6px;
+  left: -14px;
+  font-size: 1.25em;
+  margin-right: 0;
+  background: #3c763d;
+  color: #ffffff;
+  border-right: 1px solid #3c763d;
+  float: left;
+}
+div#alertContainer div.alert-success p {
+  padding-left: 32px;
+}
+/*# sourceMappingURL=alert.css.map */

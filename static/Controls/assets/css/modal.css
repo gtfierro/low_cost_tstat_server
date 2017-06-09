@@ -1,0 +1,70 @@
+﻿/*
+    >>>>>>>>>>  LESS -- THEME
+*/
+/* Importing file dynamically */
+/* >> BELOW LINE NOT TO BE IN DEPLOYMENT  <<*/
+/* Default theme*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/*
+    >>>>>>>>>>  LESS -- VARIABLES
+*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+.ms-model {
+  padding-right: 0 !important;
+}
+.ms-model .modal-dialog {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 15% 0 0 0;
+}
+.ms-model .modal-content {
+  height: auto;
+  border-radius: 0px !important;
+  overflow: auto;
+  box-shadow: none;
+  border: none;
+}
+.ms-model .modal-header {
+  border-bottom: none !important;
+}
+.ms-model .modal-title {
+  font-size: 2em;
+  font-weight: 300;
+}
+.ms-model-footer {
+  border-top: none !important;
+}
+.ms-btn {
+  border-radius: 0 !important;
+}
+.ms-centered {
+  margin: 0 auto;
+}
+.white {
+  background-color: #ffffff;
+  color: #333333;
+}
+.blue {
+  background-color: #286090;
+  color: #ffffff;
+}
+input.el-input {
+  border: 1px solid #dddddd !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  height: 2.6em;
+}
+/*# sourceMappingURL=modal.css.map */

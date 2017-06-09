@@ -1,0 +1,129 @@
+﻿/* Importing file dynamically */
+/* Default theme*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+.no-pad {
+  padding: 0;
+}
+.navbar {
+  margin-bottom: 0;
+  border: 0 !important;
+  min-height: 30px !important;
+}
+.collapse {
+  min-height: 30px !important;
+}
+.display {
+  display: block !important;
+}
+.megamenu-aj .selectedClass {
+  background: #f8d255;
+}
+.el-menucontainer {
+  background: #294458;
+  font-family: 'segoe UI', Arial;
+}
+.el-menucontainer .el-menu ul {
+  padding: 0;
+}
+.el-menucontainer .el-menu ul li {
+  float: left;
+  list-style: none !important;
+  text-decoration: none;
+  padding: 0.6em 1em 0.6em 0;
+  border: none;
+  /* Sub menu */
+}
+.el-menucontainer .el-menu ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.7em 1em;
+  outline: 0;
+}
+.el-menucontainer .el-menu ul li a:focus,
+.el-menucontainer .el-menu ul li a:active,
+.el-menucontainer .el-menu ul li a:hover {
+  color: #000000 !important;
+  text-decoration: none;
+  background: #f8d255;
+}
+.el-menucontainer .el-menu ul li a.selected:focus + ul.el-submenu,
+.el-menucontainer .el-menu ul li align-content.selected:active + ul.el-submenu {
+  display: block !important;
+  background: #f8d255;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 100%;
+  margin-top: -0.03em;
+  z-index: 9999;
+}
+.el-menucontainer .el-menu ul li a.selected:focus + ul.el-submenu li,
+.el-menucontainer .el-menu ul li align-content.selected:active + ul.el-submenu li {
+  float: none;
+  clear: both;
+  padding: 0.5em 0;
+}
+.el-menucontainer .el-menu ul li a.selected:focus + ul.el-submenu li a,
+.el-menucontainer .el-menu ul li align-content.selected:active + ul.el-submenu li a {
+  color: #000000 !important;
+}
+.el-menucontainer .el-menu ul li .el-submenu {
+  display: none;
+}
+.el-menucontainer .el-addons ul {
+  width: 100%;
+}
+.el-menucontainer .el-addons ul li {
+  float: left;
+  list-style: none;
+  text-decoration: none;
+  padding: 0.2em 0.3em;
+}
+.el-menucontainer .el-addons ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.2em 0.3em;
+  font-size: 22px;
+}
+/*added for angular*/
+.angularmenuel .navbar-nav > li > .dropdown-menu {
+  background: #f8d255;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.angularmenuel .navbar-nav > li > .dropdown-menu > li {
+  padding: 0;
+}
+.angularmenuel .navbar-nav > li > .dropdown-menu > li > a {
+  color: #000000;
+}
+.angularmenuel .navbar-collapse > ul.navbar-nav > li {
+  padding: 0;
+  margin: 0 10px;
+}
+.angularmenuel .el-menucontainer .el-addons ul li a:hover {
+  background: transparent;
+}
+.angularmenuel .el-menucontainer .el-addons ul li a:hover i {
+  color: #ffffff;
+}
+.angularmenuel .nav .open > a,
+.nav .open > a:focus,
+.nav .open > a:hover {
+  background: #f8d255;
+}
+/*# sourceMappingURL=menubar.css.map */

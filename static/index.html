@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elements - AngularJS Components</title>
+
+    <!-- Dependent Styles -->
+    <link href="/Controls/libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/Controls/libraries/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Controls/libraries/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="/Controls/libraries/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css">
+    <link href="/Controls/assets/css/shell-0.4.0.css" rel="stylesheet" />
+    <link href="/Controls/assets/css/controller.less" rel="stylesheet/less" />    
+    <link href="/Content/chartist.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />
+</head>
+
+<body ng-app="app" style="width:768px">
+    <div ng-controller="AppController" style="height:100%;width:100%">
+        <!-- All components -->
+        <div style="height:768px;width:768px">
+            
+                <div class="main">
+                    <div class="lights" style="transform:rotate(155deg)">
+                        <div id="54" class="circle light">
+                        </div>
+                        <div id="58" class="circle light">
+                        </div>
+                        <div id="61" class="circle light">
+                        </div>
+                        <div id="63" class="circle light">
+                        </div>
+                        <div id="65" class="circle light">
+                        </div>
+                        <div id="67" class="circle light">
+                        </div>
+                        <div id="69" class="circle light">
+                        </div>
+                        <div id="71" class="circle light">
+                        </div>
+                        <div id="73" class="circle light">
+                        </div>
+                        <div id="75" class="circle light">
+                        </div>
+                        <div id="77" class="circle light">
+                        </div>
+                        <div id="79" class="circle light">
+                        </div>
+                        <div id="81" class="circle light">
+                        </div>
+                        <div id="83" class="circle light">
+                        </div>
+                        <div id="85" class="circle light">
+                        </div>
+                        <div id="88" class="circle light">
+                        </div>
+                        <div id="92" class="circle light">
+                        </div>
+                        <div class="temp_disp">54</div>
+                        <div class="temp_disp">58</div>
+                        <div class="temp_disp">61</div>
+                        <div class="temp_disp">63</div>
+                        <div class="temp_disp">65</div>
+                        <div class="temp_disp">67</div>
+                        <div class="temp_disp">69</div>
+                        <div class="temp_disp">71</div>
+                        <div class="temp_disp">73</div>
+                        <div class="temp_disp">75</div>
+                        <div class="temp_disp">77</div>
+                        <div class="temp_disp">79</div>
+                        <div class="temp_disp">81</div>
+                        <div class="temp_disp">83</div>
+                        <div class="temp_disp">85</div>
+                        <div class="temp_disp">88</div>
+                        <div class="temp_disp">92</div>
+                    </div>
+                    <div class="center-buttons">
+                        <div id="left" class="circle large" ng-click>
+                            <center> </center>
+                        </div>
+                        <div id="right" class="circle large">
+                            <center> </center>
+                        </div>
+                    </div>
+                    <div class="bottom-buttons">
+                        <div id="power" class="circle large">
+                            <center> </center>
+                        </div>
+                        <div id="eco" class="eco large active">
+                        </div>
+                        <div id="timer" class="circle large">
+                            <center> </center>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+        <div class="inout">
+            <div class="insideTemp ">
+                <center class="coolingText">{{temperature.inside}}</center>                
+            </div>
+            <div class="outsideTemp">
+                <center class="heatingText">{{temperature.outside}}</center>                
+            </div>
+        </div>
+        <div>
+            <div class="panel-body">
+                <chartist class="ct-chart ct-golden-section" chartist-data="asyncData" chartist-chart-type="Line" chartist-events="events"></chartist>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Dependent Libraries -->
+    <script src="/Controls/libraries/jquery/jquery-1.11.2.min.js"></script>
+    <script src="/Controls/libraries/angular/angular.min.js"></script>
+    <script src="/Controls/libraries/angular/angular-animate.min.js"></script>
+    <script src="/Controls/libraries/bootstrap/js/moment.js"></script>
+    <script src="/Controls/libraries/bootstrap/js/bootstrap-datetimepicker.js"></script>
+    <script src="/Controls/libraries/less/less.min.js"></script>
+    <script src="/Controls/libraries/bootstrap/js/bootstrap.js"></script>
+    <script src="/Controls/libraries/angular-ui/ui-bootstrap-tpls.js"></script>
+    <script src="/Controls/libraries/angular-sanitize.min.js"></script>
+    <script src="/Controls/libraries/angular-vs-repeat.js"></script>
+    <script src="/Scripts/chartist.js"></script>
+    <script src="/Scripts/angular-chartist.js"></script>
+    <script src="/Controls/demo/base/app.js"></script>
+
+    <!-- Components -->
+
+    <script src="/Controls/demo/helpsection/src/pageSection2Directive.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function distributeFields(className,radius) {           
+            var fields = $(className), container = $('.lights'),
+                width = container.width(), height = container.height(),
+                angle = 0, step = (2 * Math.PI) / 25;
+            fields.each(function () {
+                var x = Math.round(width / 2 + radius * Math.cos(angle) - $(this).width() / 2);
+                var y = Math.round(height / 2 + radius * Math.sin(angle) - $(this).height() / 2);
+                if (window.console) {
+                    console.log($(this).text(), x, y);
+                }
+                $(this).css({
+                    left: x + 'px',
+                    top: y + 'px'
+                });
+                angle += step;
+            });
+        }
+        distributeFields('.light', 250);
+        distributeFields('.temp_disp', 290)
+        function drawSector() {
+            var activeBorder = $("#activeBorder");
+            var prec = activeBorder.children().children().text();
+            if (prec > 100)
+                prec = 100;
+            var deg = prec * 3.6;
+            if (deg <= 180) {
+                activeBorder.css('background-image', 'linear-gradient(' + (90 + deg) + 'deg, transparent 50%, #fd9642 50%),linear-gradient(90deg, #000 50%, transparent 50%)');
+            }
+            else {
+                activeBorder.css('background-image', 'linear-gradient(' + (deg - 90) + 'deg, transparent 50%, #000 50%),linear-gradient(90deg, #fd9642 50%, transparent 50%)');
+            }
+
+            var startDeg = $("#startDeg").attr("class");
+            activeBorder.css('transform', 'rotate(' + startDeg + 'deg)');
+            $("#circle").css('transform', 'rotate(' + (-startDeg) + 'deg)');
+        }
+        drawSector();
+    </script>
+</body>
+</html>
+
+
+
+
+

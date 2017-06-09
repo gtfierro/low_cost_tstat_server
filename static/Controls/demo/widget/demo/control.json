@@ -1,0 +1,48 @@
+﻿{
+  "sizeX": 4,
+  "sizeY": 7,
+  "row": 0,
+  "col": 0,
+  "componentName": "Page Section",
+  "template": "/Controls/demo/pageSection/demo/demo.html",
+  "properties": [
+    "imgUrl",
+    "title",
+    "paraText",
+    { "buttons": [ "btnTitle", "linkUrl" ] }
+  ],
+  "imgUrl": {
+    "value": "/Controls/assets/images/apple-icon.png",
+    "type": "textbox"
+  },
+  "title": {
+    "value": "App Store",
+    "type": "textbox"
+  },
+  "paraText": {
+    "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper vehicula massa, vel fringilla arcu. Integer et libero porta nibh.",
+    "type": "textarea"
+  },
+  "buttons": [
+    {
+      "btnTitle": {
+        "value": "Submit New App",
+        "type": "textbox"
+      },
+      "linkUrl": {
+        "value": "#",
+        "type": "textbox"
+      }
+    },
+    {
+      "btnTitle": {
+        "value": "View Submitted Apps",
+        "type": "textbox"
+      },
+      "linkUrl": {
+        "value": "#",
+        "type": "textbox"
+      }
+    }
+  ]
+}

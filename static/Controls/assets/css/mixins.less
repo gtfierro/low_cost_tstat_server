@@ -1,0 +1,20 @@
+﻿/* Mixins */
+.border-radius(@radius: 1em) {
+    border-radius: @radius;
+    -webkit-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    -moz-border-radius: @radius;
+}
+
+.error(@color: @mandatory-color) {
+    color: @color;
+}
+/* Mixin for padding @parameters -- by default @base-em:1em*/
+.padding(@top: @base-em,@right: @base-em,@bottom: @base-em,@left: @base-em) {
+    padding: @top @right @bottom @left;
+}
+/* Mixin for border @parameters - default @size, @type and @color */
+.border(@size: @el-base-pixel,@type: solid,@color: @black-color) {
+    border: @size @type @color;
+}

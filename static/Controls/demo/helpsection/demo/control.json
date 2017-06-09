@@ -1,0 +1,33 @@
+﻿{
+    "sizeX": 12,
+    "sizeY": 9,
+    "row": 0,
+    "col": 0,
+    "componentName": "Page Section",
+    "template": "/Controls/demo/pageSection2/demo/demo.html",
+    "properties": [ "bgColor", "imgUrl", "headerText", "paraText", "linkUrl", "linkText" ],
+    "bgColor": {
+      "value": "",
+      "type": "textbox"
+    },
+    "imgUrl": {
+      "value": "/Controls/assets/images/landing.png",
+      "type": "fileupload"
+    },
+    "headerText": {
+      "value": "Need help on submissions?",
+      "type": "textbox"
+    },
+    "paraText": {
+      "value": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+      "type": "textarea"
+    },
+    "linkUrl": {
+      "value": "http://www.microsoft.com",
+      "type": "textbox"
+    },
+    "linkText": {
+      "value": "Understand how this works",
+      "type": "textbox"
+    }
+  }
