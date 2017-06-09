@@ -1,4 +1,5 @@
 import time
+import json
 import random
 import numpy as np
 from flask import Flask
@@ -158,5 +159,24 @@ def dosim():
         }
         return jsonify(data)
     if request.method == 'POST':
-        print(request.values)
-        return ''
+        data = json.loads(request.data)
+        print(data)
+        data['control_interface'] = [
+            {
+              "taps_since_last_post": [],
+              "type": "heating"
+            },
+            {
+              "taps_since_last_post": [],
+              "type": "cooling"
+            },
+            {
+              "taps_since_last_post": [],
+              "type": "power"
+            },
+            {
+              "taps_since_last_post": [],
+              "type": "timer"
+            }
+        ]
+        return jsonify(data)

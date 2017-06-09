@@ -3,27 +3,53 @@
 
     var AppController = function ($http, $scope, $timeout) {
         var self = this;
-        var Update = function (therm_data) {
-            console.log("therm",therm_data);
+        var Update = function () {
+            console.log("therm",$scope.data);
             $http({
                 method: 'POST',
                 url:'/sim',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                data: therm_data
+                data: $scope.data
             }).then(
                 function (response) {
                     $scope.data = response.data;
                 }
             );
         }
+        $scope.down = function() {
+            console.log('down');
+            $scope.setTimestamps("heating")
+            Update();
+        }
+        $scope.up = function() {
+            console.log('up');
+            $scope.setTimestamps("cooling")
+            Update();
+        }
+        $scope.power = function() {
+            console.log('power');
+            $scope.setTimestamps("power")
+            Update();
+        }
+        $scope.eco = function() {
+            console.log('eco');
+            $scope.setTimestamps("eco")
+            Update();
+        }
+        $scope.timer = function() {
+            console.log('timer');
+            $scope.setTimestamps("timer")
+            Update();
+        }
         $scope.setTimestamps = function (type) {
             var dt = new Date();
-            buttons = $scope.data.control_interface;
-            for (i = 0; i < length(buttons); i++) {
+            var buttons = $scope.data.control_interface;
+            var i;
+            for (i = 0; i < buttons.length; i++) {
                 if (buttons[i].type == type) {
-                    buttons.taps_since_last_post.push(dt.toUTCString());
+                    $scope.data.control_interface[i].taps_since_last_post.push(dt.toUTCString());
                 }
             }
         }
@@ -58,6 +84,7 @@
                 },
             }).then(
                 function (response) {
+                    console.log("response data",response.data);
                     $scope.data = response.data;
                     $scope.temperature = {};
                     $scope.temperature.inside = $scope.data.sensors[0].current;
@@ -90,7 +117,9 @@
                 );
         }
         Get();
-        setInterval(Update($scope.data), 10000);
+        setInterval(Update, 10000);
+        setInterval($scope.setTimestamps, 1000);
+        //setInterval(Update($scope.data), 10000);
     }
     
     angular.module('app', ['angular-chartist'])

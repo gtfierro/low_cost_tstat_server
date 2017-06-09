@@ -77,21 +77,21 @@
                         <div class="temp_disp">92</div>
                     </div>
                     <div class="center-buttons">
-                        <div id="left" class="circle large" ng-click>
-                            <center> </center>
+                        <div id="left" class="circle large" ng-click='down()'>
+                            <center> DOWN</center>
                         </div>
-                        <div id="right" class="circle large">
-                            <center> </center>
+                        <div id="right" class="circle large" ng-click='up()'>
+                            <center> UP</center>
                         </div>
                     </div>
                     <div class="bottom-buttons">
-                        <div id="power" class="circle large">
-                            <center> </center>
+                        <div id="power" class="circle large" ng-click='power()'>
+                            <center> POWER</center>
                         </div>
-                        <div id="eco" class="eco large active">
+                        <div id="eco" class="eco large active" ng-click='eco()'>
                         </div>
-                        <div id="timer" class="circle large">
-                            <center> </center>
+                        <div id="timer" class="circle large" ng-click='timer()'>
+                            <center> TIMER</center>
                         </div>
                     </div>
                 </div>
