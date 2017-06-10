@@ -7,6 +7,11 @@ from flask import render_template
 from flask import request
 from flask import jsonify
 
+def FtoC(f):
+    return (5/9.) * (f-32)
+
+def CtoF(c):
+    return (c*(9/5.))+32
 
 
 ######### SIMULATION SETTINGS
@@ -78,7 +83,7 @@ def ThermalResponce(Tin, Tout, SetPointHeating, SetPointCooling, Interval):
 			print "yo"
 			Heating=1
 			Cooling=0
-		elif SetPointCooling>Tin:
+		elif SetPointCooling<Tin:
 			Heating=0
 			Cooling=1
 		else:
@@ -160,7 +165,19 @@ def dosim():
         return jsonify(data)
     if request.method == 'POST':
         data = json.loads(request.data)
+        current_temperature = FtoC(data['sensors'][0]['current'])
+        interval = 1 #1 -> 96; day divided up to 15 min interval
+        # TODO: need timestamp from tstat. Need to generate this on the client
+        # side because we could be speeding up a simulation.
+        cooling_setpoint = FtoC(data['sensors'][0]['setpoint'] + 2)
+        heating_setpoint = FtoC(data['sensors'][0]['setpoint'] - 2)
+        tin, tout, interval, heating, cooling = Forward(current_temperature, interval, heating_setpoint, cooling_setpoint)
+        print('cool',cooling_setpoint,'heat',heating_setpoint)
+        print(tin, tout, interval, heating, cooling)
+        data['sensors'][0]['current'] = CtoF(tin)
+
         print(data)
+
         data['control_interface'] = [
             {
               "taps_since_last_post": [],

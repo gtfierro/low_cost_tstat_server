@@ -117,8 +117,8 @@
                 );
         }
         Get();
-        setInterval(Update, 10000);
-        setInterval($scope.setTimestamps, 1000);
+        setInterval(Update, 2000);
+        //setInterval($scope.setTimestamps, 1000);
         //setInterval(Update($scope.data), 10000);
     }
     
