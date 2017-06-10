@@ -176,6 +176,19 @@ def dosim():
         print(tin, tout, interval, heating, cooling)
         data['sensors'][0]['current'] = CtoF(tin)
 
+        num_heating_requests = 0
+        num_cooling_requests = 0
+        for tap in data['control_interface']:
+            if tap['type'] == 'heating':
+                num_heating_requests+=len(tap['taps_since_last_post'])
+            elif tap['type'] == 'cooling':
+                num_cooling_requests+=len(tap['taps_since_last_post'])
+        setpoint_diff = num_cooling_requests - num_heating_requests
+        setpoint_diff *= 1
+        print("diff",setpoint_diff,num_heating_requests,num_cooling_requests)
+        data['sensors'][0]['setpoint'] = CtoF(FtoC(data['sensors'][0]['setpoint']) + setpoint_diff)
+
+
         print(data)
 
         data['control_interface'] = [

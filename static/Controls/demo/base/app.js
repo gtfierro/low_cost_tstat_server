@@ -121,7 +121,7 @@
         //setInterval($scope.setTimestamps, 1000);
         //setInterval(Update($scope.data), 10000);
     }
-    
+
     angular.module('app', ['angular-chartist'])
         .controller('AppController', ['$http', '$scope','$timeout', AppController])
 
