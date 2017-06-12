@@ -66,7 +66,7 @@ Coolings[:] = np.NAN
 Seeding=True
 ## THERMAL MODEL
 
-
+#TODO add ventilation action?
 #Thermal Response
 def ThermalResponce(Tin, Tout, SetPointHeating, SetPointCooling, Interval):
 	if SetPointHeating >= SetPointCooling:
