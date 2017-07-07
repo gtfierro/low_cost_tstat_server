@@ -19,6 +19,10 @@
     white-space: normal;
 }
 
+@font-face {
+    font-family: Segoe UI Symbol;
+    src:url("/fonts/glyphicons-halflings-regular.ttf");
+}
 .circle {
     width: 100%;
     height: 100%;
