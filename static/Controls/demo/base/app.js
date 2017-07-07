@@ -68,11 +68,11 @@
                     for (var i = 0; i < $scope.data.status.length; i++) {
                         if ($scope.data.status[i].type == "eco") {
                             if ($scope.data.status[i].level == 100) {
-                                $('#eco').removeClass(['active', 'inactive']);
+                                $('#eco').removeClass('active inactive');
                                 $('#eco').addClass('active');
                             }
                             else {
-                                $('#eco').removeClass(['active', 'inactive']);
+                                $('#eco').removeClass('active inactive');
                                 $('#eco').addClass('inactive');
                             }
                         }
