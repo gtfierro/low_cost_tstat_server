@@ -1,0 +1,51 @@
+﻿{
+  "sizeX": 12,
+  "sizeY": 3,
+  "row": 0,
+  "col": 0,
+  "componentName": "Header",
+  "template": "/Controls/demo/header/demo/demo.html",
+  "properties": [
+    "headerImgUrl",
+    "applicationName",
+    "userName",
+    "userImg",
+    { "menuLinks": [ "linkText" ] }
+  ],
+  "headerImgUrl": {
+    "value": "/Controls/assets/images/logo/microsoft.png",
+    "type": "textbox"
+  },
+  "applicationName": {
+    "value": "My Sample App",
+    "type": "textbox"
+  },
+  "userName": {
+    "value": "Sandeep",
+    "type": "textbox"
+  },
+  "userImg": {
+    "value": "http://who/Photos/sanpal.jpg",
+    "type": "textbox"
+  },
+  "menuLinks": [
+    {
+      "linkText": {
+        "value": "Menu 1",
+        "type": "textbox"
+      }
+    },
+    {
+      "linkText": {
+        "value": "Menu 2",
+        "type": "textbox"
+      }
+    },
+    {
+      "linkText": {
+        "value": "Menu 3",
+        "type": "textbox"
+      }
+    }
+  ]
+}

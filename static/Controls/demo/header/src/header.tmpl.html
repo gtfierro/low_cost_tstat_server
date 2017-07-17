@@ -1,0 +1,107 @@
+﻿
+<div class="shell-header">
+    <div class="shell-header-wrapper">
+        <div class="shell-header-top">
+            <div class="shell-header-brand">
+                <div class="pull-left brandImage">
+                    <a href="/">
+                        <img src="/Controls/assets/images/logo/microsoft.png" alt="Microsoft" />
+                    </a>
+                </div>
+                <div class="pull-left">
+                    <a href="" class="shell-header-no-nav" contenteditable="true">
+                        {{data.applicationName.value}}
+                    </a>
+                </div>
+            </div><!-- /shell-header-brand -->
+            <ul class="shell-header-toggle">
+                <li>
+                    <button type="button" class="shell-header-toggle-search" title="Search">
+                        <i class="shell-icon-search"></i>
+                        <span class="shell-a11y">Search</span>
+                    </button>
+                </li>
+                <li>
+                    <a href="#" class="shell-header-toggle-cart" title="Cart">
+                        <i class="shell-icon-cart"></i>
+                        <span class="shell-a11y">Cart</span>
+                    </a>
+                </li>
+                <li>
+                    <button type="button" class="shell-header-toggle-menu" title="Menu">
+                        <i class="shell-icon-menu"></i>
+                        <span class="shell-a11y">Menu</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="shell-header-actions">
+                <form class="shell-header-search" action="/en-us/SearchResults" method="GET">
+                    <input type="search" name="query" placeholder="Search for services" />
+                    <input type="hidden" name="scope" value="store" />
+                    <button type="submit" title="Search">
+                        <i class="shell-icon-search"></i>
+                        <span class="shell-a11y">Search</span>
+                    </button>
+                </form><!-- /shell-header-search -->
+
+                <dl class="shell-header-user">
+                    <dt class="shell-header-user-label">
+                        <a href="#">
+                            <span class="contactLabel">{{data.userName.value}}</span>
+                            <span class="contactIconHeader"><img ng-src="{{data.userImg.value}}" /></span>
+                        </a>
+                    </dt><!-- /shell-header-user-label -->
+                </dl><!-- /shell-header-user -->
+
+            </div><!-- /shell-header-actions -->
+        </div><!-- /shell-header-top -->
+
+        <ul class="shell-header-nav">
+            <li class="shell-header-dropdown">
+                <h2 class="shell-header-dropdown-label">
+                    <a href="#">{{data.menuLinks[0].linkText.value}} <i class="shell-icon-dropdown"></i></a>
+                </h2>
+
+                <div class="shell-header-dropdown-content">
+                    <dl class="shell-header-dropdown-tab" ng-repeat="item in menuData.categories">
+                        <dt class="shell-header-dropdown-tab-label">
+                            <a ng-href="#/Search/{{item.name.split(' ').join('_')}}">{{item.name}} </a>
+                        </dt>
+                        <dd class="shell-header-dropdown-tab-content ">
+                            <div class="shell-header-dropdown-tab-list">
+                                <div ng-repeat="subitem in item.subcategories" class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><a ng-href="#/Search/{{item.name.split(' ').join('_')}}/{{subitem.name.split(' ').join('_')}}">{{subitem.name}}</a></div>
+                            </div>
+
+                        </dd>
+                    </dl>
+                </div>
+            </li>
+            <li class="shell-header-dropdown">
+                <h2 class="shell-header-dropdown-label">
+                    <a href="#">{{data.menuLinks[1].linkText.value}} <i class="shell-icon-dropdown"></i></a>
+                </h2>
+                <div class="shell-header-dropdown-content tab-content-custom">
+                    <dl class="shell-header-dropdown-tab">
+                        <dt class="shell-header-dropdown-tab-label tab-label-custom">
+                            <a href="#">Services Health</a>
+                        </dt>
+
+                    </dl><!-- /shell-header-dropdown-tab -->
+                    <dl class="shell-header-dropdown-tab">
+                        <dt class="shell-header-dropdown-tab-label tab-label-custom">
+                            <a href="#">Services Manageability</a>
+                        </dt>
+
+                    </dl><!-- /shell-header-dropdown-tab -->
+
+                </div><!-- /shell-header-dropdown-content -->
+            </li>
+            <li>
+                <h2 class="shell-header-dropdown-label">
+                    <a href="#">{{data.menuLinks[2].linkText.value}} </a>
+                </h2>
+            </li>
+        </ul>
+
+    </div><!-- /shell-header-wrapper -->
+</div><!-- /shell-header -->

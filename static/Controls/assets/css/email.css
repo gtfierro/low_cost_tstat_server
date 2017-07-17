@@ -1,0 +1,31 @@
+﻿/*
+    >>>>>>>>>>  LESS -- THEME
+*/
+/* Importing file dynamically */
+/* >> BELOW LINE NOT TO BE IN DEPLOYMENT  <<*/
+/* Default theme*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/*
+    >>>>>>>>>>  LESS -- VARIABLES
+*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/*textbox less*/
+input.el-input {
+  border: 1px solid #dddddd !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  height: 2.6em;
+}
+/*# sourceMappingURL=email.css.map */

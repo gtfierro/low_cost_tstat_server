@@ -1,0 +1,83 @@
+﻿@import 'variables';
+@import 'mixins';
+
+/* radio button css */
+.footer {
+    background: #f3f3f3;
+    border-top: 2px solid #cfcfcf;
+    padding: 20px 0;
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    width: 100%;
+    /*height: 104px;*/
+    margin: 0 auto;
+    float: left;
+    margin-top: 20px;
+}
+
+.footerWrap {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.footer .footerAzure a {
+    color: #0073c6;
+    margin-left: 20px;
+    text-align: right;
+    margin-top: 11px;
+    display: inline-block;
+}
+
+.footer .footerAzure span {
+    margin-left: 20px;
+}
+
+.footerAzure {
+    text-align: right;
+}
+
+
+
+/* Footer styles */
+.el-footer {
+    background: @el-white-color;
+    border-top: @el-base-border;
+    padding: 1em 0;
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    width: @base-width;
+    /*height: 104px;*/
+    margin: 0 auto;
+    float: left;
+    margin-top: 20px;
+    font-family: @base-fontfamily;
+    /*position: @el-base-position;
+    bottom: 0;*/
+    ul {
+        width: @base-width;
+        padding: 0;
+
+        li {
+            float: left;
+            list-style: @el-none;
+            padding: 0.5em 1em;
+
+            a {
+                text-decoration: @el-none;
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    .el-menucontent {
+        width: 80% !important;
+        float: left;
+    }
+
+    .el-logocontent {
+        width: 20% !important;
+        text-align: right;
+        float: left;
+    }
+}
+

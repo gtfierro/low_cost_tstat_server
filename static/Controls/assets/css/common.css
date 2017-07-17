@@ -1,0 +1,44 @@
+﻿/*
+    >>>>>>>>>>  LESS -- THEME
+*/
+/* Importing file dynamically */
+/* >> BELOW LINE NOT TO BE IN DEPLOYMENT  <<*/
+/* Default theme*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/*
+    >>>>>>>>>>  LESS -- VARIABLES
+*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/*
+    >>>>>>>>>>  LESS - COMMON
+*/
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'segoe UI', Arial !important;
+}
+.positionrel {
+  position: relative;
+}
+.position-relative {
+  position: relative;
+}
+.padding-0 {
+  padding: 0;
+}
+.no-pad {
+  padding: 0;
+}
+/*# sourceMappingURL=common.css.map */

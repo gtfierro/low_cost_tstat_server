@@ -1,0 +1,62 @@
+﻿@import 'variables';
+@import 'mixins';
+
+/*Checkbox less file*/
+input[type=checkbox].el-radio-control {
+    opacity: 0;
+    -webkit-appearance: @el-none;
+    -ms-appearance: @el-none;
+    -moz-appearance: @el-none;
+    display: @el-display-inline;
+    vertical-align: middle;
+    width: (@el-default-pixel)+10px;
+    height: (@el-default-pixel)+10px;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    position: absolute;
+    cursor: pointer;
+}
+
+/* Div base checkbox */
+div.el-custom-checkbox {
+    border: 1px solid @el-fill-color;
+    .border-radius(0.1em);
+    height: 20px;
+    width: 20px;
+    float: @base-float;
+    background: @el-fill-color;
+    position:relative;
+    z-index:-1;
+}
+
+div.el-checkbox-filloption {
+    /*height: @base-height;
+    width: @base-width;*/
+    color: @el-white-color;
+
+    i.fa-check {
+        display:block;
+        margin-left:2px;
+        margin-top:2px;
+    }
+}
+
+div.el-display-none-ko {
+    display: @el-none;
+}
+
+div.el-outline-focus {
+    outline: @el-base-outline;
+}
+
+label.el-radio-label {
+    font-weight: 400;
+    padding-left: (@base-em)-0.7em;
+    position: relative;
+    bottom: (@base-em)-0.8em;
+    margin-left: 0.4em;
+}
+input[type=checkbox].el-radio-control:focus + .el-custom-checkbox{
+    outline:1px dotted #000;
+}

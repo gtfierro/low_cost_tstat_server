@@ -1,0 +1,219 @@
+﻿/* Standard styles for components */
+
+
+body {
+    font-family: 'Segoe UI';
+}
+
+@font-face {
+    font-family: 'Segoe UI Italic';
+    src: url(../fonts/segoe-ui-italic.ttf) format('truetype'), url(../fonts/segoe-ui-italic.woff) format('woff'), url(../fonts/segoe_ui_italic.eot), url(../fonts/segoe_ui_italic.eot?#iefix) format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'Segoe UI Bold';
+    src: url(../fonts/segoe-ui-bold.ttf) format('truetype'), url(../fonts/segoe-ui-bold.woff) format('woff'), url(../fonts/segoe_ui_bold.eot),url(../fonts/segoe_ui_bold.eot?#iefix) format('embedded-opentype');
+}
+/* Font family */
+@el-fontfamily-1: 'Segoe UI';
+@el-fontfamily-2: 'Segoe UI Bold';
+@el-fontfamily-3: 'Segoe UI Italic';
+@el-fontfamily-4: 'Segoe UI Light';
+@el-fontfamily-5: 'Segoe UI Symbol';
+
+/* Font sizes */
+@el-font-1: 2em;
+@el-font-2: 1.5em;
+@el-font-3: 1.2em;
+@el-font-4: 1em;
+@el-font-5: 0.8em;
+@el-font-6: 0.6em;
+
+/* em measurements */
+@el-m-sm: 0.3em;
+@el-m-semi-md: 0.5em;
+@el-m-md: 0.8em;
+@el-m-semi-lg: 1em;
+@el-m-lg: 1.2em;
+
+/* Label headings */
+@el-cl-1: #000000;
+@el-cl-2: #808080;
+@el-cl-3: #ffffff;
+@el-cl-4: #0094ff;
+@el-cl-5: #dddddd;
+@el-cl-6: #0026ff;
+@el-cl-7: #b200ff;
+
+/* Position */
+@el-opacity-sm: 0.1;
+@el-opacity-md: 0.5;
+@el-opacity-lg: 0.9;
+
+/* Measurement in percentile */
+@el-percent-full: 100%;
+@el-percent-semi-md: 75%;
+@el-percent-md: 50%;
+@el-percent-semi-small: 25%;
+@el-percent-sm: 10%;
+
+
+
+.el-headings-segoelight {
+    h1 {
+        font-size: @el-font-1;
+        font-family: @el-fontfamily-4;
+    }
+
+    h2 {
+        font-size: @el-font-2;
+        font-family: @el-fontfamily-4;
+    }
+
+    h3 {
+        font-size: @el-font-3;
+        font-family: @el-fontfamily-4;
+    }
+
+    h4 {
+        font-size: @el-font-4;
+        font-family: @el-fontfamily-4;
+    }
+
+    h5 {
+        font-size: @el-font-5;
+        font-family: @el-fontfamily-4;
+    }
+
+    h6 {
+        font-size: @el-font-6;
+        font-family: @el-fontfamily-4;
+    }
+}
+
+.el-headings-segoeregular {
+    h1 {
+        font-size: @el-font-1;
+        font-family: @el-fontfamily-1;
+    }
+
+    h2 {
+        font-size: @el-font-2;
+        font-family: @el-fontfamily-1;
+    }
+
+    h3 {
+        font-size: @el-font-3;
+        font-family: @el-fontfamily-1;
+    }
+
+    h4 {
+        font-size: @el-font-4;
+        font-family: @el-fontfamily-1;
+    }
+
+    h5 {
+        font-size: @el-font-5;
+        font-family: @el-fontfamily-1;
+    }
+
+    h6 {
+        font-size: @el-font-6;
+        font-family: @el-fontfamily-1;
+    }
+}
+
+.el-headings-segoebold {
+    h1 {
+        font-size: @el-font-1;
+        font-family: @el-fontfamily-2;
+    }
+
+    h2 {
+        font-size: @el-font-2;
+        font-family: @el-fontfamily-2;
+    }
+
+    h3 {
+        font-size: @el-font-3;
+        font-family: @el-fontfamily-2;
+    }
+
+    h4 {
+        font-size: @el-font-4;
+        font-family: @el-fontfamily-2;
+    }
+
+    h5 {
+        font-size: @el-font-5;
+        font-family: @el-fontfamily-2;
+    }
+
+    h6 {
+        font-size: @el-font-6;
+        font-family: @el-fontfamily-2;
+    }
+}
+
+.el-headings-segoeitalic {
+    h1 {
+        font-size: @el-font-1;
+        font-family: @el-fontfamily-3;
+    }
+
+    h2 {
+        font-size: @el-font-2;
+        font-family: @el-fontfamily-3;
+    }
+
+    h3 {
+        font-size: @el-font-3;
+        font-family: @el-fontfamily-3;
+    }
+
+    h4 {
+        font-size: @el-font-4;
+        font-family: @el-fontfamily-4;
+    }
+
+    h5 {
+        font-size: @el-font-5;
+        font-family: @el-fontfamily-3;
+    }
+
+    h6 {
+        font-size: @el-font-6;
+        font-family: @el-fontfamily-3;
+    }
+}
+/* Controls */
+input.el-control-sm {
+    padding: @el-m-sm;
+    margin-bottom: @el-m-sm;
+}
+
+input.el-control-md {
+    padding: @el-m-md;
+    margin-bottom: @el-m-semi-md;
+}
+
+input.el-control-lg {
+    padding: @el-m-lg;
+    margin-bottom: @el-m-semi-lg;
+}
+/* Buttons */
+input[type=button].el-btn, button.el-btn {
+    padding: @el-m-md;
+    font-weight: 500;
+}
+input[type=button].el-btn-fill,button.el-btn-fill{
+    color: @el-cl-3;
+    border: 2px solid @el-cl-4;
+    background: @el-cl-4;
+    font-weight:600;
+}
+input[type=button].el-btn-lite,button.el-btn-lite{
+    color: @el-cl-4;
+    border: 2px solid @el-cl-4;
+    background: none;
+}

@@ -1,0 +1,43 @@
+﻿/*
+    >>>>>>>>>>  LESS -- THEME
+*/
+/* Importing file dynamically */
+/* >> BELOW LINE NOT TO BE IN DEPLOYMENT  <<*/
+/* Default theme*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/*
+    >>>>>>>>>>  LESS -- VARIABLES
+*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/* Mixins */
+/* Mixin for padding @parameters -- by default @base-em:1em*/
+/* Mixin for border @parameters - default @size, @type and @color */
+.jumbotron {
+  font-family: 'segoe UI', Arial;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 0 !important;
+  background-color: #0A1313;
+}
+.jumbotron h1 {
+  font-size: 2em;
+  text-transform: capitalize;
+}
+.jumbotron p {
+  font-size: 14px;
+  line-height: inherit;
+  color: inherit;
+}
+/*# sourceMappingURL=jumbotron.css.map */

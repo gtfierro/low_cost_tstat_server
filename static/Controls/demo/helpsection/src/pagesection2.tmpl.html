@@ -1,0 +1,16 @@
+﻿<div class="page-section">
+    <div class="row">
+        <h2 class="col-xs-12" ng-model="pageData.headerText.value" contenteditable="true">{{pageData.headerText.value}}</h2>
+        <div class="col-md-5 col-sm-6 col-xs-12">
+            <section>
+                <img class="img-responsive" ng-src="{{pageData.imgUrl.value}}" />                
+            </section>
+        </div>
+        <div class="col-md-7 col-ms-6 col-xs-12">
+            <section>
+                <p class="pad-bot-20" ng-model="pageData.paraText.value" contenteditable="true">{{pageData.paraText.value}}</p>
+                <a ng-href="{{pageData.linkUrl.value}}">{{pageData.linkText.value}} <span class="fa fa-arrow-circle-right"></span></a>
+            </section>
+        </div>
+    </div>
+</div>

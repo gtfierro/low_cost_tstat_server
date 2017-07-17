@@ -1,0 +1,168 @@
+﻿/*
+    >>>>>>>>>>  LESS -- THEME
+*/
+/* Importing file dynamically */
+/* >> BELOW LINE NOT TO BE IN DEPLOYMENT  <<*/
+/* Default theme*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/*
+    >>>>>>>>>>  LESS -- VARIABLES
+*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+table.elements {
+  width: 100% !important;
+  /*font-size: 1.2em;*/
+  border-collapse: collapse;
+  background-color: white;
+}
+table.elements thead tr {
+  border-bottom: 2px solid #3766c3;
+}
+table.elements thead tr th {
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  cursor: pointer;
+  background-color: #efefef;
+  text-transform: uppercase;
+  color: #000000;
+}
+table.elements thead tr th.sorting {
+  background-image: url(../images/sort_both.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 15px;
+}
+table.elements thead tr th.sorting_asc {
+  background-image: url(../images/sort_asc.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 15px;
+}
+table.elements thead tr th.sorting_desc {
+  background-image: url(../images/sort_desc.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 15px;
+}
+table.elements tbody tr td {
+  font-size: 1em;
+  vertical-align: top;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  max-width: calc(20vw);
+  border: 1px solid #f3f3f3;
+}
+/*.cellBorder {
+    border: 1px solid #F3F3F3;
+}*/
+.dataTables_wrapper {
+  position: relative;
+  font-family: 'segoe UI', Arial;
+}
+.dataTables_length {
+  position: absolute;
+  bottom: -30px;
+}
+div.dataTables_filter {
+  float: left;
+  width: 50%;
+  padding-bottom: 20px;
+}
+div.dataTables_filter label {
+  display: block;
+  font-weight: 400;
+}
+div.dataTables_filter input {
+  width: 80%;
+  padding: 4px;
+  -webkit-appearance: searchfield;
+  -o-appearance: searchfield;
+}
+/*Styling the pagination bar*/
+div.dataTables_info {
+  /*Showing 1-10 0f 30*/
+  display: block;
+  margin-top: 20px;
+}
+.dataTables_paginate {
+  /*Actual pagination*/
+  float: right;
+  padding: 5px;
+}
+a.paginate_button,
+a.paginate_active {
+  display: inline-block;
+  padding: 2px 6px;
+  margin-left: 2px;
+  cursor: pointer;
+  color: #3e6da3;
+  font-size: 12px;
+}
+a.paginate_button.current {
+  background-color: #ebebeb;
+  border: 1px solid black;
+}
+a.paginate_button.disabled {
+  color: #525252;
+}
+.paging_simple_numbers a:active {
+  outline: none;
+}
+.paging_simple_numbers a:hover {
+  text-decoration: none;
+  background-color: #ebebeb;
+}
+a.paginate_button.disabled:hover {
+  background-color: transparent;
+  cursor: default;
+}
+div.dataTables_paginate span > a {
+  width: 25px;
+  text-align: center;
+}
+/*td.editRow {
+    border: 1px solid #F3F3F3;
+    text-align:center;
+}*/
+.edit,
+.save,
+.cancel {
+  color: #3766c3;
+  cursor: pointer;
+  padding-right: 5px;
+  display: inline-block;
+}
+.newRow {
+  border-left: 5px solid #5AB064;
+}
+#KeysGrid textarea {
+  width: 95%;
+}
+.dataTable thead tr th {
+  border-bottom: 2px solid #3766C3;
+}
+.padding {
+  padding-top: 50px;
+}
+div.dataTables_filter {
+  float: none;
+}
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+  background-color: #ffffff;
+}
+/*# sourceMappingURL=table.css.map */

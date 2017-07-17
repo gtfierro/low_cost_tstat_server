@@ -1,0 +1,18 @@
+﻿@font-face {
+    font-family: 'Segoe UI MDL Symbol';
+    src:
+        url('/fonts/SEGMDL2.eot'),
+        url('/fonts/SEGMDL2.ttf') format('truetype'),
+        url('/fonts/SEGMDL2.svg') format('svg'),
+        url('/fonts/SEGMDL2.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+.segoe-ui-symbol {
+    font-family:'Segoe UI MDL Symbol';
+}
+
+.icon.icon-chevronDown:before {
+    content: "\E011";
+}

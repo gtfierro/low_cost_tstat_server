@@ -1,0 +1,77 @@
+﻿/* Importing file dynamically */
+/* Default theme*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/* Mixins */
+/* Mixin for padding @parameters -- by default @base-em:1em*/
+/* Mixin for border @parameters - default @size, @type and @color */
+/*Checkbox less file*/
+input[type=checkbox].el-radio-control {
+  opacity: 0;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  position: absolute;
+  cursor: pointer;
+}
+/* Div base checkbox */
+div.el-custom-checkbox {
+  border: 1px solid #913373;
+  border-radius: 0.1em;
+  -webkit-border-radius: 0.1em;
+  -ms-border-radius: 0.1em;
+  -o-border-radius: 0.1em;
+  -moz-border-radius: 0.1em;
+  height: 20px;
+  width: 20px;
+  float: left;
+  background: #913373;
+  position: relative;
+  z-index: -1;
+}
+div.el-checkbox-filloption {
+  /*height: @base-height;
+    width: @base-width;*/
+  color: #ffffff;
+}
+div.el-checkbox-filloption i.fa-check {
+  display: block;
+  margin-left: 2px;
+  margin-top: 2px;
+}
+div.el-display-none-ko {
+  display: none;
+}
+div.el-outline-focus {
+  outline: 0.1em dotted;
+}
+label.el-radio-label {
+  font-weight: 400;
+  padding-left: 0.3em;
+  position: relative;
+  bottom: 0.2em;
+  margin-left: 0.4em;
+}
+input[type=checkbox].el-radio-control:focus + .el-custom-checkbox {
+  outline: 1px dotted #000;
+}
+/*# sourceMappingURL=checkbox.css.map */

@@ -1,0 +1,1156 @@
+﻿@font-face {
+    font-family: 'Segoe UI MDL Symbol';
+    src:
+        url('../fonts/SEGMDL2.eot'),
+        url('../fonts/SEGMDL2.ttf') format('truetype'),
+        url('../fonts/SEGMDL2.svg') format('svg'),
+        url('../fonts/SEGMDL2.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+.segoe-ui-symbol {
+    font-family:'Segoe UI MDL Symbol';
+}
+
+.icon.icon-chevronDown:before {
+    content: "\E011";
+}
+@media (max-width : 767px) {
+    .vxTableContainer {
+        padding: 0;
+        margin: 0;
+        overflow: auto;
+        height: calc(100% - 15px);
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+        .vxTableContainer .vxTable {
+            table-layout: fixed;
+            font-family: 'Segoe UI';
+            width: 100%;
+            border: 1px solid #006ebd;
+        }
+
+            .vxTableContainer .vxTable .vxBodyRowCell.xsCell .xsSelectionHolder {
+                width: 48px;
+                line-height: 48px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .vxTableContainer .vxTable .vxBodyRowCell.xsCell .xsRowViewToggleHolder {
+                width: 48px;
+                line-height: 48px;
+                display: inline-block;
+                position: relative;
+                top: 4px;
+                left: 4px;
+                cursor: pointer;
+            }
+
+            .vxTableContainer .vxTable .vxBodyRowCell.xsCell .xsRowTitleHolder {
+                width: calc(100% - 52px);
+                line-height: 48px;
+                display: inline-block;
+                cursor: pointer;
+            }
+
+            .vxTableContainer .vxTable .vxBodyRowCell.xsCell.rowSelectionEnabled .xsRowTitleHolder {
+                width: calc(100% - 105px);
+            }
+
+            .vxTableContainer .vxTable .vxBodyRowCell.xsCell .xsCellContentHolder {
+                padding: 0 12px;
+            }
+
+            .vxTableContainer .vxTable .vxBodyRowCell.xsCell .xsCellContent {
+                padding-bottom: 10px;
+            }
+
+                .vxTableContainer .vxTable .vxBodyRowCell.xsCell .xsCellContent .xsCellHeader {
+                    font-family: 'Segoe UI';
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    font-size: small;
+                    letter-spacing: 1px;
+                    color: #0073c6;
+                    padding: 0;
+                }
+
+                .vxTableContainer .vxTable .vxBodyRowCell.xsCell .xsCellContent .xsCellValue {
+                    font-family: 'Segoe UI';
+                    font-weight: 400;
+                    font-size: medium;
+                    padding: 0;
+                    text-overflow: ellipsis;
+                    white-space: normal;
+                    -ms-word-break: break-all;
+                    word-break: break-all;
+                }
+
+            .vxTableContainer .vxTable .vxHead .vxHeadRow th .icon-container {
+                border: none;
+                color: #fff;
+                background: transparent;
+                margin-left: 0;
+            }
+
+                .vxTableContainer .vxTable .vxHead .vxHeadRow th .icon-container:not(.active):hover,
+                .vxTableContainer .vxTable .vxHead .vxHeadRow th .icon-container:not(.active):active,
+                .vxTableContainer .vxTable .vxHead .vxHeadRow th .icon-container:not(.active):focus {
+                    background: transparent;
+                    color: #fff;
+                }
+
+                .vxTableContainer .vxTable .vxHead .vxHeadRow th .icon-container.active:hover,
+                .vxTableContainer .vxTable .vxHead .vxHeadRow th .icon-container.active:active,
+                .vxTableContainer .vxTable .vxHead .vxHeadRow th .icon-container.active:focus {
+                    background: transparent;
+                    color: #fff;
+                }
+
+            .vxTableContainer .vxTable .vxBodyRowCell.xsCell .icon-container {
+                margin: 0;
+                width: 40px;
+                line-height: 40px;
+                border: 1px solid rgba(0,0,0,0.1);
+                background: none;
+            }
+
+                .vxTableContainer .vxTable .vxBodyRowCell.xsCell .icon-container:not(.active):hover,
+                .vxBodyRowCell.xsCell .icon-container:not(.active):active,
+                .vxBodyRowCell.xsCell .icon-container:not(.active):focus {
+                    background: transparent;
+                }
+
+                .vxTableContainer .vxTable .vxBodyRowCell.xsCell .icon-container.active:hover,
+                .vxTableContainer .vxTable .vxBodyRowCell.xsCell .icon-container.active:active,
+                .vxTableContainer .vxTable .vxBodyRowCell.xsCell .icon-container.active:focus {
+                    background: transparent;
+                }
+
+        .vxTableContainer .icon-container.active {
+            background: transparent;
+            color: #fff;
+        }
+
+        .vxTableContainer .icon-container.disabled {
+            background: transparent;
+            color: #fff;
+            opacity: 0.33;
+            filter: alpha(opacity=33);
+            cursor: none;
+        }
+
+        .vxTableContainer .icon-container:not(.disabled):hover,
+        .vxTableContainer .icon-container:not(.disabled):active,
+        .vxTableContainer .icon-container:not(.disabled):focus {
+            background: transparent;
+        }
+
+        .vxTableContainer .icon-container:not(.active):hover,
+        .vxTableContainer .icon-container:not(.active):active,
+        .vxTableContainer .icon-container:not(.active):focus {
+            background: transparent;
+        }
+
+        .vxTableContainer .icon-container.active:hover,
+        .vxTableContainer .icon-container.active:active,
+        .vxTableContainer .icon-container.active:focus {
+            background: transparent;
+        }
+
+        .vxTableContainer .vxTable .vxHead .vxHeadRow th {
+            padding: 0 10px 5px 0;
+            height: 60px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            -ms-word-break: break-all;
+            word-break: break-all;
+            background: #0073c6;
+        }
+
+        .vxTableContainer .vxTable .vxBody:not(.revealWrap) .vxBodyRow td {
+            padding: 0 5px;
+            height: 48px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            -ms-word-break: break-all;
+            word-break: break-all;
+            text-align: left;
+        }
+
+        .vxTableContainer .vxTable .vxBody.revealWrap .vxBodyRow td {
+            padding: 0;
+            height: 48px;
+            overflow: hidden;
+            -ms-word-break: break-all;
+            word-break: break-all;
+            text-align: left;
+        }
+
+    .icon-container.scrollAction {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        opacity: 1;
+        filter: alpha(opacity=100);
+        margin: 0;
+        background: #006ebd;
+        color: #fff;
+        border-radius: 50%;
+    }
+
+        .icon-container.scrollAction:hover,
+        .icon-container.scrollAction:active,
+        .icon-container.scrollAction:focus {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            margin: 0;
+            opacity: 1;
+            filter: alpha(opacity=100);
+            z-index: 9999;
+            background: #006ebd;
+            color: #fff;
+            outline: 1px dotted #fff;
+        }
+
+    .vxTableContainer .vxTable .vxBody .vx-row-select {
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+        position: relative;
+    }
+
+        .vxTableContainer .vxTable .vxBody .vx-row-select input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            line-height: normal;
+            margin: 0;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+        }
+
+    .vxTableContainer .vxHeadRowCell .search-container {
+        width: calc(100% - 150px);
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-bottom: 1px solid RGBA(255,255,255,0.75);
+        margin-left: 15px;
+    }
+
+        .vxTableContainer .vxHeadRowCell .search-container .searchSymb {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            float: left;
+        }
+
+        .vxTableContainer .vxHeadRowCell .search-container input.search {
+            height: 40px;
+            vertical-align: middle;
+            color: #FFF;
+            opacity: 0.75;
+            filter: alpha(opacity=75);
+            font-family: 'Segoe UI';
+            font-weight: 100;
+            font-size: medium;
+            background: transparent;
+            padding: 0 10px;
+            border: none;
+            margin: 0;
+            box-shadow: none;
+            position: relative;
+            width: calc(100% - 44px);
+            border-radius: 0;
+        }
+
+            .vxTableContainer .vxHeadRowCell .search-container input.search::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+                color: #fff;
+                opacity: 0.75;
+                filter: alpha(opacity=75);
+            }
+
+            .vxTableContainer .vxHeadRowCell .search-container input.search:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                color: #fff;
+                opacity: 0.75;
+                filter: alpha(opacity=75);
+            }
+
+            .vxTableContainer .vxHeadRowCell .search-container input.search::-moz-placeholder { /* Mozilla Firefox 19+ */
+                color: #fff;
+                opacity: 0.75;
+                filter: alpha(opacity=75);
+            }
+
+            .vxTableContainer .vxHeadRowCell .search-container input.search:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: #fff;
+                opacity: 0.75;
+                filter: alpha(opacity=75);
+            }
+
+    .vxTableContainer .vxTable .vxHead tr th:nth-child(2n+1) {
+        background-color: #006ebd;
+    }
+
+    .vxTableContainer .vxTable .vxHead tr th:nth-child(2n) {
+        background-color: #006ebd;
+    }
+}
+
+@media (min-width : 768px) {
+    .vxTableContainer {
+        padding: 0;
+        margin: 3px 0 0 0;
+        overflow: auto;
+        height: calc(100%- 15px);
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border-top: none;
+        border-left: 1px dotted #909090;
+        border-right: 1px dotted #909090;
+        border-bottom: 1px dotted #909090;
+    }
+
+    .vxTable {
+        table-layout: fixed;
+        font-family: 'Segoe UI';
+        width: 100%;
+        border: 1px solid #D0D0D0;
+    }
+
+    .vxTableContainer.attrPaneOpen {
+        height: calc(100% - 60px);
+    }
+
+    .icon-container.active {
+        background: #006ebd;
+        color: #fff;
+    }
+
+    .icon-container.disabled {
+        color: #000000;
+        background: #D0D0D0;
+        border-color: #000000;
+        opacity: 0.25;
+        filter: alpha(opacity=25);
+        cursor: none;
+    }
+
+    .icon-container:not(.disabled):hover,
+    .icon-container:not(.disabled):active,
+    .icon-container:not(.disabled):focus {
+        background: rgba(0,0,0,0.1);
+    }
+
+    .icon-container:not(.active):hover,
+    .icon-container:not(.active):active,
+    .icon-container:not(.active):focus {
+        background: rgba(0,0,0,0.1);
+    }
+
+    .icon-container.active:hover,
+    .icon-container.active:active,
+    .icon-container.active:focus {
+        background: #006ebd;
+    }
+
+    .vxTable .vxHead .vxHeadRow th {
+        padding: 0 10px;
+        height: 48px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        -ms-word-break: break-all;
+        word-break: break-all;
+    }
+
+    .vxTable .vxBody:not(.revealWrap) .vxBodyRow td {
+        padding: 0 10px;
+        height: 48px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        -ms-word-break: break-all;
+        word-break: break-all;
+        text-align: left;
+    }
+
+    .vxTable .vxBody.revealWrap .vxBodyRow td {
+        padding: 0 10px;
+        height: 48px;
+        overflow: hidden;
+        -ms-word-break: break-all;
+        word-break: break-all;
+        text-align: left;
+    }
+
+    .icon-container.scrollAction {
+        position: absolute;
+        bottom: 25px;
+        right: 15px;
+        opacity: 0.25;
+        filter: alpha(opacity=25);
+        border-radius: 50%;
+    }
+
+        .icon-container.scrollAction:hover,
+        .icon-container.scrollAction:active,
+        .icon-container.scrollAction:focus {
+            position: absolute;
+            bottom: 25px;
+            right: 15px;
+            opacity: 1;
+            filter: alpha(opacity=100);
+            z-index: 9999;
+            background: #006ebd;
+            color: #fff;
+            outline: 1px dotted #fff;
+        }
+
+    .vxTable .vxHead tr th:nth-child(2n+1) {
+        background-color: #363636;
+    }
+
+    .vxTable .vxHead tr th:nth-child(2n) {
+        background-color: #565656;
+    }
+}
+
+.vxTableContainer.settingsMenuOpen {
+    overflow: hidden;
+}
+
+.vxTableOperations {
+    margin: 5px 0;
+    height: 40px;
+}
+
+.vxH100 {
+    height: 100%;
+}
+
+.marg0 {
+    margin: 0 !important;
+}
+
+.pad0 {
+    padding: 0 !important;
+}
+
+.padA0L10 {
+    padding: 0 0 0 10px !important;
+}
+
+.padA0L5 {
+    padding: 0 0 0 5px !important;
+}
+
+.padA0LR5 {
+    padding: 0 5px !important;
+}
+
+.padA0L10R0 {
+    padding: 0 0 0 10px !important;
+}
+
+.icon-container {
+    font-family: 'Segoe UI MDL Symbol';
+    font-size: large;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #006ebd;
+    border: 1px solid #006ebd;
+    border-radius: 0;
+    font-style: normal;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+
+    .icon-container i.icon {
+        font-family: inherit;
+        font-size: large;
+        font-style: normal;
+    }
+
+.icon.icon-settings:before {
+    content: "\E713";
+}
+
+.icon.icon-refresh:before {
+    content: "\E72C";
+}
+
+.icon.icon-clearselection:before {
+    content: "\E8E6";
+}
+
+.icon.icon-openwith:before {
+    content: "\E7AC";
+}
+
+.icon.icon-more:before {
+    content: "\E712";
+}
+
+.icon.icon-close:before {
+    content: "\E711";
+}
+
+.icon.icon-repair:before {
+    content: "\E90F";
+}
+
+.icon.icon-up:before {
+    content: "\E74A";
+}
+
+.icon.icon-down:before {
+    content: "\E74B";
+}
+
+.icon.icon-right:before {
+    content: "\E72A";
+}
+
+.icon.icon-left:before {
+    content: "\E72B";
+}
+
+.icon.icon-unpin:before {
+    content: "\E77A";
+}
+
+.icon.icon-ScrollChevronUpLegacy:before {
+    content: "\E010";
+}
+
+.icon.icon-ScrollChevronDownLegacy:before {
+    content: "\E011";
+}
+
+.icon.icon-search:before {
+    content: "\E71E";
+}
+
+.icon.icon-trim:before {
+    content: "\E78A";
+}
+
+.icon.icon-blockedLegacy:before {
+    content: "\E25B";
+}
+
+.vxTable .vxBody .vx-row-select {
+    text-align: center;
+}
+
+
+    .vxTable .vxBody .vx-row-select input[type="checkbox"] {
+        cursor: pointer;
+    }
+
+        .vxTable .vxBody .vx-row-select input[type="checkbox"]:focus,
+        .vxTable .vxBody .vx-row-select input[type="checkbox"]:active {
+            outline-color: #000;
+            outline-offset: 5px;
+            outline-style: dotted;
+            outline-width: thin;
+        }
+
+.vxTable .vxHead .vxHeadRow th.ddEnabled {
+    padding: 0;
+}
+
+.vxTable .vxHead th {
+    font-size: medium;
+    font-family: inherit;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.vxTable .vxBody tr.vxBodyRow.vs-repeat-repeated-element:last-of-type {
+    margin-bottom: 15px;
+}
+
+.vxTable .vxBody .vxBodyRow.vs-repeat-repeated-element {
+    top: 0 !important;
+    position: relative !important;
+    height: 48px;
+    max-height: 48px;
+    overflow: hidden;
+}
+
+    .vxTable .vxBody .vxBodyRow.vs-repeat-repeated-element td {
+        height: 48px;
+        overflow: hidden;
+        border: 1px solid #E0E0E0;
+    }
+
+.vxTable .vxBody .vxBodyRow.vxRowSelected .vxBodyRowCell {
+    background: #f0f7fc;
+}
+
+.vxTable .vxBody .vxBodyRow .vxBodyRowCell.rowSelectionCell {
+    border-left: 5px solid #fff;
+    text-align: center;
+    padding: 0;
+}
+
+.vxTable .vxBody .vxBodyRow.vxRowSelected .vxBodyRowCell.rowSelectionCell {
+    border-left: 5px solid #006ebd;
+}
+
+.vxTable .vxBody .vxBodyRow .vxBodyRowCell.groupCell {
+    background: #f0f0f0;
+    border-top: 3px solid #909090;
+}
+
+    .vxTable .vxBody .vxBodyRow .vxBodyRowCell.groupCell .first {
+        font-size: small;
+        text-transform: uppercase;
+    }
+
+    .vxTable .vxBody .vxBodyRow .vxBodyRowCell.groupCell .colname {
+        font-weight: 600;
+        margin-left: 15px;
+    }
+
+.vxTable .vxHead th .dropdown ul.dropdown-menu {
+    position: absolute;
+    border-radius: 0;
+    background-color: #23527c;
+    padding: 0;
+    margin: -1px 0 0 0;
+    max-height: 50vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    min-width: 300px;
+    width: 100%;
+}
+
+.vxTable .vxHead th .dropdown {
+    line-height: 48px;
+}
+
+    .vxTable .vxHead th .dropdown button.dropdown-toggle {
+        background: none;
+        color: #fff;
+        border: none;
+        width: 100%;
+        text-align: left;
+        margin: 0;
+        padding: 0 15px;
+        height: 48px;
+        box-shadow: none;
+        border-radius: 0;
+        font-family: inherit;
+        font-weight: 300;
+        font-size: 16px;
+        text-shadow: none;
+    }
+
+        .vxTable .vxHead th .dropdown button.dropdown-toggle:active,
+        .vxTable .vxHead th .dropdown button.dropdown-toggle:focus {
+            outline-color: #fff;
+            outline-style: dotted;
+            outline-offset: -5px;
+            outline-width: thin;
+        }
+
+    .vxTable .vxHead th .dropdown ul.dropdown-menu li.loader {
+        padding: 15px;
+        width: 100%;
+    }
+
+        .vxTable .vxHead th .dropdown ul.dropdown-menu li.loader img.dropDownLoader {
+            display: block;
+            margin: 0 auto;
+            width: 30px;
+            height: 30px;
+        }
+
+    .vxTable .vxHead th .dropdown.open button.dropdown-toggle {
+        background: #23527c;
+    }
+
+    .vxTable .vxHead th .dropdown .dropdown-toggle span.ddCaret {
+        width: 10px;
+        display: inline-block;
+    }
+
+    .vxTable .vxHead th .dropdown .dropdown-toggle.loading span.ddCaret {
+        display: none;
+    }
+
+    .vxTable .vxHead th .dropdown .dropdown-toggle span.colTitle {
+        font-family: inherit;
+        font-weight: 400;
+        display: inline-block;
+        width: calc(100% - 15px);
+        vertical-align: top;
+    }
+
+    .vxTable .vxHead th .dropdown ul.dropdown-menu li {
+        padding: 14px 15px;
+        text-align: left;
+        margin: 0;
+        line-height: normal;
+        font-family: inherit;
+        font-weight: 400;
+        font-size: 16px;
+        width: 100%;
+        white-space: normal;
+        word-break: break-all;
+    }
+
+.vxTable .vxHead ul.dropdown-menu li.filter input[type="checkbox"] {
+    margin-right: 15px;
+    vertical-align: top;
+}
+
+.vxTable .vxHead ul.dropdown-menu li.filter label {
+    font-family: inherit;
+    font-weight: 400;
+    font-size: medium;
+    width: calc(100% - 30px);
+    word-break: break-all;
+    margin-bottom: 0;
+    text-transform: none;
+}
+
+.vxTable .vxHead ul.dropdown-menu li.filterClear.disabled {
+    opacity: 0.60;
+    filter: alpha(opacity=60);
+    cursor: none;
+    pointer-events: none;
+}
+
+.vxTable .vxHead th .dropdown ul.dropdown-menu li:hover {
+    background: #000;
+}
+
+.vxTable .vxHead th .dropdown ul.dropdown-menu li a {
+    color: #fff;
+    padding: 0;
+}
+
+    .vxTable .vxHead th .dropdown ul.dropdown-menu li a:hover,
+    .vxTable .vxHead th .dropdown ul.dropdown-menu li a:focus {
+        background: none;
+    }
+
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.sorter .sortIndicator {
+    float: right;
+    font-size: small;
+}
+
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.sorter.sorting .sortIndicator {
+    display: inline-block;
+    color: #fff;
+}
+
+    .vxTable .vxHead th .dropdown ul.dropdown-menu li.sorter.sorting .sortIndicator.desc {
+        -ms-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.sorter.sorting.asc .sortIndicator.desc,
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.sorter.sorting:not(.asc) .sortIndicator.asc {
+    display: none;
+}
+
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.grouper .groupIndicator {
+    display: none;
+}
+
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.grouper.grouped .group,
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.grouper:not(.grouped) .ungroup {
+    display: none;
+}
+
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.hider .hideIndicator,
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.filterClear .indicator,
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.filter .filterCheckBox {
+    float: left;
+    position: relative;
+    margin-right: 15px;
+    top: -2px;
+}
+
+    .vxTable .vxHead th .dropdown ul.dropdown-menu li.filter .filterCheckBox.indicator {
+        color: transparent;
+        border: 1px solid #fff;
+        padding: 0;
+        font-size: small;
+    }
+
+        .vxTable .vxHead th .dropdown ul.dropdown-menu li.filter .filterCheckBox.indicator.checked {
+            color: #fff;
+        }
+
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.filter span.filterItemTitle {
+    margin: 0 10px 0 0;
+}
+
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.filterClear.disabled a {
+    color: #909090;
+}
+
+.vxTable .vxHead th .dropdown ul.dropdown-menu li.hider .hideIndicator .strikethrough:after {
+    content: "╱";
+    display: block;
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    left: 4px;
+    top: -1px;
+    position: absolute;
+}
+
+
+.vxTableSettings {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    font-family: 'Segoe UI';
+}
+
+    .vxTableSettings .vxSettingsHead {
+        height: 60px;
+        width: 100%;
+        font-family: inherit;
+        border-bottom: 1px dotted #A0A0A0;
+    }
+
+    .vxTableSettings .vxSettingsFooter {
+        height: 78px;
+        width: 100%;
+        font-family: inherit;
+        border-top: 1px dotted #A0A0A0;
+    }
+
+    .vxTableSettings .vxSettingsBody {
+        height: calc(100% - 125px);
+        padding: 0 0 15px 0;
+        width: 100%;
+        font-family: inherit;
+    }
+
+    .vxTableSettings .orderChanger {
+        height: 100%;
+    }
+
+    .vxTableSettings .columns {
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        height: calc(100% - 15px);
+    }
+
+        .vxTableSettings .columns label.help {
+            font-family: 'Segoe UI';
+            font-weight: 400;
+            color: #0073c6;
+            font-size: large;
+        }
+
+        .vxTableSettings .columns p.helpText {
+            font-family: 'Segoe UI';
+            font-weight: 400;
+            color: #303030;
+            font-size: small;
+        }
+
+
+    .vxTableSettings .orderChanger .columns {
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        height: calc(100% - 15px);
+    }
+
+    .vxTableSettings.columns .colItem:not(.locked) {
+        cursor: pointer;
+    }
+
+    .vxTableSettings .columns .colItem:focus,
+    .vxTableSettings .columns .colItem:active {
+        outline: 1px dotted #303030;
+        outline-offset: -5px;
+    }
+
+    .vxTableSettings .columns .colItem.selected:focus,
+    .vxTableSettings .columns .colItem.selected:active {
+        outline: 1px dotted #fff;
+        outline-offset: -5px;
+    }
+
+    .vxTableSettings .visChangers .visChangersContainer {
+        margin: 15px 0 0 0;
+        padding: calc(0.50 * (90vh - 300px)) 0;
+    }
+
+.visChangers .visChangersContainer .visChangersItem .icon-container {
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+.vxTableSettings button.vsTableButton {
+    padding: 10px 15px;
+    text-align: center;
+    min-width: 100px;
+    font-family: inherit;
+    font-size: medium;
+    background: none;
+    border: 2px solid #006ebd;
+    border-radius: 0;
+    color: #006ebd;
+    cursor: pointer;
+    margin: 15px 15px 0 0;
+}
+
+    .vxTableSettings button.vsTableButton.active {
+        background: #006ebd;
+        color: #fff;
+    }
+
+    .vxTableSettings button.vsTableButton.diasbled,
+    .vxTableSettings button.vsTableButton[diasbled] {
+        color: #000;
+        border: 2px solid #000;
+        opacity: 0.50;
+        filter: alpha(opacity=50);
+        cursor: none;
+    }
+
+.vxTableSettings label.title {
+    font-family: inherit;
+    color: #006ebd;
+    width: calc(100% - 52px);
+    display: inline-block;
+    font-family: 'Segoe UI';
+    line-height: 60px;
+    font-weight: 400;
+    font-size: large;
+    margin: 0;
+    padding: 0;
+}
+
+.vxTableSettings .vxSettingsHead .icon-container {
+    display: inline-block;
+    border: none;
+    margin-left: 0;
+}
+
+.vxSettingsBody .columns {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px dotted #A0A0A0;
+}
+
+    .vxSettingsBody .columns .colItem {
+        padding: 6px 0 4px 0;
+        background: transparent;
+        background-color: transparent;
+        border-bottom: 1px dotted #D0D0D0;
+        border-left: 3px solid #fff;
+    }
+
+        .vxSettingsBody .columns .colItem.locked {
+            background-color: #f8f1f1;
+             border-left: 3px solid #f8f1f1;
+        }
+
+        .vxSettingsBody .columns .colItem.selected {
+            background-color: #006ebd;
+            border-left: 3px solid #006ebd;
+        }
+
+            .vxSettingsBody .columns .colItem.selected label.colName,
+            .vxSettingsBody .columns .colItem.selected label.colLabel,
+            .vxSettingsBody .columns .colItem.selected label.colLabel .icon  {
+                color: #fff;
+            }
+
+        .vxSettingsBody .columns .colItem label.colName {
+            font-family: 'Segoe UI';
+            font-size: medium;
+            font-weight: 400;
+            color: #303030;
+            margin: 0;
+            line-height: 40px;
+            word-break: break-all;
+        }
+
+        .vxSettingsBody .columns .colItem input.inputStyle.colInput {
+            border: 1px solid #A0A0A0;
+            border-radius: 0;
+            font-family: 'Segoe UI';
+            font-size: medium;
+            font-weight: 400;
+            display: inline-block;
+            width: 75px;
+            text-align: center;
+            margin: 0 0 0 5px;
+            height: 40px;
+        }
+
+            .vxSettingsBody .columns .colItem input.inputStyle.colInput[disabled] {
+                background: transparent;
+            }
+
+        .vxSettingsBody .columns .colItem.selected input.inputStyle.colInput {
+            background: transparent;
+            border-color: #fff;
+            color: #fff;
+        }
+
+        .vxSettingsBody .columns .colItem label.colLabel {
+            font-family: 'Segoe UI';
+            font-size: medium;
+            font-weight: 400;
+            color: #303030;
+            line-height: 40px;
+            display: inline-block;
+            margin: 0;
+        }
+
+            .vxSettingsBody .columns .colItem label.colLabel.xl {
+                font-family: 'Segoe UI';
+                font-size: large;
+                font-weight: 400;
+                color: #303030;
+                line-height: 40px;
+                display: inline-block;
+                margin: 0;
+            }
+
+            .vxSettingsBody .columns .colItem label.colLabel .icon {
+                color:#bb0000;
+            }
+
+        .vxSettingsBody .columns .colItem input.colCheckbox {
+            position: relative;
+            top: 2px;
+            margin-left: 5px;
+        }
+
+.vxSettingsBody .orderMovers {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+    .vxSettingsBody .orderMovers .icon-container {
+        display: inline-block;
+        margin-left: 15px;
+        border-color: #303030;
+        color: #303030;
+        width: 40px;
+        line-height: 40px;
+        margin-top: 15px;
+    }
+
+
+        .vxSettingsBody .orderMovers .icon-container.disabled {
+            color: #909090;
+            background: #f0f0f0;
+            border-color: #A0A0A0;
+            opacity: 1;
+            filter: alpha(opacity=100);
+            cursor: none;
+        }
+
+
+.vxTableSettings .vxSettingsFooter .infoBtns {
+    display:inline-block;
+    padding: 10px 15px;
+    font-family: inherit;
+    font-size: medium;
+    position:relative;
+    top:10px;
+    color:#303030;
+}
+
+    .vxTableSettings .vxSettingsFooter .infoBtns .icon {
+        font-size:medium;
+        color:#bb0000;
+    }
+
+    .vxTableSettings .vxSettingsFooter .infoBtns .infoLabel {
+        font-family:inherit;
+        font-size:medium;
+        margin-left:5px;
+        margin-right:20px;
+        color:#303030;
+        vertical-align:top;
+    }
+
+.vxGridManageColMod .modal-dialog {
+    height: 90vh;
+    width: 90%;
+    margin: 5vh auto;
+    border-radius: 0;
+}
+
+    .vxGridManageColMod .modal-dialog .modal-content {
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+        padding: 0 15px 15px 15px;
+    }
+
+        .vxGridManageColMod .modal-dialog .modal-content .modal-body {
+            height: 100%;
+            width: 100%;
+            border-radius: 0;
+            padding: 0;
+        }
+
+
+.vsTableStats label.statTitle {
+    color: #303030;
+    font-family: 'Segoe UI';
+    font-size: medium;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 40px;
+    margin: 6px 5px 4px 5px;
+}
+
+.vsTableStats label.statValue {
+    color: #0073c6;
+    font-family: 'Segoe UI';
+    font-size: medium;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 40px;
+    margin-right: 15px;
+    margin: 6px 15px 4px 0;
+}
+
+    .vsTableStats label.statTitle.disabled,
+    .vsTableStats label.statValue.disabled {
+        opacity: 0.25;
+        filter: alpha(opacity=25);
+        color: #000000;
+    }
+
+img.vxGridAttendReqd {
+    width: 18px;
+    display: block;
+    margin: 0 auto;
+}

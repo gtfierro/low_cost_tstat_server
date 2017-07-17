@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "<%= fontBaseName.charAt(0).toUpperCase() + fontBaseName.slice(1) %>";
+  
+  src: <%= fontSrc1 %>;
+  
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "<%= fontBaseName.charAt(0).toUpperCase() + fontBaseName.slice(1) %>";
+  
+  src: <%= fontSrc2 %>;
+  
+  font-weight: normal;
+  font-style: normal;
+}
+
+i[class*="<%= classPrefix %>"] {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  font-size: 20px;
+  color: #eee;
+  line-height: 30px;
+  vertical-align: middle;
+  text-decoration: none;
+  text-transform: none;
+  font-style: normal;
+  font-weight: normal;
+  
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  speak: none;
+}
+
+i[class*="<%= classPrefix %>"]:before {
+  font-family: "<%= fontBaseName.charAt(0).toUpperCase() + fontBaseName.slice(1) %>";
+}
+
+<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+.<%= classPrefix %><%= glyphs[glyphIdx] %>:before { content: "\<%= codepoints[glyphIdx] %>"; }
+<% } %>

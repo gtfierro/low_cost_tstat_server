@@ -1,0 +1,25 @@
+﻿@import 'variables';
+@import 'mixins';
+
+/* Top Header */
+nav.navbar-elements {
+    background: @el-white-color;
+    border: @el-none;
+    padding: @base-em 0;
+    font-family: @base-fontfamily;
+
+    .el-usercontext label {
+        font-weight: @el-base-fontweight;
+        color: @black-color;
+        padding: @base-em (@base-em)-0.5em;
+        border-right: @el-pipe-thickness @el-pipe-type @el-pipe-color;
+    }
+
+    .el-usercontext label + a {
+        color: @black-color;
+        padding: @base-em (@base-em)-0.5em;
+    }
+}
+.slim-header {min-height:50px;max-height:57px;padding-top:6px;padding-bottom:6px;color:#fff;}
+.slimprofile img{max-width:40px;border:2px solid #ebebeb}
+.profilename{color:#fff;font-size: 20px;line-height: 38px; }

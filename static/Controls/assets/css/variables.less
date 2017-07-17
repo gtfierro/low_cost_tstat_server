@@ -1,0 +1,77 @@
+﻿@import "themes/theme.less";
+/* Importing file dynamically */
+@import "@{theme-src}/@{theme-file}";
+
+/* >> BELOW LINE NOT TO BE IN DEPLOYMENT  <<*/
+@import "themes/default.less";
+
+/*
+    >>>>>>>>>>  LESS -- VARIABLES
+*/
+
+/* Default width and height */
+@base-width: @el-th-base-width;
+@base-height: @el-th-base-height;
+/* Default dimension in px */
+@el-base-pixel: @el-th-base-pixel;
+@base-margin-layout: @el-th-base-margin-layout;
+@base-fontfamily: @el-th-base-fontfamily;
+@base-padding: @el-th-base-padding;
+@mandatory-color: @el-th-mandatory-color;
+@black-color: @el-th-black-color;
+@base-em: @el-th-base-em;
+@base-float: @el-th-base-float;
+@el-none: @el-th-none;
+@el-display-inline: @el-th-display-inline;
+@el-default-pixel: @el-th-default-pixel;
+@el-blue-color: @el-th-blue-color;
+@el-base-custom-width: @el-th-base-custom-width;
+@el-base-outline: @el-th-base-outline;
+@el-base-border: @el-th-base-border;
+@el-white-color: @el-th-white-color;
+@el-base-position: @el-th-base-position;
+@el-base-position-relative: @el-th-base-position-relative;
+@el-pipe-color: @el-th-pipe-color;
+@el-pipe-thickness: @el-th-pipe-thickness;
+@el-pipe-type: @el-th-pipe-type;
+@el-base-fontweight: @el-th-base-fontweight;
+@el-menubar-bg: @el-th-menubar-bg;
+@el-base-fontsize: @el-th-base-fontsize;
+@el-label-color: @el-th-label-color;
+@el-fill-color: @el-th-fill-color;
+@el-base-button-color: @el-th-base-button-color;
+@el-table-bottom: @el-th-table-bottom;
+@el-tb-th-bg: @el-th-tb-th-bg;
+@el-tb-trtd: @el-th-tb-trtd;
+@el-tb-pg-color: @el-th-tb-pg-color;
+@el-tb-pg-current: @el-th-tb-pg-current;
+@el-tb-disabled: @el-th-tb-disabled;
+@el-menu-selected-bg: @el-th-menu-selected-bg;
+@el-submenu-color: @el-th-submenu-color;
+@el-sbumenu-headcolor: @el-th-sbumenu-headcolor;
+
+/* Alert components inner and icon colors */
+@el-warning-color: @el-th-warning-color;
+@el-warning-inner: @el-th-warning-inner;
+@el-error-color: @el-th-error-color;
+@el-error-inner: @el-th-error-inner;
+@el-warning-border: @el-th-warning-border;
+@el-success-color: @el-th-success-color;
+@el-success-inner: @el-th-success-inner;
+@el-info-color: @el-th-info-color;
+@el-info-inner: @el-th-info-inner;
+/* End of alert region */
+
+@el-megafooter-bg: @el-th-megafooter-bg;
+@el-megafooter-border: @el-th-megafooter-border;
+/* Table*/
+@el-table-action-color: @el-th-table-action-color;
+/* Toast */
+@el-toast-success-bg: @el-th-toast-success-bg;
+@el-toast-error-bg: @el-th-toast-error-bg;
+@el-toast-info-bg: @el-th-toast-info-bg;
+@el-toast-note-bg: @el-th-toast-note-bg;
+@el-toast-wait-bg: @el-th-toast-wait-bg;
+@el-toast-warning-bg: @el-th-toast-warning-bg;
+/* Disabled */
+@el-disabled-bg: @el-th-disabled-bg;

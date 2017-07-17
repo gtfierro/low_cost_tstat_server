@@ -1,0 +1,182 @@
+﻿@import 'variables';
+
+
+#toast-container {
+    position: fixed;
+    z-index: 999999;
+    font-family: Tahoma, Geneva, sans-serif !important;
+    font-size: 12px;
+}
+
+#toast-container > .toast {
+    cursor: pointer;
+    margin: 0 0 6px;
+    padding: 0;
+    width: 285px;
+    height: 85px;
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 0px;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px;
+    opacity: 0.9;
+    position: relative;
+}
+
+#toast-container > .toast.ng-enter, #toast-container > .toast.ng-leave {
+    -webkit-transition: 550ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 550ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 550ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 550ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 550ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+}
+
+#toast-container > .toast.ng-enter.ng-enter-active, #toast-container > .toast.ng-leave {
+    opacity: 0.8;
+}
+
+#toast-container > .toast.ng-leave.ng-leave-active,
+#toast-container > .toast.ng-enter {
+    opacity: 0;
+}
+
+/* Positioning */
+.toast-top-left {
+    top: 12px;
+    left: 12px;
+}
+
+.toast-top-right {
+    top: 12px;
+    right: 12px;
+}
+
+.toast-bottom-right {
+    right: 12px;
+    bottom: 12px;
+}
+
+.toast-bottom-left {
+    bottom: 12px;
+    left: 12px;
+}
+
+/* Close Button */
+button.toast-close-button {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    position: absolute;
+    left: 265px;
+    top: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: @el-white-color;
+    -webkit-text-shadow: 0 1px 0 @el-white-color;
+    text-shadow: 0 1px 0 @el-white-color;
+    opacity: 0.8;
+}
+
+button.toast-close-button:hover, button.toast-close-button:focus {
+    color: @black-color;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.toast-text {
+    padding: 15px;
+    color: @el-white-color;
+    display: block;
+    vertical-align: middle;
+    max-height: 70px;
+    overflow: hidden;
+}
+
+.toast-title {
+    font-size: 15px;
+    font-weight: bold;
+    height: 24px;
+    overflow: hidden;
+    display: block;
+}
+
+.toast-message a, .toast-message label {
+    color: @el-white-color;
+}
+
+.toast-message a:hover {
+    color: #cccccc;
+    text-decoration: none;
+}
+
+
+/* Image */
+.toast-image {
+    height: 85px;
+    overflow: hidden;
+    float: left;
+    width: 80px;
+}
+
+.toast-image img {
+    width: 80px;
+    height: 85px;
+}
+
+/* Colours */
+.toast-success {
+    background-color: @el-toast-success-bg;
+}
+
+.toast-error {
+    background-color: @el-toast-error-bg;
+}
+
+.toast-info {
+    background-color: @el-toast-info-bg;
+}
+
+.toast-note {
+    background-color: @el-toast-note-bg;
+}
+
+.toast-wait {
+    background-color: @el-toast-wait-bg;
+}
+
+.toast-warning {
+    background-color: @el-toast-warning-bg;
+}
+
+/*Responsive Design*/
+@media all and (max-width: 240px) {
+    #toast-container > div {
+        padding: 8px 8px 8px 50px;
+        width: 11em;
+    }
+
+    #toast-container .toast-close-button {
+        right: -0.5em;
+        top: -0.9em;
+    }
+}
+
+@media all and (min-width: 241px) and (max-width: 480px) {
+    #toast-container > div {
+        width: 18em;
+    }
+
+    #toast-container .toast-close-button {
+        right: -0.5em;
+        top: -0.9em;
+    }
+}
+
+@media all and (min-width: 481px) and (max-width: 768px) {
+    #toast-container > div {
+        width: 25em;
+    }
+}

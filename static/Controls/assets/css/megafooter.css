@@ -1,0 +1,100 @@
+﻿/* Importing file dynamically */
+/* Default theme*/
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/* Default width and height */
+/* Default dimension in px */
+/* Alert components inner and icon colors */
+/* End of alert region */
+/* Table*/
+/* Toast */
+/* Disabled */
+/* Mixins */
+/* Mixin for padding @parameters -- by default @base-em:1em*/
+/* Mixin for border @parameters - default @size, @type and @color */
+.megaFooterLinks {
+  margin-bottom: 30px;
+}
+.megaFooterLinks h3 {
+  /*margin-top:0;*/
+  margin-bottom: 20px;
+}
+.megaFooterLinks ul {
+  padding: 0;
+}
+.megaFooterLinks ul li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+.megaFooterLinks ul li a {
+  color: #0073c6;
+  font-size: 16px;
+}
+.el-mega-footer .footer {
+  background: #262626;
+  border-top: 8px solid #294458;
+  padding: 40px 0 10px 0;
+  width: 100%;
+  margin: 0 auto;
+}
+.el-mega-footer .footer.fixed {
+  position: absolute;
+  bottom: 0;
+}
+.el-mega-footer .footer .footerWrap {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.el-mega-footer .footer .megaFooterLinks {
+  margin-bottom: 40px !important;
+}
+.el-mega-footer .footer .megaFooterLinks a {
+  text-decoration: none;
+  color: #aaaaaa;
+  font-size: 14px;
+}
+.el-mega-footer .footer .megaFooterLinks h4 {
+  margin-bottom: 20px !important;
+  color: #fff;
+  font-size: 16px;
+}
+.el-mega-footer .footer .megaFooterLinks ul li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+.el-mega-footer .footerBottom span {
+  margin-right: 10px;
+  color: #fff;
+  font-size: 18px;
+}
+.el-mega-footer .footerBottom ul.el-items {
+  padding: 0;
+}
+.el-mega-footer .footerBottom ul.el-items li {
+  list-style: none;
+  border-right: 1px solid #ffffff !important;
+  padding: 0em 1em;
+  font-size: 14px;
+  float: left;
+}
+.el-mega-footer .footerBottom ul.el-items li:last-child {
+  border-right: none !important;
+}
+.el-mega-footer .footerBottom ul.el-items li:first-child {
+  text-align: left;
+  padding-left: 0px !important;
+}
+.el-mega-footer .footerBottom ul.el-items li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.el-mega-footer .footerBottom ul.el-items li a:active,
+.el-mega-footer .footerBottom ul.el-items li a:focus {
+  text-decoration: none;
+}
+/*# sourceMappingURL=megafooter.css.map */

@@ -1,0 +1,60 @@
+﻿@import 'variables.less';
+@import 'mixins.less';
+
+/*
+    >>>>>>>>>>  LESS -- ALERT
+*/
+
+.alert-icon {
+    float: left;
+    margin-right: 10px;
+    font-size: 25px;
+    top: -1px;
+}
+
+/* Mixin for common function */
+.el-alert-type(@border-width, @border-type, @border-color, @alert-text-color, @alert-background, @icon-padding-top, @icon-padding-right, @icon-padding-bottom, @icon-padding-left, @icon-background, @icon-color, @icon-border-color, @iconfloat) {
+    .border(@border-width, @border-type, @border-color);
+    color: @alert-text-color;
+    background: @alert-background;
+
+    i {
+        position: relative;
+        .padding(@icon-padding-top,@icon-padding-right,@icon-padding-bottom,@icon-padding-left);
+        top: -6px;
+        left: -14px;
+        font-size: 1.25em;
+        margin-right: 0;
+        background: @icon-background;
+        color: @icon-color;
+        border-right: @border-width solid @icon-border-color;
+        float: @iconfloat;
+    }
+
+    p {
+        padding-left: 32px;
+    }
+}
+
+div#alertContainer {
+    div.alert {
+        .padding(0.43em,2em,0.43em);
+        .border-radius(0);
+    }
+
+    div.alert-warning {
+        .el-alert-type(@el-base-pixel,solid,@el-warning-border,@black-color,@el-warning-inner,8px,7px,7px,7px,@el-warning-color,@black-color,@el-warning-border,@base-float);
+    }
+
+    div.alert-danger {
+        .el-alert-type(@el-base-pixel,solid,@el-error-color,@black-color,@el-error-inner,8px,7px,7px,7px,@el-error-color,@el-white-color,@el-error-color,@base-float);
+    }
+
+    div.alert-info {
+        .el-alert-type(@el-base-pixel,solid,@el-info-color, @black-color,@el-info-inner,8px,12px,7px,13px,@el-info-color,@el-white-color,@el-info-color,@base-float);
+    }
+
+    div.alert-success {
+        .el-alert-type(@el-base-pixel,solid,@el-success-color,@black-color,@el-success-inner,8px,8px,7px,8px,@el-success-color,@el-white-color,@el-success-color,@base-float);
+    }
+}

@@ -1,0 +1,191 @@
+﻿@import 'variables';
+
+.navbar {
+    margin-bottom: 0px;
+    border: 0px !important;
+    min-height: (@el-default-pixel)+20px !important;
+}
+
+.collapse {
+    min-height: (@el-default-pixel)+20px !important;
+}
+
+.display{
+    display:block !important
+
+}
+.megamenu-aj .selectedClass{
+    background:@el-menu-selected-bg;
+}
+
+.el-menucontainer {
+    background: @el-menubar-bg;
+    font-family: @base-fontfamily;
+
+    .el-menu {
+        ul {
+            padding: 0;
+
+            li {
+                float: left;
+                list-style: @el-none !important;
+                text-decoration: @el-none;
+                padding: (@base-em)-0.4em @base-em (@base-em)-0.4em 0;
+                border: @el-none;
+
+                a {
+                    color: @el-white-color;
+                    text-decoration: none;
+                    padding: (@base-em)-0.3em @base-em;
+                    outline: 0;
+
+                    &:focus, &:active, &:hover, {
+                        color: @black-color !important;
+                        text-decoration: none;
+                        background: #f8d255;
+                    }
+                }
+
+                a.selected:focus + ul.el-submenu, align-content.selected:active + ul.el-submenu {
+                    display: block !important;
+                    background: @el-menu-selected-bg;
+                    position: absolute;
+                    padding: 0;
+                    margin: 0;
+                    top: @base-width;
+                    margin-top: (@base-em)-1.03em;
+                    z-index: 9999;
+
+                    li {
+                        float: none;
+                        clear: both;
+                        padding: (@base-em)-0.5em 0;
+
+                        a {
+                            color: @black-color !important;
+                        }
+                    }
+                }
+                /* Sub menu */
+                .el-submenu {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .el-addons {
+        ul {
+            width: @base-width;
+
+            li {
+                float: left;
+                list-style: @el-none;
+                text-decoration: @el-none;
+                padding: (@base-em)-0.8em (@base-em)-0.7em;
+
+                a {
+                    color: @el-white-color;
+                    text-decoration: @el-none;
+                    padding: (@base-em)-0.8em (@base-em)-0.7em;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+
+/* Submenu*/
+div.el-megasubmenu {
+    background: @el-menu-selected-bg;
+    z-index: 9999;
+    position: @el-base-position;
+    width: @base-width;
+
+    div.el-container {
+        display: none;
+    }
+
+    div.el-submenu-container {
+        div.el-menuheader {
+            color: @el-sbumenu-headcolor;
+            padding: @base-em 0;
+        }
+
+        ul {
+            padding: 0;
+
+            li {
+                list-style: @el-none;
+                color: @el-submenu-color;
+                padding: (@base-em)-0.7em 0;
+                font-size: 14px;
+                font-family: @base-fontfamily;
+
+                a {
+                    color: @el-submenu-color !important;
+                }
+            }
+        }
+    }
+                          }
+                            
+.megamenu-aj.el-menucontainer .el-menu ul li{
+    padding:0px;
+    margin-left:10px;
+}
+.megamenu-aj.el-menucontainer .el-menu ul li a{
+    display:block;
+    padding:1em;
+}
+.view-container {
+  position:relative;
+}
+.view-animation.ng-enter {
+  -webkit-animation: enter_animation 1s; 
+  animation: enter_animation 1s; 
+
+  /* 
+   * ng-animate has a slight starting delay for optimization purposes
+   * so if you see a flicker effect then you'll need to put some extra
+   * styles to "shim" the animation.
+   */
+  left:100%;
+}
+
+.view-animation.ng-leave {
+  -webkit-animation: leave_animation 1s; 
+  animation: leave_animation 1s;
+  left:0%;
+}
+
+.view-animation.ng-leave,
+.view-animation.ng-enter {
+  position:absolute;
+  top:0;
+  width:100%; 
+}
+
+/*
+ * the animation below will move enter in the view from the right side of the screen
+ * and move the current (expired) view from the center of the screen to the left edge
+ */
+@keyframes enter_animation {
+  from { left:-100%; }
+  to { left:0; }
+}
+
+@-webkit-keyframes enter_animation {
+  from { left:-100%; }
+  to { left:0; }
+}
+
+@keyframes leave_animation {
+  from { left:0; }
+  to { left:-100%; }
+}
+
+@-webkit-keyframes leave_animation {
+  from { left:0; }
+  to { left:-100%; }
+}

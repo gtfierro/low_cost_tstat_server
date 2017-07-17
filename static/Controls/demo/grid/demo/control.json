@@ -1,0 +1,8 @@
+﻿{
+    "sizeX": 12,
+    "sizeY": 6,
+    "row": 1,
+    "col": 0,
+    "template": "/Controls/demo/grid/demo/demo.html",
+    "componentName": "Grid"
+  }

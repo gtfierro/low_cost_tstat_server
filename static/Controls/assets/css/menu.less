@@ -1,0 +1,131 @@
+﻿@import 'variables';
+
+.no-pad {
+    padding: 0;
+}
+
+.navbar {
+    margin-bottom: 0;
+    border: 0 !important;
+    min-height: (@el-default-pixel)+20px !important;
+}
+
+.collapse {
+    min-height: (@el-default-pixel)+20px !important;
+}
+
+.display{
+    display:block !important
+
+}
+.megamenu-aj .selectedClass{
+    background:@el-menu-selected-bg;
+}
+
+.el-menucontainer {
+    background: @el-menubar-bg;
+    font-family: @base-fontfamily;
+
+    .el-menu {
+        ul {
+            padding: 0;
+
+            li {
+                float: left;
+                list-style: @el-none !important;
+                text-decoration: @el-none;
+                padding: (@base-em)-0.4em @base-em (@base-em)-0.4em 0;
+                border: @el-none;
+
+                a {
+                    color: @el-white-color;
+                    text-decoration: none;
+                    padding: (@base-em)-0.3em @base-em;
+                    outline: 0;
+
+                    &:focus, &:active, &:hover, {
+                        color: @black-color !important;
+                        text-decoration: none;
+                        background: #f8d255;
+                    }
+                }
+
+                a.selected:focus + ul.el-submenu, align-content.selected:active + ul.el-submenu {
+                    display: block !important;
+                    background: @el-menu-selected-bg;
+                    position: absolute;
+                    padding: 0;
+                    margin: 0;
+                    top: @base-width;
+                    margin-top: (@base-em)-1.03em;
+                    z-index: 9999;
+
+                    li {
+                        float: none;
+                        clear: both;
+                        padding: (@base-em)-0.5em 0;
+
+                        a {
+                            color: @black-color !important;
+                        }
+                    }
+                }
+                /* Sub menu */
+                .el-submenu {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .el-addons {
+        ul {
+            width: @base-width;
+
+            li {
+                float: left;
+                list-style: @el-none;
+                text-decoration: @el-none;
+                padding: (@base-em)-0.8em (@base-em)-0.7em;
+
+                a {
+                    color: @el-white-color;
+                    text-decoration: @el-none;
+                    padding: (@base-em)-0.8em (@base-em)-0.7em;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+/*added for angular*/
+.angularmenuel .navbar-nav > li > .dropdown-menu {
+    background: #f8d255;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.angularmenuel .navbar-nav > li > .dropdown-menu > li {
+    padding: 0;
+}
+
+.angularmenuel .navbar-nav > li > .dropdown-menu > li > a {
+    color: @black-color;
+}
+
+.angularmenuel .navbar-collapse > ul.navbar-nav > li {
+    padding: 0;
+    margin: 0 @el-default-pixel;
+} 
+
+.angularmenuel .el-menucontainer .el-addons ul li a:hover {
+    background: transparent;
+}
+
+.angularmenuel .el-menucontainer .el-addons ul li a:hover i {
+    color: @el-white-color;
+}
+.angularmenuel .nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+    background:#f8d255;
+}
