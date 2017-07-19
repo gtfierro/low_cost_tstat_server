@@ -77,7 +77,7 @@ def ThermalResponce(Tin, Tout, SetPointHeating, SetPointCooling, Interval):
                         random.seed(Interval)
                 c = [0.01,  0.01, 0.005]
                 sigma = 0.00003
-                TempOfAirH = 30
+                TempOfAirH = 100
                 TempOfAirC = 15
                 if SetPointHeating>Tin:
                         print("yo")
