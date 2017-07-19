@@ -20,7 +20,7 @@
 <body ng-app="app" style="width:768px">
     <div ng-controller="AppController" style="height:100%;width:100%">
         <!-- All components -->
-        <div style="height:768px;width:768px;display:inline-block;float:left">
+        <div style="height:768px;width:768px;display:inline-block">
             
                 <div class="main">
                     <div class="lights" style="transform:rotate(155deg)">
@@ -105,7 +105,7 @@
                 <center class="heatingText">{{temperature.outside}}</center>                
             </div>
         </div>
-        <div style="display:inline-block;float:left">
+        <div style="display:inline-block">
             <div class="panel-body">
                 <chartist class="ct-chart ct-golden-section" chartist-data="asyncData" chartist-chart-type="Line" chartist-events="events"></chartist>
             </div>            
