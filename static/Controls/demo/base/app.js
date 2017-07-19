@@ -107,10 +107,9 @@
             $interval(function () {
                 Update();
                 $scope.setTimestamps();
-            }.bind(this), 1000);
+            }.bind(this), 10000);
             console.log('power');
-            $scope.setTimestamps("power");
-            Update();
+            $scope.setTimestamps("power");           
         };
 
         $scope.timer = function () {
@@ -206,6 +205,9 @@
                 );
         };
         Get();
+        $interval(function () {            
+            $scope.setTimestamps();
+        }.bind(this), 10000);
         console.log("abc");
 
     }
