@@ -171,8 +171,8 @@ def dosim():
         interval = 1 #1 -> 96; day divided up to 15 min interval
         # TODO: need timestamp from tstat. Need to generate this on the client
         # side because we could be speeding up a simulation.
-        cooling_setpoint = FtoC(data['sensors'][0]['setpoint'] + 4)
-        heating_setpoint = FtoC(data['sensors'][0]['setpoint'] - 4)
+        cooling_setpoint = FtoC(data['sensors'][0]['setpoint'] + 2)
+        heating_setpoint = FtoC(data['sensors'][0]['setpoint'] - 2)
         tin, tout, interval, heating = Forward(current_temperature, interval, heating_setpoint, cooling_setpoint), cooling = Forward(current_temperature, interval, heating_setpoint, cooling_setpoint)
         print('cool',cooling_setpoint,'heat',heating_setpoint)
         print(tin, tout, interval, heating, cooling)
