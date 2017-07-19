@@ -14,7 +14,7 @@
     <link href="/Controls/assets/css/shell-0.4.0.css" rel="stylesheet" />
     <link href="/Controls/assets/css/controller.less" rel="stylesheet/less" />    
     <link href="/Content/chartist.css" rel="stylesheet" />
-    <link href="/Content/Site.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />    
 </head>
 
 <body ng-app="app" style="width:768px">
@@ -88,9 +88,9 @@
                         <div id="power" class="circle large" ng-click='power()'>
                             <center></center>
                         </div>
-                        <div id="eco" class="eco large active" ng-click='eco()'>
+                        <div id="eco" class="eco large active">
                         </div>
-                        <div id="timer" class="circle large" ng-click='timer()'>
+                        <div id="timer" class="circle large" ng-click='power()'>
                             <center></center>
                         </div>
                     </div>
@@ -106,6 +106,9 @@
             </div>
         </div>
         <div>
+            <div class="panel-body">
+                <chartist class="ct-chart ct-golden-section" chartist-data="asyncData" chartist-chart-type="Line" chartist-events="events"></chartist>
+            </div>
             <div class="panel-body">
                 <chartist class="ct-chart ct-golden-section" chartist-data="asyncData" chartist-chart-type="Line" chartist-events="events"></chartist>
             </div>
