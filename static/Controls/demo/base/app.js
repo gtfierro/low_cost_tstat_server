@@ -53,12 +53,6 @@
                     console.log("setpoint", $scope.setpoint);
                     $scope.temperature.inside = $scope.current;
                     $scope.temperature.outside = $scope.outside;
-                    if ($scope.asyncData.labels.length > 10)
-                    {
-                        $scope.asyncdata.labels.shift();
-                        $scope.asyncData.series[0].shift();
-                        $scope.asyncData.series[1].shift();
-                    }
                     $scope.asyncData.labels.push(timestamp.toString());
                     $scope.asyncData.series[0].push($scope.current);
                     $scope.asyncData.series[1].push($scope.setpoint);
