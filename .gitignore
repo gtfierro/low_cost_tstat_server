@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/static/.vs
+/.vs/config
+/.vs/low_cost_tstat_server/v15

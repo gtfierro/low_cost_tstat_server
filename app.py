@@ -69,44 +69,44 @@ Seeding=True
 #TODO add ventilation action?
 #Thermal Response
 def ThermalResponce(Tin, Tout, SetPointHeating, SetPointCooling, Interval):
-	if SetPointHeating >= SetPointCooling:
-		print "Action error"
-		return nan
-	else:
-		if Seeding:
-			random.seed(Interval)
-		c = [0.01,  0.01, 0.005]
-		sigma = 0.00003
-		TempOfAirH = 30
-		TempOfAirC = 15
-		if SetPointHeating>Tin:
-			print "yo"
-			Heating=1
-			Cooling=0
-		elif SetPointCooling<Tin:
-			Heating=0
-			Cooling=1
-		else:
-			Heating=0
-			Cooling=0
-		print Heating,Cooling
-		return float(Tin) + float(c[0])*(float(TempOfAirH)-float(Tin))*Heating + float(c[1])*(float(TempOfAirC)-float(Tin))*Cooling - float(c[2])*(float(Tin)-float(Tout)) + random.gauss(0, sigma), Heating, Cooling
+        if SetPointHeating >= SetPointCooling:
+                print("Action error")
+                return nan
+        else:
+                if Seeding:
+                        random.seed(Interval)
+                c = [0.01,  0.01, 0.005]
+                sigma = 0.00003
+                TempOfAirH = 30
+                TempOfAirC = 15
+                if SetPointHeating>Tin:
+                        print("yo")
+                        Heating=1
+                        Cooling=0
+                elif SetPointCooling<Tin:
+                        Heating=0
+                        Cooling=1
+                else:
+                        Heating=0
+                        Cooling=0
+                print(Heating,Cooling)
+                return float(Tin) + float(c[0])*(float(TempOfAirH)-float(Tin))*Heating + float(c[1])*(float(TempOfAirC)-float(Tin))*Cooling - float(c[2])*(float(Tin)-float(Tout)) + random.gauss(0, sigma), Heating, Cooling
 
 def Forward(Tin, Interval, SetPointHeating, SetPointCooling):
-   	Tin, Heating, Cooling =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval)
-	if Interval==Intervals:
-		Interval=1
-	else:
-		Interval+=1
-	Tout=Touts[Interval-1]
-	return Tin, Tout, Interval, Heating, Cooling
+        Tin, Heating, Cooling =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval)
+        if Interval==Intervals:
+                Interval=1
+        else:
+                Interval+=1
+        Tout=Touts[Interval-1]
+        return Tin, Tout, Interval, Heating, Cooling
 
 def Start():
-	TinINIT=22
-	Interval=1
-   	Tin=TinINIT
-	Tout=Touts[Interval-1]
-	return Tin, Tout, Interval
+        TinINIT=22
+        Interval=1
+        Tin=TinINIT
+        Tout=Touts[Interval-1]
+        return Tin, Tout, Interval
 
 app = Flask(__name__, static_url_path='')
 
@@ -141,7 +141,7 @@ def dosim():
               "action": "cooling",
               "current": 75,
               "setpoint": 73,
-			  "outside":76,
+              "outside": 76,
               "type": "temperature"
             }
           ],
@@ -165,7 +165,8 @@ def dosim():
         }
         return jsonify(data)
     if request.method == 'POST':
-        data = json.loads(request.data)
+        data = request.json
+        print(data)
         current_temperature = FtoC(data['sensors'][0]['current'])
         interval = 1 #1 -> 96; day divided up to 15 min interval
         # TODO: need timestamp from tstat. Need to generate this on the client
@@ -176,8 +177,7 @@ def dosim():
         print('cool',cooling_setpoint,'heat',heating_setpoint)
         print(tin, tout, interval, heating, cooling)
         data['sensors'][0]['current'] = CtoF(tin)
-		data['sensors'][0]['outside'] = CtoF(tout)
-
+        data['sensors'][0]['outside'] = CtoF(tout)
         num_heating_requests = 0
         num_cooling_requests = 0
         for tap in data['control_interface']:
@@ -188,6 +188,10 @@ def dosim():
         setpoint_diff = num_cooling_requests - num_heating_requests
         setpoint_diff *= 1
         print("diff",setpoint_diff,num_heating_requests,num_cooling_requests)
+        if setpoint_diff > 0:
+            data['sensors'][0]['action'] = 'heating'
+        elif setpoint_diff < 0:
+            data['sensors'][0]['action'] = 'cooling'
         data['sensors'][0]['setpoint'] = CtoF(FtoC(data['sensors'][0]['setpoint']) + setpoint_diff)
 
 
