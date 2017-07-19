@@ -73,6 +73,8 @@
     background-size: contain;
     margin-top:50px;
     margin-left:25%;
+    display:inline-block;
+    float:left;
 }
 
 .insideTemp{
