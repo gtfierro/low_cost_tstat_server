@@ -54,8 +54,8 @@
                     $scope.temperature.inside = $scope.current;
                     $scope.temperature.outside = $scope.outside;
                     $scope.asyncData.labels.push(timestamp.toString());
-                    $scope.asyncData.series[0].push($scope.current);
-                    $scope.asyncData.series[1].push($scope.setpoint);
+                    $scope.asyncData.series[0].push($scope.data.sensors[0].current);
+                    $scope.asyncData.series[1].push($scope.data.sensors[0].setpoint);
                     var lights = $('.light');
                     lights.each(function () {
                         $(this).removeClass("heating cooling setpoint");
@@ -175,8 +175,8 @@
                     $scope.temperature.inside = $scope.current;
                     $scope.temperature.outside = $scope.outside;
                     $scope.asyncData.labels.push(timestamp.toString());
-                    $scope.asyncData.series[0].push($scope.current);
-                    $scope.asyncData.series[1].push($scope.setpoint);
+                    $scope.asyncData.series[0].push($scope.data.sensors[0].current);
+                    $scope.asyncData.series[1].push($scope.data.sensors[0].setpoint);
                     var lights = $('.light');
                     lights.each(function () {
                         $(this).removeClass("heating cooling setpoint");
