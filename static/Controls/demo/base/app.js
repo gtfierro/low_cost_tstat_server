@@ -156,7 +156,7 @@
         var Get = function () {
 
             $http({
-                url: '/Scripts/status.json',
+                url: '/sim',
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
