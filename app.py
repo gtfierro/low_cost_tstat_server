@@ -90,10 +90,11 @@ def ThermalResponce(Tin, Tout, SetPointHeating, SetPointCooling, Interval):
                         Heating=0
                         Cooling=0
                 print(Heating,Cooling)
-                return float(Tin) + float(c[0])*(float(TempOfAirH)-float(Tin))*Heating + float(c[1])*(float(TempOfAirC)-float(Tin))*Cooling - float(c[2])*(float(Tin)-float(Tout)) + random.gauss(0, sigma), Heating, Cooling
+                Tin = float(Tin) + float(c[0])*(float(TempOfAirH)-float(Tin))*Heating + float(c[1])*(float(TempOfAirC)-float(Tin))*Cooling - float(c[2])*(float(Tin)-float(Tout)) + random.gauss(0, sigma)
+                return Tin, Heating, Cooling
 
 def Forward(Tin, Interval, SetPointHeating, SetPointCooling):
-        Tin, Heating =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval), Cooling =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval)
+        Tin, Heating, Cooling =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval), Cooling =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval)
         if Interval==Intervals:
                 Interval=1
         else:
@@ -173,7 +174,7 @@ def dosim():
         # side because we could be speeding up a simulation.
         cooling_setpoint = FtoC(data['sensors'][0]['setpoint'] + 2)
         heating_setpoint = FtoC(data['sensors'][0]['setpoint'] - 2)
-        tin, tout, interval, heating = Forward(current_temperature, interval, heating_setpoint, cooling_setpoint), cooling = Forward(current_temperature, interval, heating_setpoint, cooling_setpoint)
+        tin, tout, interval, heating, cooling = Forward(current_temperature, interval, heating_setpoint, cooling_setpoint), cooling = Forward(current_temperature, interval, heating_setpoint, cooling_setpoint)
         print('cool',cooling_setpoint,'heat',heating_setpoint)
         print(tin, tout, interval, heating, cooling)
         data['sensors'][0]['current'] = CtoF(tin)
@@ -188,9 +189,9 @@ def dosim():
         setpoint_diff = num_cooling_requests - num_heating_requests
         setpoint_diff *= 1
         print("diff",setpoint_diff,num_heating_requests,num_cooling_requests)
-        if setpoint_diff > 0:
+        if heating==1:#setpoint_diff > 0:
             data['sensors'][0]['action'] = 'heating'
-        elif setpoint_diff < 0:
+        elif cooling==1: #setpoint_diff < 0:
             data['sensors'][0]['action'] = 'cooling'
         data['sensors'][0]['setpoint'] = CtoF(FtoC(data['sensors'][0]['setpoint']) + setpoint_diff)
 
