@@ -93,7 +93,7 @@ def ThermalResponce(Tin, Tout, SetPointHeating, SetPointCooling, Interval):
                 return float(Tin) + float(c[0])*(float(TempOfAirH)-float(Tin))*Heating + float(c[1])*(float(TempOfAirC)-float(Tin))*Cooling - float(c[2])*(float(Tin)-float(Tout)) + random.gauss(0, sigma), Heating, Cooling
 
 def Forward(Tin, Interval, SetPointHeating, SetPointCooling):
-        Tin, Heating, Cooling =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval)
+        Tin, Heating =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval), Cooling =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval)
         if Interval==Intervals:
                 Interval=1
         else:
