@@ -5,11 +5,11 @@ from simulation import Simulation
 # TODO: add more safety constraints such as timers for heating/cooling
 
 # CONSTRAINTS
-MAX_HSP = 78
+MAX_HSP = 70
 MIN_HSP = 50
 
 MAX_CSP = 90
-MIN_CSP = 80
+MIN_CSP = 70
 
 MAX_HYST = 2
 MIN_HYST = 0
@@ -89,8 +89,8 @@ def transition(state, action, interval=15*60): # --> state
         state['temp_csp'] = min(state['temp_csp']+int(action['inc sp']), MAX_CSP)
 
     if action.get('dec sp') is not None:
-        state['temp_hsp'] = max(state['temp_hsp']+int(action['dec sp']), MIN_HSP)
-        state['temp_csp'] = max(state['temp_csp']+int(action['dec sp']), MIN_CSP)
+        state['temp_hsp'] = max(state['temp_hsp']-int(action['dec sp']), MIN_HSP)
+        state['temp_csp'] = max(state['temp_csp']-int(action['dec sp']), MIN_CSP)
 
     # handle directly setting hsp/csp
     if action.get('hsp direct') is not None:
@@ -108,6 +108,7 @@ def transition(state, action, interval=15*60): # --> state
         # need to constrain timer to be a multiple of [interval]
         # so that this never becomes negative
         state['hold timer'] -= interval
+        # TODO: now turn the thermostat off if the timer has expired
 
     if action.get('hold timer'):
         if state['hold timer'] == MAX_TIMER_HOLD: state['hold timer'] = 0
@@ -198,8 +199,11 @@ def read_action(state, temp_in):
     if len(inp) > 0:
         for x in inp.split(","):
             print x
-            k,v = x.split("=")
-            action[k] = v
+            if '=' in x:
+                k,v = x.split("=")
+                action[k] = v
+            else:
+                action[x] = True
     return action
 
 if __name__ == '__main__':
@@ -217,8 +221,9 @@ if __name__ == '__main__':
     while True:
         action = read_action(state, temp_in)
         print "ACTION>",action
-        state = transition(state, action)
-        print "STATE>",state
+        state = transition(state, action, interval=10*60)
+        #print "STATE>",state
         output = state_to_output(state)
-        print "OUTPUT>",output
+        #print "OUTPUT>",output
         temp_in = sim.forward(output['heat stage 1'], output['cool stage 1'])
+        print "temperature>>", "[{0}]".format(state['temp_hsp']), temp_in, "[{0}]".format(state['temp_csp'])
