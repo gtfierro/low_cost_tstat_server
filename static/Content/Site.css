@@ -1,8 +1,6 @@
 ﻿body {
     padding:200px;
-    margin-left:-190px !important;
-    height:100vh;
-    width:100vh;
+    margin-left:-190px !important;    
     background-color:#efefef;
 }
 
@@ -41,9 +39,9 @@
 
 .main {
     background-image: url("/Content/Images/tstat-back.png");
-    background-position: center;
+    background-position:left;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size:auto;
     height: 100%;
     width: 100%;
     
