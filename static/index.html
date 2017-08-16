@@ -18,9 +18,9 @@
 </head>
 
 <body ng-app="app">
-    <div ng-controller="AppController" style="height:100%;width:100%" class="container">
+    <div ng-controller="AppController" style="height:100%;width:100vw">
         <!-- All components -->
-        <div style="height:768px;min-width:768px" class="col-lg-6 col-md-12 col-sm-12 col-xs-12">            
+        <div style="height:768pt;min-width:768pt" class="col-lg-6 col-md-12 col-sm-12 col-xs-12">            
                 <div class="main">
                     <div class="lights" style="transform:rotate(155deg)">
                         <div id="54" class="circle light">
@@ -96,18 +96,20 @@
                 </div>
             
         </div>
-        <div class="inout col-lg-1 col-md-2 col-sm-12 col-xs-12">
-            <div class="insideTemp ">
-                <center class="coolingText">{{temperature.inside}}</center>                
+        <div class="col-lg-6 col-md- col-sm-12 col-xs-12">
+            <div class="inout col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                <div class="insideTemp ">
+                    <center class="coolingText">{{temperature.inside}}</center>
+                </div>
+                <div class="outsideTemp">
+                    <center class="heatingText">{{temperature.outside}}</center>
+                </div>
             </div>
-            <div class="outsideTemp">
-                <center class="heatingText">{{temperature.outside}}</center>                
+            <div class="col-lg-11 col-md-10 col-sm-12 col-xs-12" style="margin-top:150px">
+                <div class="panel-body">
+                    <chartist class="ct-chart ct-golden-section" chartist-data="asyncData" chartist-chart-type="Line" chartist-events="events"></chartist>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-5 col-md-10 col-sm-12 col-xs-12">
-            <div class="panel-body">
-                <chartist class="ct-chart ct-golden-section" chartist-data="asyncData" chartist-chart-type="Line" chartist-events="events"></chartist>
-            </div>            
         </div>
 
     </div>
