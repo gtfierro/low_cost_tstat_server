@@ -39,9 +39,9 @@
 
 .main {
     background-image: url("/Content/Images/tstat-back.png");
-    background-position:left;
+    background-position:center;
     background-repeat: no-repeat;
-    background-size:auto;
+    background-size:contain;
     height: 100%;
     width: 100%;
     
