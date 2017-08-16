@@ -65,25 +65,12 @@
     left:45%;
 }
 .inout{
-    background-image: url('/Content/Images/home-icon.png');
-    background-repeat: no-repeat;
-    height: 300px;
-    background-size: contain;
+    height: 300px;    
     margin-top:150px;
        
 }
 
-.insideTemp{
-    padding-top:100px;
-    padding-right:150px;
-    font-size:2.5em;
-}
-.outsideTemp {
-    position:relative;
-    top: -150px;
-    left: 100px;
-    font-size: 2em;
-}
+
 
 
 .light {

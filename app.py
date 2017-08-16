@@ -141,7 +141,8 @@ def dosim():
             {
               "action": "cooling",
               "current": 75,
-              "setpoint": 73,
+              "setpointH": 73,
+			  "setpointC": 79,
               "outside": 76,
               "type": "temperature"
             }
@@ -193,6 +194,8 @@ def dosim():
             data['sensors'][0]['action'] = 'heating'
         elif cooling==1: #setpoint_diff < 0:
             data['sensors'][0]['action'] = 'cooling'
+		data['sensors'][0]['setpointH'] = CtoF(heating_setpoint)
+		data['sensors'][0]['setpointC'] = CtoF(cooling_setpoint)
         data['sensors'][0]['setpoint'] = CtoF(FtoC(data['sensors'][0]['setpoint']) + setpoint_diff)
 
 

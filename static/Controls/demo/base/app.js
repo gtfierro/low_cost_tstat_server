@@ -54,6 +54,10 @@
                     $scope.temperature.inside = $scope.current;
                     $scope.temperature.outside = $scope.outside;
                     $scope.asyncData.labels.push(timestamp.toString());
+                    if ($scope.asyncData.series[0].length > 20) {
+                        $scope.asyncData.series[0].splice(-1, 1);
+                        $scope.asyncData.series[1].splice(-1, 1);
+                    }
                     $scope.asyncData.series[0].push($scope.data.sensors[0].current);
                     $scope.asyncData.series[1].push($scope.data.sensors[0].setpoint);
                     var lights = $('.light');
@@ -138,8 +142,8 @@
             $scope.asyncData = {
                 labels: [timestamp1],
                 series: [
-                    [73],
-                    [76],
+                    [],
+                    [],
                 ]
             };
 
