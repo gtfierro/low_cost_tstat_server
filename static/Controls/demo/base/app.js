@@ -52,11 +52,10 @@
                     console.log("current", $scope.current);
                     console.log("setpoint", $scope.setpoint);
                     $scope.temperature.inside = $scope.current;
-                    $scope.temperature.outside = $scope.outside;
-                    $scope.asyncData.labels.push(timestamp.toString());                  
-                    pushLimit(this.asyncData.series[0], $scope.data.sensors[0].current, 12);
-                    pushLimit(this.asyncData.series[1], $scope.data.sensors[0].setpoint, 12);
-                    
+                    $scope.temperature.outside = $scope.outside;                                    
+                    pushLimit($scope.asyncData.series[0], $scope.data.sensors[0].current, 12);
+                    pushLimit($scope.asyncData.series[1], $scope.data.sensors[0].setpoint, 12);
+                    pushLimit($scope.asyncData.labels, [timestamp1.getHours(),timestamp1.getMinutes(),timestamp1.getSeconds()].join(':'), 12);
                     var lights = $('.light');
                     lights.each(function () {
                         $(this).removeClass("heating cooling setpoint");
@@ -149,11 +148,7 @@
                     arr.splice(0, 1);
                 }
             }
-            pushLimit(this.asyncData.labels, [
-                timestamp1.getHours(),
-                timestamp1.getMinutes(),
-                timestamp1.getSeconds()
-            ].join(':'), 12);
+            
 
 
         $scope.events = {
