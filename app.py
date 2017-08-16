@@ -94,7 +94,7 @@ def ThermalResponce(Tin, Tout, SetPointHeating, SetPointCooling, Interval):
                 return Tin, Heating, Cooling
 
 def Forward(Tin, Interval, SetPointHeating, SetPointCooling):
-        Tin, Heating, Cooling =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval), Cooling =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval)
+        Tin, Heating, Cooling =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval)#, Cooling =ThermalResponce(Tin, Touts[Interval-1], SetPointHeating, SetPointCooling, Interval)
         if Interval==Intervals:
                 Interval=1
         else:
@@ -141,7 +141,8 @@ def dosim():
             {
               "action": "cooling",
               "current": 75,
-              "setpoint": 73,
+              "setpointh": 72,
+              "setpointc": 78,
               "outside": 76,
               "type": "temperature"
             }
@@ -172,8 +173,8 @@ def dosim():
         interval = 1 #1 -> 96; day divided up to 15 min interval
         # TODO: need timestamp from tstat. Need to generate this on the client
         # side because we could be speeding up a simulation.
-        cooling_setpoint = FtoC(data['sensors'][0]['setpoint'] + 2)
-        heating_setpoint = FtoC(data['sensors'][0]['setpoint'] - 2)
+        cooling_setpoint = FtoC(data['sensors'][0]['setpointh'])
+        heating_setpoint = FtoC(data['sensors'][0]['setpointc'])
         tin, tout, interval, heating, cooling = Forward(current_temperature, interval, heating_setpoint, cooling_setpoint)
         print('cool',cooling_setpoint,'heat',heating_setpoint)
         print(tin, tout, interval, heating, cooling)
@@ -189,11 +190,13 @@ def dosim():
         setpoint_diff = num_cooling_requests - num_heating_requests
         setpoint_diff *= 1
         print("diff",setpoint_diff,num_heating_requests,num_cooling_requests)
+        print(heating,cooling)	
         if heating==1:#setpoint_diff > 0:
             data['sensors'][0]['action'] = 'heating'
         elif cooling==1: #setpoint_diff < 0:
             data['sensors'][0]['action'] = 'cooling'
-        data['sensors'][0]['setpoint'] = CtoF(FtoC(data['sensors'][0]['setpoint']) + setpoint_diff)
+        data['sensors'][0]['setpointh'] = CtoF(FtoC(data['sensors'][0]['setpointh']) + setpoint_diff)
+        data['sensors'][0]['setpointc'] = CtoF(FtoC(data['sensors'][0]['setpointc']) + setpoint_diff)
 
 
         print(data)
