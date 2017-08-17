@@ -6,30 +6,16 @@
         var temp_adjust = function (temp) {
             temp = Math.floor(temp);
             console.log("temp", temp);
-            if (temp > 61 && temp < 85) {
-                if (temp % 2 ==+ 0) {
-                    console.log("temp+1", (temp + 1));
-                    return (temp + 1);
+            if (temp >= 69 && temp <= 72) {                
+               return temp;
+            }
+            else if (temp < 69 || temp > 72) {
+                if (temp % 2 == 0) {
+                    return temp;
                 }
                 else
-                    return temp;
-            }
-            else if (temp < 61) {
-                if (temp > 59)
-                    return (61);
-                else if (temp < 58 && temp > 56)
-                    return (58);
-                else
-                    return (54);
-            }
-            else if (temp > 85) {
-                if (temp < 87)
-                    return (85);
-                else if (temp > 85 && temp < 91)
-                    return (88);
-                else
-                    return (92);
-            }
+                    return (temp + 1);                
+            }            
         };
         var Update = function () {
             console.log("therm", $scope.data);
@@ -48,25 +34,32 @@
                     $scope.temperature = {};
                     $scope.current = temp_adjust($scope.data.sensors[0].current);
                     $scope.outside = $scope.data.sensors[0].outside;
-                    $scope.setpoint = temp_adjust($scope.data.sensors[0].setpoint);
+                    $scope.setpointh = temp_adjust($scope.data.sensors[0].setpointh);
+                    $scope.setpointc = temp_adjust($scope.data.sensors[0].setpointc);
                     console.log("current", $scope.current);
-                    console.log("setpoint", $scope.setpoint);
+                    console.log("setpoint", $scope.setpointh);
                     $scope.temperature.inside = $scope.current;
-                    $scope.temperature.outside = $scope.outside;                                    
-                    pushLimit($scope.asyncData.series[0], $scope.data.sensors[0].current, 12);
-                    pushLimit($scope.asyncData.series[1], $scope.data.sensors[0].setpoint, 12);
+                    $scope.temperature.outside = $scope.outside; 
+                    var t0 = { meta: $scope.data.sensors[0].action, value: $scope.data.sensors[0].current };
+                    var t1 = { meta: $scope.data.sensors[0].action, value: $scope.data.sensors[0].setpointh };
+                    var t2 = { meta: $scope.data.sensors[0].action, value: $scope.data.sensors[0].setpointc };
+                    pushLimit($scope.asyncData.series[0], t0, 12);
+                    pushLimit($scope.asyncData.series[1], t1, 12);
+                    pushLimit($scope.asyncData.series[2], t2, 12);
                     pushLimit($scope.asyncData.labels, [timestamp.getHours(),timestamp.getMinutes(),timestamp.getSeconds()].join(':'), 12);
                     var lights = $('.light');
                     lights.each(function () {
                         $(this).removeClass("heating cooling setpoint");
                     });
-                    if ($scope.current !== $scope.setpoint) {
+                    if ($scope.current !== $scope.setpointh) {
                         $('#' + $scope.current).addClass($scope.data.sensors[0].action);
-                        $('#' + $scope.setpoint).addClass('setpoint');
+                        $('#' + $scope.setpointh).addClass('setpoint');
+                        $('#' + $scope.setpointc).addClass('setpoint');
                         console.log("not same");
                     }
                     else {
-                        $('#' + $scope.setpoint).addClass('setpoint');
+                        $('#' + $scope.setpointh).addClass('setpoint');
+                        $('#' + $scope.setpointc).addClass('setpoint');
                         console.log("same");
                     }
 
@@ -135,11 +128,17 @@
             }
         };
         var timestamp1 = new Date().toString();
+        $scope.chartOptions = {
+            plugins: [
+                Chartist.plugins.tooltip()
+            ]
+        };
             $scope.asyncData = {
                 labels: [timestamp1],
                 series: [
                     [],
                     [],
+                    []
                 ]
         };
             function pushLimit(arr, elem, limit) {
@@ -156,9 +155,7 @@
                 // console.log(obj);
             }
         };
-        $scope.pieData = {
-            series: [20, 10, 30, 40]
-        };
+        
 
         var Get = function () {
 
@@ -171,43 +168,7 @@
             }).then(
                 function (response) {
                     console.log("response data", response.data);
-                    $scope.data = response.data;
-                    var timestamp = new Date();
-                    $scope.temperature = {};
-                    $scope.current = temp_adjust($scope.data.sensors[0].current);
-                    $scope.outside = $scope.data.sensors[0].outside;
-                    $scope.setpoint = temp_adjust($scope.data.sensors[0].setpoint);
-                    console.log("current", $scope.current);
-                    console.log("setpoint", $scope.setpoint);
-                    $scope.temperature.inside = $scope.current;
-                    $scope.temperature.outside = $scope.outside;
-                    $scope.asyncData.labels.push(timestamp.toString());
-                    $scope.asyncData.series[0].push($scope.data.sensors[0].current);
-                    $scope.asyncData.series[1].push($scope.data.sensors[0].setpoint);
-                    var lights = $('.light');
-                    lights.each(function () {
-                        $(this).removeClass("heating cooling setpoint");
-                    });
-                    if ($scope.current !== $scope.setpoint) {
-                        $('#' + $scope.current).addClass($scope.data.sensors[0].action);
-                        $('#' + $scope.setpoint).addClass('setpoint');
-                    }
-                    else {
-                        $('#' + $scope.setpoint).addClass('setpoint');
-                    }
-
-                    for (var i = 0; i < $scope.data.status.length; i++) {
-                        if ($scope.data.status[i].type === "eco") {
-                            if ($scope.data.status[i].level === 100) {
-                                $('#eco').removeClass(['active', 'inactive']);
-                                $('#eco').addClass('active');
-                            }
-                            else {
-                                $('#eco').removeClass(['active', 'inactive']);
-                                $('#eco').addClass('inactive');
-                            }
-                        }
-                    }
+                    $scope.data = response.data;                   
                 }
                 );
         };

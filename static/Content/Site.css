@@ -182,7 +182,7 @@ textarea {
     }
 }
 .setpoint {
-    background-color: #93e53a;
+    background-color: #ffb82f;
 }
 .heatingText {
     color: #ffb82f;
@@ -223,7 +223,7 @@ textarea {
 }
 @-webkit-keyframes BLINK {
     0%, 49% {
-        background-color: #FFF;       
+        background-color: #93e53a;
     }
 
     50%, 100% {       

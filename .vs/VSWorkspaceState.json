@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\static"
+    "\\static",
+    "\\static\\Content",
+    "\\static\\Controls",
+    "\\static\\Controls\\demo",
+    "\\static\\Controls\\demo\\base",
+    "\\static\\Controls\\libraries\\bootstrap\\js",
+    "\\static\\Scripts"
   ],
   "SelectedNode": "\\static\\index.html",
   "PreviewInSolutionExplorer": false

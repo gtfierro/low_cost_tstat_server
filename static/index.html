@@ -14,6 +14,7 @@
     <link href="/Controls/assets/css/shell-0.4.0.css" rel="stylesheet" />
     <link href="/Controls/assets/css/controller.less" rel="stylesheet/less" />    
     <link href="/Content/chartist.css" rel="stylesheet" />
+    <link href="/Content/chartist-plugin-tooltip.css" rel="stylesheet" />
     <link href="/Content/Site.css" rel="stylesheet" />    
 </head>
 
@@ -23,57 +24,57 @@
         <div style="height:768pt;min-width:768pt" class="col-lg-6 col-md-12 col-sm-12 col-xs-12">            
                 <div class="main">
                     <div class="lights" style="transform:rotate(155deg)">
-                        <div id="54" class="circle light">
-                        </div>
                         <div id="58" class="circle light">
                         </div>
-                        <div id="61" class="circle light">
+                        <div id="60" class="circle light">
                         </div>
-                        <div id="63" class="circle light">
+                        <div id="62" class="circle light">
                         </div>
-                        <div id="65" class="circle light">
+                        <div id="64" class="circle light">
                         </div>
-                        <div id="67" class="circle light">
+                        <div id="66" class="circle light">
+                        </div>
+                        <div id="68" class="circle light">
                         </div>
                         <div id="69" class="circle light">
                         </div>
+                        <div id="70" class="circle light">
+                        </div>
                         <div id="71" class="circle light">
                         </div>
-                        <div id="73" class="circle light">
+                        <div id="72" class="circle light">
                         </div>
-                        <div id="75" class="circle light">
+                        <div id="74" class="circle light">
                         </div>
-                        <div id="77" class="circle light">
+                        <div id="76" class="circle light">
                         </div>
-                        <div id="79" class="circle light">
+                        <div id="78" class="circle light">
                         </div>
-                        <div id="81" class="circle light">
+                        <div id="80" class="circle light">
                         </div>
-                        <div id="83" class="circle light">
+                        <div id="82" class="circle light">
                         </div>
-                        <div id="85" class="circle light">
+                        <div id="84" class="circle light">
                         </div>
-                        <div id="88" class="circle light">
+                        <div id="86" class="circle light">
                         </div>
-                        <div id="92" class="circle light">
-                        </div>
-                        <div class="temp_disp">54</div>
                         <div class="temp_disp">58</div>
-                        <div class="temp_disp">61</div>
-                        <div class="temp_disp">63</div>
-                        <div class="temp_disp">65</div>
-                        <div class="temp_disp">67</div>
+                        <div class="temp_disp">60</div>
+                        <div class="temp_disp">62</div>
+                        <div class="temp_disp">64</div>
+                        <div class="temp_disp">66</div>
+                        <div class="temp_disp">68</div>
                         <div class="temp_disp">69</div>
+                        <div class="temp_disp">70</div>
                         <div class="temp_disp">71</div>
-                        <div class="temp_disp">73</div>
-                        <div class="temp_disp">75</div>
-                        <div class="temp_disp">77</div>
-                        <div class="temp_disp">79</div>
-                        <div class="temp_disp">81</div>
-                        <div class="temp_disp">83</div>
-                        <div class="temp_disp">85</div>
-                        <div class="temp_disp">88</div>
-                        <div class="temp_disp">92</div>
+                        <div class="temp_disp">72</div>
+                        <div class="temp_disp">74</div>
+                        <div class="temp_disp">76</div>
+                        <div class="temp_disp">78</div>
+                        <div class="temp_disp">80</div>
+                        <div class="temp_disp">82</div>
+                        <div class="temp_disp">84</div>
+                        <div class="temp_disp">86</div>
                     </div>
                     <div class="center-buttons">
                         <div id="left" class="circle large" ng-click='down()'>
@@ -107,7 +108,7 @@
             </div>
             <div class="col-lg-11 col-md-10 col-sm-12 col-xs-12" style="margin-top:150px">
                 <div class="panel-body">
-                    <chartist class="ct-chart ct-golden-section" chartist-data="asyncData" chartist-chart-type="Line" chartist-events="events"></chartist>
+                    <chartist class="ct-chart ct-golden-section" chartist-data="asyncData" chartist-chart-type="Line" chartist-events="events" chartist-chart-options="chartOptions"></chartist>
                 </div>
             </div>
         </div>
@@ -127,6 +128,7 @@
     <script src="/Controls/libraries/angular-vs-repeat.js"></script>
     <script src="/Scripts/chartist.js"></script>
     <script src="/Scripts/angular-chartist.js"></script>
+    <script src="/Scripts/chartist-plugin-tooltip.js"></script>
     <script src="/Controls/demo/base/app.js"></script>
 
     <!-- Components -->
