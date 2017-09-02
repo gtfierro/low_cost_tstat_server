@@ -63,7 +63,7 @@ class Simulation():
     def thermalResponse(self, heating, cooling):
             c = [0.01,  0.01, 0.005]
             sigma = 0.00003
-            print(heating,cooling)
+            print 'Heat:',heating,'Cool:', cooling
             self.Tin = float(self.Tin) +\
                   float(c[0])*(float(self.TempOfAirH)-float(self.Tin))*heating +\
                   float(c[1])*(float(self.TempOfAirC)-float(self.Tin))*cooling -\

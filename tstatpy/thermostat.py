@@ -1,8 +1,17 @@
 #!/usr/bin/env python
 import math
 from simulation import Simulation
+import matplotlib
+matplotlib.use('TkAgg')
+import matplotlib.pyplot as plt
+import numpy as np
 
 # TODO: add more safety constraints such as timers for heating/cooling
+
+# TODO: add fans:
+# - turn on fan when cooling
+# - fan runs for 5 min after cooling turns off
+# - fan is on for minimum 5 min
 
 # CONSTRAINTS
 MAX_HSP = 70
@@ -14,7 +23,13 @@ MIN_CSP = 70
 MAX_HYST = 2
 MIN_HYST = 0
 
+MINIMUM_BAND = 8
+
 MAX_TIMER_HOLD = 60 * 60
+MIN_TIMER_HOLD = 60 * 5
+
+MIN_ACTIVE_TIME = 60 * 3
+MIN_INACTIVE_TIME = 60 * 5
 
 # STATE VECTOR
 #  temp_in, temp_csp, temp_hsp, on, hold-timer
@@ -29,6 +44,10 @@ def state_vector():
         'is heating': False,
         'is cooling': False,
         'hysteresis': 1.0, # degrees for hysteresis (fahrenheit)
+        'heat on time': 0, # heating time spent on
+        'cool on time': 0, # cooling time spent off
+        'heat off time': 0, # heating time spent on
+        'cool off time': 0, # cooling time spent off
     }
 
 # ACTION VECTOR
@@ -98,6 +117,12 @@ def transition(state, action, interval=15*60): # --> state
     if action.get('csp direct') is not None:
         state['temp_csp'] = max(min(action['csp direct'], MAX_CSP), MIN_CSP)
 
+    diff = state['temp_csp'] - state['temp_hsp']
+    # e.g. if csp = 80 and hsp = 76, then diff is 4, so we set csp = 82, hsp = 74
+    if diff < MINIMUM_BAND:
+        state['temp_csp'] += diff / 2
+        state['temp_hsp'] -= diff / 2
+
     # hold timer
     # NOTE: when we are visualizing the timer using the 4 LEDs (0%, 25, 50, 100%), make
     # sure to use the "floor" if we don't have an evenly divisible timer value.
@@ -107,34 +132,55 @@ def transition(state, action, interval=15*60): # --> state
     if state['hold timer'] > 0:
         # need to constrain timer to be a multiple of [interval]
         # so that this never becomes negative
+        # TODO: fix this interval so that it matches how often the state machine runs
         state['hold timer'] -= interval
         # TODO: now turn the thermostat off if the timer has expired
 
+    # if someone pushes the timer button
     if action.get('hold timer'):
         if state['hold timer'] == MAX_TIMER_HOLD: state['hold timer'] = 0
         else: state['hold timer'] = min(state['hold timer'] + interval, MAX_TIMER_HOLD)
 
     # timer direct
-    state['hold timer'] = min(action['timer direct'], MAX_TIMER_HOLD)
+    state['hold timer'] = max(min(action['timer direct'], MAX_TIMER_HOLD), MIN_TIMER_HOLD)
+
+    # TODO: integrate this into the state transition
 
     # handle heating w/ hysteresis
-    if state['temp_in'] <= (state['temp_hsp'] - state['hysteresis']):
-        state['is heating'] = True
-        state['is cooling'] = False
-    elif state['is heating'] and (state['temp_in'] <= (state['temp_hsp'] + state['hysteresis'])):
-        state['is heating'] = True
-        state['is cooling'] = False
+    can_heat_on = (not state['heat on time']) and (state['heat off time'] or state['heat off time'] > MIN_INACTIVE_TIME)
+    can_heat_off = (not state['heat on time'])
 
+    if state['temp_in'] <= (state['temp_hsp'] - state['hysteresis']) and can_heat_on:
+        state['is heating'] = True
+        state['is cooling'] = False
+    elif state['is heating'] and (state['temp_in'] <= (state['temp_hsp'] + state['hysteresis'])) and can_heat_on:
+        state['is heating'] = True
+        state['is cooling'] = False
     # handle cooling w/ hysteresis
-    elif state['temp_in'] >= (state['temp_csp'] + state['hysteresis']):
+    elif state['temp_in'] >= (state['temp_csp'] + state['hysteresis']) and can_heat_off:
         state['is heating'] = False
         state['is cooling'] = True
-    elif state['is cooling'] and (state['temp_in'] >= (state['temp_csp'] - state['hysteresis'])):
+    elif state['is cooling'] and (state['temp_in'] >= (state['temp_csp'] - state['hysteresis']) and can_heat_off):
         state['is heating'] = False
         state['is cooling'] = True
+    elif state['heat on time'] and state['heat on time'] < MIN_ACTIVE_TIME:
+        state['is heating'] = True
+    elif state['heat off time'] and state['heat off time'] < MIN_INACTIVE_TIME:
+        state['is heating'] = False
     else:
         state['is heating'] = False
         state['is cooling'] = False
+
+
+    # now handle the timing
+    # This will check how long we've already been heating/cooling. If we are switching heating/cooling
+    # and this hasn't been on for more than MIN_ACTIVE_TIME, don't allow the transition
+    if state['is heating']:
+        state['heat on time'] += 60
+        state['heat off time'] = 0
+    else:
+        state['heat on time'] = 0
+        state['heat off time'] += 60
 
     return state
 
@@ -185,6 +231,16 @@ def state_to_output(state): # --> output vector
         output['cool stage 1'] = False
         output['blinking'] = False
 
+#    if output['heat stage 1']:
+#        state['heat on time'] += interval
+#    else:
+#        state['heat off time'] += interval
+#
+#    if output['cool stage 1']:
+#        state['cool on time'] += interval
+#    else:
+#        state['cool off time'] += interval
+#
     # handle timer display
     if state['hold timer']:
         num_timer_leds = math.floor(state['hold timer'] / 15*60)
@@ -218,6 +274,16 @@ if __name__ == '__main__':
 
     sim = Simulation(temp_in)
 
+    times = []
+    heating_state = []
+    cooling_state = []
+    hsp = []
+    csp = []
+    temp = []
+    out_temp = []
+    step = 0
+    #plt.axis([0, 100, 0, 100])
+    plt.ion()
     while True:
         action = read_action(state, temp_in)
         print "ACTION>",action
@@ -226,4 +292,21 @@ if __name__ == '__main__':
         output = state_to_output(state)
         #print "OUTPUT>",output
         temp_in = sim.forward(output['heat stage 1'], output['cool stage 1'])
+        print 'heat off', state['heat off time'], 'heat on', state['heat on time'], MIN_INACTIVE_TIME, MIN_ACTIVE_TIME
         print "temperature>>", "[{0}]".format(state['temp_hsp']), temp_in, "[{0}]".format(state['temp_csp'])
+        times.append(step)
+        heating_state.append(output['heat stage 1'])
+        cooling_state.append(output['cool stage 1'])
+        hsp.append(state['temp_hsp'])
+        csp.append(state['temp_csp'])
+        temp.append(temp_in)
+        out_temp.append(sim.Tout)
+        step += 1
+        plt.plot(times, temp, color='k')
+        plt.plot(times, out_temp, color='k',linestyle='--')
+        plt.plot(times, hsp, color='r')
+        plt.plot(times, csp, color='b')
+
+    while True:
+        plt.pause(0.05)
+
