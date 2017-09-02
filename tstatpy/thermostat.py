@@ -149,24 +149,30 @@ def transition(state, action, interval=15*60): # --> state
     # handle heating w/ hysteresis
     can_heat_on = (not state['heat on time']) and (state['heat off time'] or state['heat off time'] > MIN_INACTIVE_TIME)
     can_heat_off = (not state['heat on time'])
+    can_cool_on = (not state['cool on time']) and (state['cool off time'] or state['cool off time'] > MIN_INACTIVE_TIME)
+    can_cool_off = (not state['cool on time'])
 
-    if state['temp_in'] <= (state['temp_hsp'] - state['hysteresis']) and can_heat_on:
+    if state['temp_in'] <= (state['temp_hsp'] - state['hysteresis']) and can_heat_on and can_cool_off:
         state['is heating'] = True
         state['is cooling'] = False
-    elif state['is heating'] and (state['temp_in'] <= (state['temp_hsp'] + state['hysteresis'])) and can_heat_on:
+    elif state['is heating'] and (state['temp_in'] <= (state['temp_hsp'] + state['hysteresis'])) and can_heat_on and can_cool_off:
         state['is heating'] = True
         state['is cooling'] = False
     # handle cooling w/ hysteresis
-    elif state['temp_in'] >= (state['temp_csp'] + state['hysteresis']) and can_heat_off:
+    elif state['temp_in'] >= (state['temp_csp'] + state['hysteresis']) and can_heat_off and can_cool_on:
         state['is heating'] = False
         state['is cooling'] = True
-    elif state['is cooling'] and (state['temp_in'] >= (state['temp_csp'] - state['hysteresis']) and can_heat_off):
+    elif state['is cooling'] and (state['temp_in'] >= (state['temp_csp'] - state['hysteresis']) and can_heat_off) and can_heat_off and can_cool_on:
         state['is heating'] = False
         state['is cooling'] = True
     elif state['heat on time'] and state['heat on time'] < MIN_ACTIVE_TIME:
         state['is heating'] = True
     elif state['heat off time'] and state['heat off time'] < MIN_INACTIVE_TIME:
         state['is heating'] = False
+    elif state['cool on time'] and state['cool on time'] < MIN_ACTIVE_TIME:
+        state['is cooling'] = True
+    elif state['cool off time'] and state['cool off time'] < MIN_INACTIVE_TIME:
+        state['is cooling'] = False
     else:
         state['is heating'] = False
         state['is cooling'] = False
