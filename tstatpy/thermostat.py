@@ -29,6 +29,7 @@ MIN_TIMER_HOLD = 60 * 5
 
 MIN_ACTIVE_TIME = 60 * 5
 MIN_INACTIVE_TIME = 60 * 5
+FREE_COOLING_TIME = 60*5
 
 # STATE VECTOR
 #  temp_in, temp_csp, temp_hsp, on, hold-timer
@@ -42,11 +43,14 @@ def state_vector():
         'hold timer': None, # in seconds
         'is heating': False,
         'is cooling': False,
+        'fan on': False,
         'hysteresis': 1.0, # degrees for hysteresis (fahrenheit)
         'heat on time': 0, # heating time spent on
         'cool on time': 0, # cooling time spent off
+        'fan on time': 0,
         'heat off time': 0, # heating time spent on
         'cool off time': 0, # cooling time spent off
+        'fan off time': 0,
     }
 
 # ACTION VECTOR
@@ -81,6 +85,7 @@ def output_vector():
         # Mechanical
         'heat stage 1': None,
         'cool stage 1': None,
+        'fan': None,
     }
 
 # need the transition fxns: f(state vector, action vector) -> new state vector
@@ -158,17 +163,15 @@ def transition(state, action, interval=15*60): # --> state
     elif state['is heating'] and (state['temp_in'] <= (state['temp_hsp'] + state['hysteresis'])) and can_heat_on and can_cool_off:
         state['is heating'] = True
         state['is cooling'] = False
-
     # handle cooling w/ hysteresis
     elif state['temp_in'] >= (state['temp_csp'] + state['hysteresis']) and can_heat_off and can_cool_on:
-        print 'above temp cooling'
         state['is heating'] = False
         state['is cooling'] = True
+        state['fan on'] = True
     elif state['is cooling'] and (state['temp_in'] >= (state['temp_csp'] - state['hysteresis'])) and can_heat_off and can_cool_on:
-        print 'hysteresis cooling'
         state['is heating'] = False
         state['is cooling'] = True
-
+        state['fan on'] = True
     elif state['heat on time'] and state['heat on time'] < MIN_ACTIVE_TIME:
         state['is heating'] = True
 
@@ -179,13 +182,19 @@ def transition(state, action, interval=15*60): # --> state
         state['is cooling'] = True
 
     elif state['cool off time'] and state['cool off time'] < MIN_INACTIVE_TIME:
-        print 'cooling off'
         state['is cooling'] = False
     else:
-        print 'default to off'
         state['is heating'] = False
         state['is cooling'] = False
 
+    if not state['is cooling'] and state['cool on time'] > 0 and state['fan on time'] == 0: # cooling has just turned off
+        state['fan on'] = True
+        state['fan on time'] += 60
+    elif not state['is cooling'] and state['fan on time'] > FREE_COOLING_TIME:
+        state['fan on'] = False
+        state['fan on time'] = 0
+    elif state['fan on time'] > 0:
+        state['fan on time'] += 60
 
     # now handle the timing
     # This will check how long we've already been heating/cooling. If we are switching heating/cooling
@@ -202,6 +211,7 @@ def transition(state, action, interval=15*60): # --> state
     else:
         state['cool on time'] = 0
         state['cool off time'] += 60
+
 
     return state
 
@@ -252,6 +262,11 @@ def state_to_output(state): # --> output vector
         output['cool stage 1'] = False
         output['blinking'] = False
 
+    if state['fan on']:
+        output['fan'] = True
+    else:
+        output['fan'] = False
+        
 #    if output['heat stage 1']:
 #        state['heat on time'] += interval
 #    else:
@@ -298,6 +313,7 @@ if __name__ == '__main__':
     times = []
     heating_state = []
     cooling_state = []
+    fan_state = []
     hsp = []
     csp = []
     temp = []
@@ -321,6 +337,7 @@ if __name__ == '__main__':
         times.append(step)
         heating_state.append(output['heat stage 1'])
         cooling_state.append(output['cool stage 1'])
+        fan_state.append(output['fan'])
         hsp.append(state['temp_hsp'])
         csp.append(state['temp_csp'])
         temp.append(temp_in)
@@ -367,8 +384,24 @@ if __name__ == '__main__':
         if begin_cs and not end_cs:
             coolrectangles.append((begin_cs, times[-1]))
         for rect in coolrectangles:
-            print rect
             patch = patches.Rectangle((rect[0],0), rect[1] - rect[0], 100, alpha=0.2, color='b')
+            mypatches.append(patch)
+            ax1.add_patch(patch)
+
+        begin_fan = 0
+        end_fan = 0
+        for idx, fan in enumerate(fan_state):
+            ts = times[idx]
+            if fan and not begin_fan:
+                begin_fan = ts
+            elif begin_fan and not fan and not end_fan:
+                end_fan = ts
+                fanrectangles.append((begin_fan, end_fan))
+                begin_fan = end_fan = 0
+        if begin_fan and not end_fan:
+            fanrectangles.append((begin_fan, times[-1]))
+        for rect in fanrectangles:
+            patch = patches.Rectangle((rect[0],10), rect[1] - rect[0], 30, alpha=0.4, color='k')
             mypatches.append(patch)
             ax1.add_patch(patch)
     while True:
