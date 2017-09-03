@@ -4,9 +4,8 @@ from simulation import Simulation
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 import numpy as np
-
-# TODO: add more safety constraints such as timers for heating/cooling
 
 # TODO: add fans:
 # - turn on fan when cooling
@@ -290,6 +289,9 @@ if __name__ == '__main__':
     step = 0
     #plt.axis([0, 100, 0, 100])
     plt.ion()
+    fig1 = plt.figure()
+    ax1 = fig1.add_subplot(111, aspect='equal')
+    mypatches = []
     while True:
         action = read_action(state, temp_in)
         print "ACTION>",action
@@ -313,6 +315,46 @@ if __name__ == '__main__':
         plt.plot(times, hsp, color='r')
         plt.plot(times, csp, color='b')
 
+        # plot heat/cool
+        heatrectangles = []
+        coolrectangles = []
+        begin_hs = 0
+        end_hs = 0
+        for patch in mypatches:
+            patch.set_visible(False)
+        for idx, hs in enumerate(heating_state):
+            ts = times[idx]
+            if hs and not begin_hs:
+                begin_hs = ts
+            elif begin_hs and not hs and not end_hs:
+                end_hs = ts
+                heatrectangles.append((begin_hs, end_hs))
+                begin_hs = end_hs = 0
+        if begin_hs and not end_hs:
+            heatrectangles.append((begin_hs, times[-1]))
+        for rect in heatrectangles:
+            print rect
+            patch = patches.Rectangle((rect[0],0), rect[1] - rect[0], 100, alpha=0.2, color='r')
+            mypatches.append(patch)
+            ax1.add_patch(patch)
+
+        begin_cs = 0
+        end_cs = 0
+        for idx, cs in enumerate(cooling_state):
+            ts = times[idx]
+            if cs and not begin_cs:
+                begin_cs = ts
+            elif begin_cs and not cs and not end_cs:
+                end_cs = ts
+                coolrectangles.append((begin_cs, end_cs))
+                begin_cs = end_cs = 0
+        if begin_cs and not end_cs:
+            coolrectangles.append((begin_cs, times[-1]))
+        for rect in coolrectangles:
+            print rect
+            patch = patches.Rectangle((rect[0],0), rect[1] - rect[0], 100, alpha=0.2, color='b')
+            mypatches.append(patch)
+            ax1.add_patch(patch)
     while True:
         plt.pause(0.05)
 
