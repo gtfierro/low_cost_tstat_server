@@ -143,36 +143,46 @@ def transition(state, action, interval=15*60): # --> state
     # timer direct
     state['hold timer'] = max(min(action['timer direct'], MAX_TIMER_HOLD), MIN_TIMER_HOLD)
 
-    # TODO: integrate this into the state transition
-
-    # handle heating w/ hysteresis
-    can_heat_on = (not state['heat on time']) and (state['heat off time'] or state['heat off time'] > MIN_INACTIVE_TIME)
+    # check if the inactive times are safe for turning stuff on
+    can_heat_on = state['heat on time'] or (not state['heat on time']) and (state['heat off time'] or state['heat off time'] > MIN_INACTIVE_TIME)
     can_heat_off = (not state['heat on time'])
-    can_cool_on = (not state['cool on time']) and (state['cool off time'] or state['cool off time'] > MIN_INACTIVE_TIME)
+    can_cool_on = state['cool on time'] or (not state['cool on time']) and (state['cool off time'] or state['cool off time'] > MIN_INACTIVE_TIME)
     can_cool_off = (not state['cool on time'])
 
+    # handle heating w/ hysteresis
+
+    print 'heat on?', can_heat_on, 'heat off?', can_heat_off, 'cool on?', can_cool_on, 'cool off?', can_cool_off
     if state['temp_in'] <= (state['temp_hsp'] - state['hysteresis']) and can_heat_on and can_cool_off:
         state['is heating'] = True
         state['is cooling'] = False
     elif state['is heating'] and (state['temp_in'] <= (state['temp_hsp'] + state['hysteresis'])) and can_heat_on and can_cool_off:
         state['is heating'] = True
         state['is cooling'] = False
+
     # handle cooling w/ hysteresis
     elif state['temp_in'] >= (state['temp_csp'] + state['hysteresis']) and can_heat_off and can_cool_on:
+        print 'above temp cooling'
         state['is heating'] = False
         state['is cooling'] = True
-    elif state['is cooling'] and (state['temp_in'] >= (state['temp_csp'] - state['hysteresis']) and can_heat_off) and can_heat_off and can_cool_on:
+    elif state['is cooling'] and (state['temp_in'] >= (state['temp_csp'] - state['hysteresis'])) and can_heat_off and can_cool_on:
+        print 'hysteresis cooling'
         state['is heating'] = False
         state['is cooling'] = True
+
     elif state['heat on time'] and state['heat on time'] < MIN_ACTIVE_TIME:
         state['is heating'] = True
+
     elif state['heat off time'] and state['heat off time'] < MIN_INACTIVE_TIME:
         state['is heating'] = False
+
     elif state['cool on time'] and state['cool on time'] < MIN_ACTIVE_TIME:
         state['is cooling'] = True
+
     elif state['cool off time'] and state['cool off time'] < MIN_INACTIVE_TIME:
+        print 'cooling off'
         state['is cooling'] = False
     else:
+        print 'default to off'
         state['is heating'] = False
         state['is cooling'] = False
 
@@ -186,6 +196,12 @@ def transition(state, action, interval=15*60): # --> state
     else:
         state['heat on time'] = 0
         state['heat off time'] += 60
+    if state['is cooling']:
+        state['cool on time'] += 60
+        state['cool off time'] = 0
+    else:
+        state['cool on time'] = 0
+        state['cool off time'] += 60
 
     return state
 
@@ -318,6 +334,7 @@ if __name__ == '__main__':
         # plot heat/cool
         heatrectangles = []
         coolrectangles = []
+        fanrectangles = []
         begin_hs = 0
         end_hs = 0
         for patch in mypatches:
@@ -333,7 +350,6 @@ if __name__ == '__main__':
         if begin_hs and not end_hs:
             heatrectangles.append((begin_hs, times[-1]))
         for rect in heatrectangles:
-            print rect
             patch = patches.Rectangle((rect[0],0), rect[1] - rect[0], 100, alpha=0.2, color='r')
             mypatches.append(patch)
             ax1.add_patch(patch)
