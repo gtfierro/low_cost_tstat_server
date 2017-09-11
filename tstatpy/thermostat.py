@@ -8,9 +8,19 @@ import matplotlib.patches as patches
 import numpy as np
 
 # TODO: add fans:
-# - turn on fan when cooling
 # - fan runs for 5 min after cooling turns off
 # - fan is on for minimum 5 min
+# - smart recovery:
+#   - learn the slopes for heating/cooling
+#   - requires building schedule into python simulation
+
+# TODO:
+# Similarity based approach:
+# - for now, we assume that we don't get the modalities for a day until after the day has happened
+# - what this means is we have a temperature setpoint schedule for past days, along with the accompanying modality schedule
+# - similarity based approach finds similar days using setpoint schedule, then retrieves the corresponding set of modality
+#   schedules for those similar days, then can vote among upcoming modalities to then choose the most likely modality and therefore associated setpoint schedule
+# - always store data using current time; accounting for DST will happen when we store the data; phone will inform tstat when DSt happens
 
 # CONSTRAINTS
 MAX_HSP = 70
@@ -266,7 +276,7 @@ def state_to_output(state): # --> output vector
         output['fan'] = True
     else:
         output['fan'] = False
-        
+
 #    if output['heat stage 1']:
 #        state['heat on time'] += interval
 #    else:
@@ -303,8 +313,8 @@ if __name__ == '__main__':
     state = state_vector()
     temp_in = 70
     state['temp_in'] = temp_in
-    state['temp_csp'] = 75
-    state['temp_hsp'] = 68
+    state['temp_csp'] = 70
+    state['temp_hsp'] = 65
     state['on'] = True
     state['hold timer'] = 0
 
