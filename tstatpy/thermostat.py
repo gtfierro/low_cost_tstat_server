@@ -308,7 +308,67 @@ def read_action(state, temp_in):
                 action[x] = True
     return action
 
+##Functions and Constants and Dataset for similarity-based scheduling
+
+#Constants
+TRAININGSET = 5760 # Number of 15-min intervals stored (5760 corresponds to 60 days)
+DAYLENGTH = 96 #Number of 15-min intervals in a day
+
+#Initialize Dataset (this should be changed to load from memory)
+''' HISTORICAL SPs DATASET '''
+from random import randint
+data_HSP = np.empty([TRAININGSET])
+data_HSP[:] = np.nan
+data_CSP = np.empty([TRAININGSET])
+data_CSP[:] = np.nan
+for i in range (0, TRAININGSET):
+    data_HSP[i] = randint(20, 30)
+    data_CSP[i] = data_HSP[i] + 5
+
+#Functions
+def get_last_observed_vector(data, observation_length_intervals=DAYLENGTH):
+    return (data[-observation_length_intervals:])
+
+def cosine_similarity(a, b):
+    """Calculate the cosine similarity between
+    two non-zero vectors of equal length (https://en.wikipedia.org/wiki/Cosine_similarity)
+    """
+    return -1.*(1.0 - spatial.distance.cosine(a, b))
+
+def hamming_distance(a, b):
+    return np.count_nonzero(a != b)
+
+def eucl_distance(a, b):
+    return np.linalg.norm(a - b)
+
+def find_k_similar_days(data, k=5, method=eucl_distance):
+    last24SP = get_last_observed_vector(data)
+    selector = np.arange(0,TRAININGSET,DAYLENGTH)
+    similar_moments = np.empty([selector.shape[0],2])
+    similar_moments[:,0]=selector
+    similar_moments[:,1]=np.nan
+    for i in range(0,selector.shape[0]):
+        similar_moments[i,1] = eucl_distance(data[int(similar_moments[i,0]):int(similar_moments[i,0])+DAYLENGTH], last24SP)
+
+    #print similar_moments
+    similar_moments = similar_moments[similar_moments[:,1].argsort()]
+    return similar_moments[1:k+1,:]
+
+def predict(data, similar_moments, prediction_time_intervals = 32):
+    prediction = np.zeros([prediction_time_intervals])
+    for i in range(0,prediction_time_intervals):
+        average=0
+        for k in range (0, similar_moments.shape[0]):
+            average += (1.0/float(similar_moments.shape[0])) * data[int(similar_moments[k,0]+i)]
+        prediction[i]=average
+    prediction[0]=data[-1]
+    return prediction
+
+
 if __name__ == '__main__':
+    # test similarity-based approach
+    #print predict(data_HSP, find_k_similar_days(data_HSP, k=5, method=eucl_distance))
+    #print predict(data_CSP, find_k_similar_days(data_HSP, k=5, method=eucl_distance))
     # initialize thermostat
     state = state_vector()
     temp_in = 70
