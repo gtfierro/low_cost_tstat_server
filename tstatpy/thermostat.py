@@ -364,6 +364,40 @@ def predict(data, similar_moments, prediction_time_intervals = 32):
     prediction[0]=data[-1]
     return prediction
 
+''' Learn a thermal model with progressive decomposition '''
+import random
+import numpy as np
+
+
+Heating_Samples= np.empty([1000,2])
+Cooling_Samples= np.empty([1000,2])
+DoNothing_Samples= np.empty([1000,2])
+
+Heating_Samples[:,0]=random.randint(20, 30)
+for i in range(0, 1000):
+	Heating_Samples[i,1]=Heating_Samples[i,0]+random.random()
+
+Cooling_Samples[:,0]=random.randint(20, 30)
+for i in range(0, 1000):
+	Cooling_Samples[i,1]=Cooling_Samples[i,0]-random.random()
+
+DoNothing_Samples[:,0]=random.randint(20, 30)
+for i in range(0, 1000):
+	DoNothing_Samples[i,1]=DoNothing_Samples[i,0]-random.random()
+
+
+
+Heating_rate = np.mean((Heating_Samples[:,1]-Heating_Samples[:,0])/Heating_Samples[:,0])
+Cooling_rate = np.mean((Cooling_Samples[:,1]-Cooling_Samples[:,0])/Cooling_Samples[:,0])
+DoNothing_rate = np.mean((DoNothing_Samples[:,1]-DoNothing_Samples[:,0])/DoNothing_Samples[:,0])
+
+
+#print Heating_rate
+#print Cooling_rate
+#print DoNothing_rate
+
+def predictThermal():
+	return Heating_rate * a1 * Tin + Cooling_rate * a2 * Tin + DoNothing_rate * a3 * Tin
 
 if __name__ == '__main__':
     # test similarity-based approach
