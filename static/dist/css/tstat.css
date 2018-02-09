@@ -1,0 +1,91 @@
+.thermotop{
+  background-image:url('/content/images/back.png');
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:top;
+  height:240px;
+  border:none;
+}
+
+.topnav img{
+  height:60px;
+
+}
+
+.topnav{
+  font-size:8pt;
+  font-weight:700;
+  word-wrap: break-word;
+  word-break: normal;
+  overflow-x: hidden;
+}
+
+.spTemp{
+  font-size:12pt;
+  font-weight:700;
+  position:relative;
+  left:10px;
+}
+
+.currentTemp{
+  font-size:60pt !important;
+  font-weight:600;
+  opacity:0.8;
+}
+
+.units{
+  margin-left:-20px !important;
+  font-weight:700;
+  font-size: 16px !important;
+
+}
+
+.app-content{
+  margin-top:220px !important;
+}
+
+.thermo{
+  height:300px;
+  background-image:url('/content/images/tstat.png');
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 12px;
+  font-weight:700;
+}
+
+.timerBtn{
+  position:relative;
+  top:202px;
+  left:242px;
+  float:left;
+}
+
+.upBtn{
+  position:relative;
+  top:128px;
+  left:29%;
+  float:left;
+}
+.dwnBtn{
+  position: relative;
+  top: 42.5%;
+  left: -12%;
+  float: left;
+}
+.onBtn{
+  position:relative;
+  top:67%;
+  left:-48%;
+  float:left;
+}
+.btnLabelt{
+  position:relative;
+  top:-73%;
+  left:5px;
+}
+.btnLabel{
+  position:relative;
+  top:-50%;
+  left:-52px;
+}

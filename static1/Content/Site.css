@@ -1,0 +1,252 @@
+﻿body {
+    padding:200px;
+    margin-left:-190px !important;
+    background-color:#efefef;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists
+   will truncate terms that are too long to fit in the left column
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+@font-face {
+    font-family: Segoe UI Symbol;
+    src:url("/fonts/glyphicons-halflings-regular.ttf");
+}
+.circle {
+    width: 100%;
+    height: 100%;
+    background: white;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    position:absolute !important;
+}
+
+.eco{
+    width: 120px;
+    height: 120px;
+    position: absolute !important;
+}
+
+.main {
+    background-image: url("/Content/Images/tstat-back.png");
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:contain;
+    height: 100%;
+    width: 768px;
+
+}
+.lights{
+    position:relative;
+    top:50%;
+    left:0%;
+
+}
+
+.center-buttons{
+    position:relative;
+    top:40%;
+    left:42%;
+}
+
+.bottom-buttons{
+    position:relative;
+    top:75%;
+    left:45%;
+}
+.inout{
+    height: 300px;
+    margin-top:150px;
+
+}
+.ct-label{
+    font-size:1em!important;
+}
+
+
+
+.light {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    background: #FFF;
+}
+
+.large{
+    height:120px;
+    width:120px;
+    cursor:pointer
+}
+
+.inactive{
+    content:url("/Content/Images/eco-in.png");
+}
+
+.active {
+    content: url("/Content/Images/eco-ac.png");
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#left {
+    left: -80px;
+    content: '';
+    font-family: "Segoe UI Symbol";
+    align-content: center;
+    padding-top: 40px;
+    background-color: #ffb82f;
+    font-size: 2em;
+    color: #FFF;
+    -webkit-box-shadow: 10px 10px 97px 0px rgba(0,0,0,0.19);
+    -moz-box-shadow: 10px 10px 97px 0px rgba(0,0,0,0.19);
+    box-shadow: 10px 10px 97px 0px rgba(0,0,0,0.19);
+}
+
+#right {
+    left: 80px;
+    content: '';
+    font-family: "Segoe UI Symbol";
+    align-content: center;
+    vertical-align: central;
+    padding-top: 40px;
+    background-color: #659afc;
+    font-size: 2em;
+    color: #FFF;
+    -webkit-box-shadow: 10px 10px 97px 0px rgba(0,0,0,0.19);
+    -moz-box-shadow: 10px 10px 97px 0px rgba(0,0,0,0.19);
+    box-shadow: 10px 10px 97px 0px rgba(0,0,0,0.19);
+}
+
+#power {
+    left: -290px;
+    content: '';
+    font-family: "Segoe UI Symbol";
+    align-content: center;
+    vertical-align: central;
+    padding-top: 25px;
+    font-size: 3.5em;
+    color: #87d532;
+    -webkit-box-shadow: 10px 10px 97px 0px rgba(0,0,0,0.19);
+    -moz-box-shadow: 10px 10px 97px 0px rgba(0,0,0,0.19);
+    box-shadow: 10px 10px 97px 0px rgba(0,0,0,0.19);
+}
+
+#eco {
+    top:25px;
+    left:0px;
+    height:75px;
+    width:75px;
+}
+#timer {
+    content: '';
+    font-family: "Segoe UI Symbol";
+    -webkit-box-shadow: 10px 10px 97px 0px rgba(0,0,0,0.19);
+    -moz-box-shadow: 10px 10px 97px 0px rgba(0,0,0,0.19);
+    box-shadow: 10px 10px 97px 0px rgba(0,0,0,0.19);
+    left: 250px;
+    align-content: center;
+    vertical-align: central;
+    padding-top: 30px;
+    font-size: 3em;
+    color: #fd9642;
+}
+
+
+.temp_disp {
+  transform:rotate(-155deg);
+  color:white;
+  position:absolute;
+}
+/**
+ * iPad with portrait orientation.
+ */
+@media all and (orientation:portrait) {
+    body {
+        height: 100vw;
+        width: 100vw;
+        padding: 10px !important;
+        margin: 0px !important;
+    }
+}
+.setpoint {
+    background-color: #ffb82f;
+}
+.heatingText {
+    color: #ffb82f;
+    -webkit-animation: BLINKTEXT 1s infinite; /* Safari 4+ */
+    -moz-animation: BLINKTEXT 1s infinite; /* Fx 5+ */
+    -o-animation: BLINKTEXT 1s infinite; /* Opera 12+ */
+    animation: BLINKTEXT 1s infinite; /* IE 10+, Fx 29+ */
+}
+.coolingText {
+    color: #659afc;
+    -webkit-animation: BLINKTEXT 1s infinite; /* Safari 4+ */
+    -moz-animation: BLINKTEXT 1s infinite; /* Fx 5+ */
+    -o-animation: BLINKTEXT 1s infinite; /* Opera 12+ */
+    animation: BLINKTEXT 1s infinite; /* IE 10+, Fx 29+ */
+}
+.heating {
+    background-color: #ffb82f;
+    -webkit-animation: BLINK 1s infinite; /* Safari 4+ */
+    -moz-animation: BLINK 1s infinite; /* Fx 5+ */
+    -o-animation: BLINK 1s infinite; /* Opera 12+ */
+    animation: BLINK 1s infinite; /* IE 10+, Fx 29+ */
+}
+.cooling {
+    background-color: #659afc;
+    -webkit-animation: BLINK 1s infinite; /* Safari 4+ */
+    -moz-animation: BLINK 1s infinite; /* Fx 5+ */
+    -o-animation: BLINK 1s infinite; /* Opera 12+ */
+    animation: BLINK 1s infinite; /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes BLINKTEXT {
+    0%, 49% {
+        color: #EFEFEF;
+    }
+
+    50%, 100% {
+    }
+}
+@-webkit-keyframes BLINK {
+    0%, 49% {
+        background-color: #93e53a;
+    }
+
+    50%, 100% {
+
+    }
+}
+/**
+ * iPad with landscape orientation.
+ */
+@media all and (orientation:landscape) {
+    body {
+        height: 100vh;
+        width: 100vh;
+        padding: 10px !important;
+        margin: 0px !important;
+    }
+}
+
+.large:active {
+    transform: translate3d(0,1px,2px);
+    opacity:0.9;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:700);

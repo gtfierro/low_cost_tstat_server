@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="static/css/site.css" />
+    <link type="text/css" rel="stylesheet" href="static/css/graph.css">
+    <link type="text/css" rel="stylesheet" href="static/css/detail.css">
+    <link type="text/css" rel="stylesheet" href="static/css/legend.css">
+    <link type="text/css" rel="stylesheet" href="static/css/extensions.css">
+  	<title>Thermostat</title>
+    <link href="/Controls/libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/Controls/libraries/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Controls/libraries/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="/Controls/libraries/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css">
+    <link href="/Controls/assets/css/shell-0.4.0.css" rel="stylesheet" />
+    <link href="/Controls/assets/css/controller.less" rel="stylesheet/less" />
+    <link href="/Content/chartist.css" rel="stylesheet" />
+    <link href="/Content/chartist-plugin-tooltip.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />
+</head>
+
+<body ng-app="app">
+    <script type="text/javascript" src="static/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="static/js/materialize.min.js"></script>
+    <script type="text/javascript" src="static/js/d3.v3.js"></script>
+    <script type="text/javascript" src="static/js/rickshaw.js"></script>
+    <div ng-controller="AppController" style="height:100%;width:100vw">
+        <!-- All components -->
+        <div style="height:768pt;min-width:768pt" class="col-lg-6 col-md-12 col-sm-12 col-xs-12 container">
+                <div class="main row">
+                    <div class="lights" style="transform:rotate(155deg)">
+                        <div id="58" class="circle light">
+                        </div>
+                        <div id="60" class="circle light">
+                        </div>
+                        <div id="62" class="circle light">
+                        </div>
+                        <div id="64" class="circle light">
+                        </div>
+                        <div id="66" class="circle light">
+                        </div>
+                        <div id="68" class="circle light">
+                        </div>
+                        <div id="69" class="circle light">
+                        </div>
+                        <div id="70" class="circle light">
+                        </div>
+                        <div id="71" class="circle light">
+                        </div>
+                        <div id="72" class="circle light">
+                        </div>
+                        <div id="74" class="circle light">
+                        </div>
+                        <div id="76" class="circle light">
+                        </div>
+                        <div id="78" class="circle light">
+                        </div>
+                        <div id="80" class="circle light">
+                        </div>
+                        <div id="82" class="circle light">
+                        </div>
+                        <div id="84" class="circle light">
+                        </div>
+                        <div id="86" class="circle light">
+                        </div>
+                        <div class="temp_disp">58</div>
+                        <div class="temp_disp">60</div>
+                        <div class="temp_disp">62</div>
+                        <div class="temp_disp">64</div>
+                        <div class="temp_disp">66</div>
+                        <div class="temp_disp">68</div>
+                        <div class="temp_disp">69</div>
+                        <div class="temp_disp">70</div>
+                        <div class="temp_disp">71</div>
+                        <div class="temp_disp">72</div>
+                        <div class="temp_disp">74</div>
+                        <div class="temp_disp">76</div>
+                        <div class="temp_disp">78</div>
+                        <div class="temp_disp">80</div>
+                        <div class="temp_disp">82</div>
+                        <div class="temp_disp">84</div>
+                        <div class="temp_disp">86</div>
+                    </div>
+                    <div class="center-buttons">
+                        <div id="left" class="circle large" ng-click='down()'>
+                            <center></center>
+                        </div>
+                        <div id="right" class="circle large" ng-click='up()'>
+                            <center></center>
+                        </div>
+                    </div>
+                    <div class="bottom-buttons">
+                        <div id="power" class="circle large" ng-click='power()'>
+                            <center></center>
+                        </div>
+                        <div id="eco" class="eco large active">
+                        </div>
+                        <div id="timer" class="circle large" ng-click='timer()'>
+                            <center></center>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+            <div class="center-align card darken-1">
+                <div class="card-content">
+                    <span class="card-title">Thermostat</span>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <p class="tstat_attr" >Temperature: <span id="temp">72.0F</span></p>
+                        <p class="tstat_attr" >Heating Setpoint: <span id="hsp">68.0F</span></p>
+                        <p class="tstat_attr" >Cooling Setpoint: <span id="csp">76.0F</span></p>
+                    </div>
+                    <div class="col s2">
+                        <p><b>Heating</b></p>
+                        <p id='heatstate'>NO</p>
+                    </div>
+                    <div class="col s2">
+                        <p><b>Cooling</b></p>
+                        <p id='coolstate'>NO</p>
+                    </div>
+                    <div class="col s2">
+                        <p><b>Fan</b></p>
+                        <p id='fanstate'>NO</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s2" id="axis0"></div>
+                    <div class="col s10" id="chart"></div>
+                </div>
+
+                <div class="card-action">
+                    <a id='connect' onClick="onConnectClick()" href="#">Connect Thermostat</a>
+                    <a id='disconnect' href="#">Disconnect</a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+    </div>
+
+    <!-- Dependent Libraries -->
+    <script src="/Controls/libraries/jquery/jquery-1.11.2.min.js"></script>
+    <script src="/Controls/libraries/angular/angular.min.js"></script>
+    <script src="/Controls/libraries/angular/angular-animate.min.js"></script>
+    <script src="/Controls/libraries/bootstrap/js/moment.js"></script>
+    <script src="/Controls/libraries/bootstrap/js/bootstrap-datetimepicker.js"></script>
+    <script src="/Controls/libraries/less/less.min.js"></script>
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Controls/libraries/angular-ui/ui-bootstrap-tpls.js"></script>
+    <script src="/Controls/libraries/angular-sanitize.min.js"></script>
+    <script src="/Controls/libraries/angular-vs-repeat.js"></script>
+    <script src="/Scripts/chartist.js"></script>
+    <script src="/Scripts/angular-chartist.js"></script>
+    <script src="/Scripts/chartist-plugin-tooltip.js"></script>
+    <script src="/Controls/demo/base/app.js"></script>
+
+    <!-- Components -->
+
+    <script src="/Controls/demo/helpsection/src/pageSection2Directive.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // copy from https://googlechrome.github.io/samples/web-bluetooth/read-characteristic-value-changed.html
+        var bluetoothDevice;
+        var tstatChar;
+
+        function onConnectClick() {
+            return (bluetoothDevice ? Promise.resolve() : requestDevice())
+                .then(connectDevice)
+                .then(_ => {
+                    console.log("Reading device")
+                    return tstatChar.readValue();
+                })
+                .catch(error => {
+                    console.error("!!",error)
+                });
+        }
+
+        function requestDevice() {
+            console.log("Requesting BLE device");
+            return navigator.bluetooth.requestDevice({
+                    filters:[{"name":"thermostat!"}],
+                    optionalServices: ['7bad890f-2883-4587-e64e-ea96a0dea487']
+                })
+                .then(device => {
+                    bluetoothDevice = device;
+                    bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
+                });
+        }
+
+        function connectDevice() {
+            if (bluetoothDevice.gatt.connected && tstatChar) {
+                return Promise.resolve();
+            }
+
+            console.log("Connecting to GATT server");
+            return bluetoothDevice.gatt.connect()
+                .then(server => {
+                    console.log(server);
+                    console.log("Get thermostat service");
+                    return server.getPrimaryService("7bad890f-2883-4587-e64e-ea96a0dea487");
+                })
+                .then(service => {
+                    console.log("Get characteristic");
+                    console.log(service);
+                    return service.getCharacteristic("7bad8911-2883-4587-e64e-ea96a0dea487");
+                })
+                .then(characteristic => {
+                    console.log("Start listening");
+                    tstatChar = characteristic;
+                    return tstatChar.startNotifications().then(_ => {
+                            console.log('> Notifications started');
+                            tstatChar.addEventListener('characteristicvaluechanged',
+                                    handleUpdate);
+                            });
+                })
+                .catch(error => {
+                    console.error(error)
+                });
+        }
+
+        function handleUpdate(event) {
+            let temp = event.target.value.getUint8(0);
+            let hsp = event.target.value.getUint8(1);
+            let csp = event.target.value.getUint8(2);
+            let state = event.target.value.getUint8(3);
+            document.getElementById("temp").innerHTML = temp + ' F';
+            document.getElementById("hsp").innerHTML = hsp + ' F';
+            document.getElementById("csp").innerHTML = csp + ' F';
+            let is_heating = (state & 0x08) > 0;
+            let is_cooling = (state & 0x04) > 0;
+            let is_fan_on = (state & 0x02) > 0;
+            let is_tstat_on = (state & 0x01) > 0;
+            document.getElementById("heatstate").innerHTML = is_heating ? '<b>ON</b>' : 'OFF';
+            document.getElementById("coolstate").innerHTML = is_cooling ? '<b>ON</b>' : 'OFF';
+            document.getElementById("fanstate").innerHTML = is_fan_on ? '<b>ON</b>' : 'OFF';
+            console.log('Temp > '+temp+' HSP: ' + hsp + ' CSP: ' + csp);
+            console.log('Heat? '+is_heating + ' Cool? ' + is_cooling + ' Fan? ' + is_fan_on + ' tstat? ' + is_tstat_on);
+            addData(temp, hsp, csp);
+        }
+
+        function onDisconnected() {
+            console.log("Disconnected");
+            connectDevice()
+            .catch(error => {
+                console.error(error);
+            });
+        }
+
+        var tv = 250;
+        // instantiate our graph!
+        var scale = d3.scale.linear().domain([40, 120]).nice();
+        var graph = new Rickshaw.Graph( {
+                        element: document.getElementById("chart"),
+                        width: 900,
+                        height: 500,
+                        renderer: 'line',
+                        series: new Rickshaw.Series.FixedDuration(
+                            [{ name: 'one' , 'color': 'green', scale: scale},
+                             {name: 'two', color: 'red', scale: scale},
+                             {name: 'three', color: 'steelblue', scale: scale}],
+                            undefined, {
+                            timeInterval: tv,
+                            maxDataPoints: 100,
+                            timeBase: new Date().getTime() / 1000
+                        })
+                    } );
+        new Rickshaw.Graph.Axis.Y.Scaled({
+            element: document.getElementById('axis0'),
+            graph: graph,
+            orientation: 'left',
+            scale: scale,
+            tickFormat: Rickshaw.Fixtures.Number.formatKMBT
+        });
+        new Rickshaw.Graph.Axis.Time({
+          graph: graph,
+            tickFormat: function(x){
+                return new Date(x * 1000).toLocaleTimeString();
+            }
+          }).render();
+
+          new Rickshaw.Graph.HoverDetail({
+            graph: graph
+            });
+
+        graph.render();
+
+// add some data every so often
+
+        function addData(temp, hsp, csp) {
+            var data = {
+                one: temp,
+                two: hsp,
+                three: csp
+            }
+            graph.series.addData(data);
+            graph.render();
+        }
+
+
+    </script>
+    <script type="text/javascript">
+        function distributeFields(className,radius) {
+            var fields = $(className), container = $('.lights'),
+                width = container.width(), height = container.height(),
+                angle = 0, step = (2 * Math.PI) / 25;
+            fields.each(function () {
+                var x = Math.round(width / 2 + radius * Math.cos(angle) - $(this).width() / 2);
+                var y = Math.round(height / 2 + radius * Math.sin(angle) - $(this).height() / 2);
+                if (window.console) {
+                    console.log($(this).text(), x, y);
+                }
+                $(this).css({
+                    left: x + 'px',
+                    top: y + 'px'
+                });
+                angle += step;
+            });
+        }
+        distributeFields('.light', 250);
+        distributeFields('.temp_disp', 290)
+        function drawSector() {
+            var activeBorder = $("#activeBorder");
+            var prec = activeBorder.children().children().text();
+            if (prec > 100)
+                prec = 100;
+            var deg = prec * 3.6;
+            if (deg <= 180) {
+                activeBorder.css('background-image', 'linear-gradient(' + (90 + deg) + 'deg, transparent 50%, #fd9642 50%),linear-gradient(90deg, #000 50%, transparent 50%)');
+            }
+            else {
+                activeBorder.css('background-image', 'linear-gradient(' + (deg - 90) + 'deg, transparent 50%, #000 50%),linear-gradient(90deg, #fd9642 50%, transparent 50%)');
+            }
+
+            var startDeg = $("#startDeg").attr("class");
+            activeBorder.css('transform', 'rotate(' + startDeg + 'deg)');
+            $("#circle").css('transform', 'rotate(' + (-startDeg) + 'deg)');
+        }
+        drawSector();
+    </script>
+</body>
+</html>

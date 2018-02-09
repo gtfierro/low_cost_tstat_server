@@ -1,0 +1,45 @@
+{
+  "control_interface": [
+    {
+      "taps_since_last_post": [],
+      "type": "heating"
+    },
+    {
+      "taps_since_last_post": [],
+      "type": "cooling"
+    },
+    {
+      "taps_since_last_post": [],
+      "type": "power"
+    },
+    {
+      "taps_since_last_post": [],
+      "type": "timer"
+    }
+  ],
+  "sensors": [
+    {
+      "action": "cooling",
+      "current": 75,
+      "setpoint": 73,
+      "type": "temperature"
+    }
+  ],
+  "status": [
+    {
+      "color": "green",
+      "level": 100,
+      "type": "power"
+    },
+    {
+      "color": "amber",
+      "level": 50,
+      "type": "timer"
+    },
+    {
+      "color": "green",
+      "level": 100,
+      "type": "eco"
+    }
+  ]
+}

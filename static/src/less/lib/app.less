@@ -1,0 +1,89 @@
+@font-face {
+font-family: 'SFUI';
+src: url('/content/fonts/SFUIDisplay-Thin.otf') format('opentype');
+font-weight: 400;
+font-style: normal;
+}
+@font-face {
+font-family: 'DroidSerif';
+src: url('/content/fonts/SFUIDisplay-Ultralight.otf') format('opentype');
+font-weight: 200;
+font-style: normal;
+ }
+ @font-face {
+ font-family: 'SFUI';
+ src: url('/content/fonts/SFUIDisplay-Light.otf') format('opentype');
+ font-weight: 300;
+ font-style: normal;
+ }
+ @font-face {
+ font-family: 'SFUI';
+ src: url('/content/fonts/SFUIDisplay-Regular_0.otf') format('opentype');
+ font-weight: 500;
+ font-style: normal;
+ }
+@font-face {
+font-family: 'SFUI';
+src: url('/content/fonts/SFUIDisplay-Medium.otf') format('opentype');
+font-weight: 700;
+font-style: normal;
+}
+@font-face {
+font-family: 'SFUI';
+src: url('/content/fonts/SFUIDisplay-Semibold.otf') format('opentype');
+font-weight: 800;
+font-style: normal;
+}
+@font-face {
+font-family: 'SFUI';
+src: url('/content/fonts/SFUIDisplay-Bold.otf') format('opentype');
+font-weight: 800;
+font-style: normal;
+}
+@font-face {
+font-family: 'SFUI';
+src: url('/content/fonts/SFUIDisplay-Black.otf') format('opentype');
+font-weight: 900;
+font-style: normal;
+}
+@font-face {
+font-family: 'SFUI';
+src: url('/content/fonts/SFUIDisplay-Heavy.otf') format('opentype');
+font-weight: 1000;
+font-style: normal;
+}
+.app {
+  height: 100%;
+  position: relative;
+  z-index: @zindex-app;
+  width: 100%;
+  background: @app-bg;
+  overflow: hidden;
+  .translate3d(0,0,0);
+  .transition-transform(~"400ms ease");
+  .box-shadow(@app-shadow);
+  font-family:"SFUIDisplay, SFUI, Helvetica, Arial";
+}
+
+.app-body {
+  display: block;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.app-content {
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.app-search {
+  position: relative;
+  border-width: 0 0 1px;
+  z-index: @zindex-app-search;
+  width: 100%;
+}
